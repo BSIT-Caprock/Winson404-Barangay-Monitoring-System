@@ -164,7 +164,7 @@
                       <div class="form-group row">
                         <label for="Suffix" class="col-sm-2 col-form-label">Suffix</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Suffix" placeholder="Suffix" value="<?php echo $row['suffix']; ?>" onkeyup="lettersOnly(this)" name="suffix">
+                          <input type="text" class="form-control" id="Suffix" placeholder="Suffix" value="<?php echo $row['suffix']; ?>" name="suffix">
                         </div>
                       </div>
                       <div class="form-group row">
