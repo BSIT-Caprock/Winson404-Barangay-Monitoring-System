@@ -43,7 +43,7 @@
             <div class="col-lg-6">
               <div class="form-group">
                 <label>Suffix name</label>
-                <input type="text" class="form-control"  placeholder="Jr./Sr." name="suffix" onkeyup="lettersOnly(this)">
+                <input type="text" class="form-control"  placeholder="Jr./Sr." name="suffix">
               </div>
             </div>
             <div class="col-auto form-group col-lg-6">

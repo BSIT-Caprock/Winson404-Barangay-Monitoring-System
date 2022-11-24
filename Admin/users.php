@@ -46,6 +46,7 @@
                     <tr>
                       <?php 
                         $sql = mysqli_query($conn, "SELECT * FROM users WHERE (user_type='Admin' || user_type='Staff')");
+                        if(mysqli_num_rows($sql) > 0 ) {
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
@@ -66,7 +67,10 @@
                               <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
                         </td> 
                     </tr>
-                    <?php include 'users_update_delete.php'; } ?>
+                    <?php include 'users_update_delete.php'; } } else { ?>
+                        <td colspan="100%" class="text-center">No record found</td>
+                      </tr>
+                    <?php }?>
                   </tbody>
                   <tfoot>
                       <tr>

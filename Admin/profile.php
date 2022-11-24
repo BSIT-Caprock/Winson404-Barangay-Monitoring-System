@@ -34,7 +34,7 @@
                        alt="User profile picture"  style="height: 90px; width: 90px; border-radius: 50%;">
                 </div>
                 <h3 class="profile-username text-center"><?php echo ' '.$row['firstname'].' '.$row['lastname'].' '; ?></h3>
-                <p class="text-muted text-center"><?php echo $row['user_type']; ?></p>
+                <p class="text-muted text-center"><?php echo $row['username']; ?></p>
                 <a class="btn bg-gradient-primary btn-block">Profile</a>
               </div>
             </div>
@@ -84,6 +84,12 @@
                 <div class="tab-content">
 
                   <div class="active tab-pane" id="viewprofile">
+                      <div class="form-group row">
+                        <label for="Username" class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="Username" placeholder="Username" value="<?php echo $row['username']; ?>" readonly>
+                        </div>
+                      </div>
                      <div class="form-group row">
                         <label for="First name" class="col-sm-2 col-form-label">Full name</label>
                         <div class="col-sm-10">
@@ -132,9 +138,15 @@
                       <form action="process_update.php" method="POST">
                       <div class="form-group row">
                         <input type="hidden" class="form-control" id="Date of birth" placeholder="User Id" value="<?php echo $row['user_Id']; ?>" name="user_Id">
+                        <label for="Username" class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" id="Username" placeholder="Username" value="<?php echo $row['username']; ?>" name="username" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
                         <label for="First name" class="col-sm-2 col-form-label">First name</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="First name" placeholder="First name" value="<?php echo $row['firstname']; ?>" onkeyup="lettersOnly(this)" name="firstname">
+                          <input type="text" class="form-control" id="First name" placeholder="First name" value="<?php echo $row['firstname']; ?>" onkeyup="lettersOnly(this)" name="firstname" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -146,13 +158,13 @@
                       <div class="form-group row">
                         <label for="Last name" class="col-sm-2 col-form-label">Last name</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Last name" placeholder="Last name" value="<?php echo $row['lastname']; ?>" onkeyup="lettersOnly(this)" name="lastname">
+                          <input type="text" class="form-control" id="Last name" placeholder="Last name" value="<?php echo $row['lastname']; ?>" onkeyup="lettersOnly(this)" name="lastname" required>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="Suffix" class="col-sm-2 col-form-label">Suffix</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Suffix" placeholder="Suffix" value="<?php echo $row['suffix']; ?>" onkeyup="lettersOnly(this)" name="suffix">
+                          <input type="text" class="form-control" id="Suffix" placeholder="Suffix" value="<?php echo $row['suffix']; ?>" name="suffix">
                         </div>
                       </div>
                       <div class="form-group row">
