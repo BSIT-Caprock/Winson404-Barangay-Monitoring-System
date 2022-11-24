@@ -49,6 +49,7 @@
                     <tr>
                       <?php 
                         $sql = mysqli_query($conn, "SELECT * FROM users WHERE user_type='Resident' ");
+                        if(mysqli_num_rows($sql) > 0 ) {
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>
                         <td>
@@ -76,7 +77,10 @@
                         </td> 
                     </tr>
 
-                    <?php include 'resident_delete.php'; } ?>
+                    <?php include 'resident_delete.php'; } } else { ?>
+                        <td colspan="100%" class="text-center">No record found</td>
+                      </tr>
+                    <?php }?>
 
                   </tbody>
                   <tfoot>
