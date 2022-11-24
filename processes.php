@@ -13,7 +13,7 @@
 		if(mysqli_num_rows($check)===1) {
 
 				$row = mysqli_fetch_array($check);
-				$position = $row['position'];
+				$position = $row['user_type'];
 				if($position == 'Admin') {
 					$_SESSION['admin_Id'] = $row['user_Id'];
 					header("Location: Admin/dashboard.php");
