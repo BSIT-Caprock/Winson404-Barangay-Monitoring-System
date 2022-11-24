@@ -400,6 +400,7 @@
 	if(isset($_POST['update_profile'])) {
 
 		$user_Id    = $_POST['user_Id'];
+		$username   = mysqli_real_escape_string($conn, $_POST['username']);
 		$firstname  = mysqli_real_escape_string($conn, $_POST['firstname']);
 		$middlename = mysqli_real_escape_string($conn, $_POST['middlename']);
 		$lastname   = mysqli_real_escape_string($conn, $_POST['lastname']);
@@ -407,7 +408,7 @@
 		$contact    = mysqli_real_escape_string($conn, $_POST['contact']);
 		$email      = mysqli_real_escape_string($conn, $_POST['email']);
 
-		$save = mysqli_query($conn, "UPDATE users SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', email='$email', contact='$contact' WHERE user_Id='$user_Id'");
+		$save = mysqli_query($conn, "UPDATE users SET username='$username', firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', email='$email', contact='$contact' WHERE user_Id='$user_Id'");
 	    if($save) {
 	          $_SESSION['message']  = "Your information has been updated!";
 	          $_SESSION['text'] = "Updated successfully!";
