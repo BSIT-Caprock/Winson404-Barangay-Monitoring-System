@@ -63,8 +63,10 @@
                         </td>
                         <td>
                           <button type="button" class="btn btn-sm bg-gradient-success" data-toggle="modal" data-target="#update<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
-                              <button type="button" class="btn btn-sm bg-gradient-warning" data-toggle="modal" data-target="#password<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-lock"></i></button>
-                              <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
+                          <button type="button" class="btn btn-sm bg-gradient-warning" data-toggle="modal" data-target="#password<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-lock"></i></button>
+                          <?php if($row['user_type'] != "Admin"): ?>
+                          <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
+                          <?php endif; ?>
                         </td> 
                     </tr>
                     <?php include 'users_update_delete.php'; } } else { ?>

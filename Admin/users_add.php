@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-6 mb-2">
                 <label>Usertype</label>
-                <select class="form-control" name="usertype" required>
+                <select class="form-control" name="usertype" required disabled>
                   <option value="Staff" selected>Staff</option>
                   <option value="Admin">Admin</option>
                 </select>

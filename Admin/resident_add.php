@@ -104,7 +104,15 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Citizenship</b></span>
-                              <input type="text" class="form-control"  placeholder="Citizenship" name="citizenship" required>
+                              <select class="form-control" name="citizenship" required>
+                                <option selected disabled value="">Select citizenship</option>
+                                <option value="By Family">By Family</option>
+                                <option value="By Birth">By Birth</option>
+                                <option value="By Marriage">By Marriage</option>
+                                <option value="By Investment">By Investment</option>
+                                <option value="Naturalization">Naturalization</option>
+                                <option value="Other">Other</option>
+                              </select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12">

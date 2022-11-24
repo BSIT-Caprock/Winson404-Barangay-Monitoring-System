@@ -16,7 +16,7 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label>Usertype</label>
-              <select class="custom-select" name="usertype" required>
+              <select class="custom-select" name="usertype" required disabled>
                   <option value="Staff" <?php if($row['user_type'] == 'Staff') { echo 'selected'; } ?> >Staff</option>
                   <option value="Admin" <?php if($row['user_type'] == 'Admin') { echo 'selected'; } ?> >Admin</option>
               </select>  

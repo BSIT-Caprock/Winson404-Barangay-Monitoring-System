@@ -29,9 +29,12 @@
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
                 <div class="text-center">
-                  <img class="profile-user-img img-fluid img-circle"
-                       src="../images-users/<?php echo $row['image']; ?>"
-                       alt="User profile picture"  style="height: 90px; width: 90px; border-radius: 50%;">
+                    <?php if($row['image'] == ""): ?>
+                    <img src="../dist/img/avatar.png" alt="User Avatar" class="img-size-50 img-circle">
+                    <?php else: ?>
+                    <img class="profile-user-img img-fluid img-circle"src="../images-users/<?php echo $row['image']; ?>"alt="User profile picture"  style="height: 90px; width: 90px; border-radius: 50%;">
+                    <?php endif; ?>
+                    
                 </div>
                 <h3 class="profile-username text-center"><?php echo ' '.$row['firstname'].' '.$row['lastname'].' '; ?></h3>
                 <p class="text-muted text-center"><?php echo $row['username']; ?></p>

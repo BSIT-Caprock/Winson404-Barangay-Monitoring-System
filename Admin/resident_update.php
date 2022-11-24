@@ -110,7 +110,15 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Citizenship</b></span>
-                              <input type="text" class="form-control"  placeholder="Citizenship" name="citizenship" required value="<?php echo $row['citizenship']; ?>">
+                              <select class="form-control" name="citizenship" required>
+                                <option selected disabled value="">Select citizenship</option>
+                                <option value="By Family"      <?php if($row['citizenship'] == "By Family")      { echo 'selected'; } ?> >By Family</option>
+                                <option value="By Birth"       <?php if($row['citizenship'] == "By Birth")       { echo 'selected'; } ?> >By Birth</option>
+                                <option value="By Marriage"    <?php if($row['citizenship'] == "By Marriage")    { echo 'selected'; } ?> >By Marriage</option>
+                                <option value="By Investment"  <?php if($row['citizenship'] == "By Investment")  { echo 'selected'; } ?> >By Investment</option>
+                                <option value="Naturalization" <?php if($row['citizenship'] == "Naturalization") { echo 'selected'; } ?> >Naturalization</option>
+                                <option value="Other"          <?php if($row['citizenship'] == "Other")          { echo 'selected'; } ?> >Other</option>
+                              </select>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-6 col-12">
