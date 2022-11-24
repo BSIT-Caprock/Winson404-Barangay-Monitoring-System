@@ -11,7 +11,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BMS</title>
+  <title>Barangay Monitoring System</title>
   <!---FAVICON ICON FOR WEBSITE--->
   <link rel="shortcut icon" type="image/png" href="images/logo.jpg">
   <!-- Google Font: Source Sans Pro -->
@@ -39,7 +39,7 @@
     <div class="container">
       <a href="#" class="navbar-brand">
         <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">BMS</span>
+        <span class="brand-text font-weight-light">Barangay Monitoring System</span>
       </a>
 
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
