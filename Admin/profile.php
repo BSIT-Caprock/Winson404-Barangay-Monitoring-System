@@ -140,13 +140,13 @@
                         <input type="hidden" class="form-control" id="Date of birth" placeholder="User Id" value="<?php echo $row['user_Id']; ?>" name="user_Id">
                         <label for="Username" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Username" placeholder="Username" value="<?php echo $row['username']; ?>" name="username">
+                          <input type="text" class="form-control" id="Username" placeholder="Username" value="<?php echo $row['username']; ?>" name="username" required>
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="First name" class="col-sm-2 col-form-label">First name</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="First name" placeholder="First name" value="<?php echo $row['firstname']; ?>" onkeyup="lettersOnly(this)" name="firstname">
+                          <input type="text" class="form-control" id="First name" placeholder="First name" value="<?php echo $row['firstname']; ?>" onkeyup="lettersOnly(this)" name="firstname" required>
                         </div>
                       </div>
                       <div class="form-group row">
@@ -158,7 +158,7 @@
                       <div class="form-group row">
                         <label for="Last name" class="col-sm-2 col-form-label">Last name</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="Last name" placeholder="Last name" value="<?php echo $row['lastname']; ?>" onkeyup="lettersOnly(this)" name="lastname">
+                          <input type="text" class="form-control" id="Last name" placeholder="Last name" value="<?php echo $row['lastname']; ?>" onkeyup="lettersOnly(this)" name="lastname" required>
                         </div>
                       </div>
                       <div class="form-group row">
