@@ -1,5 +1,5 @@
 <!-- DELETE -->
-<div class="modal fade" id="delete<?php echo $row['user_Id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="delete<?php echo $row['residenceId']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
        <div class="modal-header bg-light">
@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <form action="process_delete.php" method="POST">
-          <input type="hidden" class="form-control" value="<?php echo $row['user_Id']; ?>" name="user_Id">
+          <input type="hidden" class="form-control" value="<?php echo $row['residenceId']; ?>" name="residenceId">
           <h6 class="text-center">Delete resident record?</h6>
       </div>
       <div class="modal-footer alert-light">

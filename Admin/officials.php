@@ -1,4 +1,4 @@
-<title>BMS | System Users</title>
+<title>BMS | Barangay Officials</title>
 <?php include 'navbar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6">
-            <h1>System Users</h1>
+            <h1>Barangay Officials</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-              <li class="breadcrumb-item active">System Users</li>
+              <li class="breadcrumb-item active">Barangay Officials</li>
             </ol>
           </div>
         </div>
@@ -35,51 +35,45 @@
                  <table id="example1" class="table table-bordered table-striped text-sm">
                   <thead>
                   <tr>
+                    <th>Signature</th>
                     <th>Full name</th>
-                    <th>Contact number</th>
-                    <th>Email</th>
-                    <th>Usertype</th>
+                    <th>Position</th>
+                    <th>Description</th>
+                    <th>Date added</th>
                     <th>Tools</th>
                   </tr>
                   </thead>
                   <tbody id="users_data">
                     <tr>
                       <?php 
-                        $sql = mysqli_query($conn, "SELECT * FROM users");
+                        $sql = mysqli_query($conn, "SELECT * FROM officials");
                         if(mysqli_num_rows($sql) > 0 ) {
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>
-                        <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
-                        <td><?php echo $row['contact']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
                         <td>
-                          <?php 
-                              if($row['user_type'] == "Admin") {
-                                echo '<span class="badge bg-gradient-primary pt-1">'.$row['user_type'].'</span>';
-                              } else {
-                                echo '<span class="badge bg-gradient-success pt-1">'.$row['user_type'].'</span>';
-                              }
-                          ?>
+                            <img src="../images-signature/<?php echo $row['digital_signature']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
                         </td>
+                        <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
+                        <td><?php echo $row['position']; ?></td>
+                        <td><?php echo $row['description']; ?></td>
+                        <td><?php echo $row['date_registered']; ?></td>
                         <td>
-                          <button type="button" class="btn btn-sm bg-gradient-success" data-toggle="modal" data-target="#update<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
-                          <button type="button" class="btn btn-sm bg-gradient-warning" data-toggle="modal" data-target="#password<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-lock"></i></button>
-                          <?php if($row['user_type'] != "Admin"): ?>
-                          <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
-                          <?php endif; ?>
+                          <button type="button" class="btn btn-sm bg-gradient-success" data-toggle="modal" data-target="#update<?php echo $row['officialID']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
+                          <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['officialID']; ?>"><i class="fa-solid fa-trash-can"></i></button>
                         </td> 
                     </tr>
-                    <?php include 'users_update_delete.php'; } } else { ?>
+                    <?php include 'officials_update_delete.php'; } } else { ?>
                         <td colspan="100%" class="text-center">No record found</td>
                       </tr>
                     <?php }?>
                   </tbody>
                   <tfoot>
                       <tr>
+                        <th>Signature</th>
                         <th>Full name</th>
-                        <th>Contact number</th>
-                        <th>Email</th>
-                        <th>Usertype</th>
+                        <th>Position</th>
+                        <th>Description</th>
+                        <th>Date added</th>
                         <th>Tools</th>
                       </tr>
                   </tfoot>
@@ -99,5 +93,5 @@
   <!-- /.content-wrapper -->
 
 
-<?php include 'users_add.php'; ?>
+<?php include 'officials_add.php'; ?>
 <?php include 'footer.php'; ?>

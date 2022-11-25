@@ -48,12 +48,12 @@
                   <tbody id="users_data">
                     <tr>
                       <?php 
-                        $sql = mysqli_query($conn, "SELECT * FROM users WHERE user_type='Resident' ");
+                        $sql = mysqli_query($conn, "SELECT * FROM residence");
                         if(mysqli_num_rows($sql) > 0 ) {
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>
                         <td>
-                            <img src="../images-users/<?php echo $row['image']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
+                            <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
                         </td>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
                         <td><?php echo $row['sector']; ?></td>
@@ -72,8 +72,8 @@
                           ?>
                         </td>
                         <td>
-                          <a class="btn btn-sm bg-gradient-success" href="resident_update.php?resident_Id=<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                          <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['user_Id']; ?>"><i class="fa-solid fa-trash-can"></i></button>
+                          <a class="btn btn-sm bg-gradient-success" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
+                          <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-trash-can"></i></button>
                         </td> 
                     </tr>
 

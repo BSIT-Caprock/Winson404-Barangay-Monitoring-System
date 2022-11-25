@@ -39,7 +39,7 @@
           </div>
 
         </div>
-        <h1 class="card p-5">Content Here!!!</h1>
+        <h1 class="card p-5 text-center">Content Here!!!</h1>
       </div>
     </section>
     
@@ -57,15 +57,15 @@
         var data = google.visualization.arrayToDataTable([
           ['Gender', 'Percentage by gender'],
           <?php 
-            $sql = mysqli_query($conn, "SELECT count(user_Id) AS male FROM users WHERE gender='Male' ");
+            $sql = mysqli_query($conn, "SELECT count(residenceId) AS male FROM residence WHERE gender='Male' ");
             while ($row = mysqli_fetch_array($sql)) {
               echo "['Male', ".$row['male']."],";
             }
-            $sql = mysqli_query($conn, "SELECT count(user_Id) AS female FROM users WHERE gender='Female' ");
+            $sql = mysqli_query($conn, "SELECT count(residenceId) AS female FROM residence WHERE gender='Female' ");
             while ($row = mysqli_fetch_array($sql)) {
               echo "['Female', ".$row['female']."],";
             }
-            $sql = mysqli_query($conn, "SELECT count(user_Id) AS nonbinary FROM users WHERE gender='Non-Binary' ");
+            $sql = mysqli_query($conn, "SELECT count(residenceId) AS nonbinary FROM residence WHERE gender='Non-Binary' ");
             while ($row = mysqli_fetch_array($sql)) {
               echo "['Non-Binary', ".$row['nonbinary']."],";
             }
@@ -87,27 +87,27 @@
         var data = google.visualization.arrayToDataTable([
           ['Age', 'Percentage by age'],
           <?php 
-            $sql1 = mysqli_query($conn, "SELECT count(user_Id) AS toddler FROM users WHERE ageClassification='Toddler' ");
+            $sql1 = mysqli_query($conn, "SELECT count(residenceId) AS toddler FROM residence WHERE ageClassification='Toddler' ");
             while ($row = mysqli_fetch_array($sql1)) {
               echo "['Toddler', ".$row['toddler']."],";
             }
-            $sql2 = mysqli_query($conn, "SELECT count(user_Id) AS child FROM users WHERE ageClassification='Child' ");
+            $sql2 = mysqli_query($conn, "SELECT count(residenceId) AS child FROM residence WHERE ageClassification='Child' ");
             while ($row = mysqli_fetch_array($sql2)) {
               echo "['Child', ".$row['child']."],";
             }
-            $sql3 = mysqli_query($conn, "SELECT count(user_Id) AS teen FROM users WHERE ageClassification='Teen' ");
+            $sql3 = mysqli_query($conn, "SELECT count(residenceId) AS teen FROM residence WHERE ageClassification='Teen' ");
             while ($row = mysqli_fetch_array($sql3)) {
               echo "['Teen', ".$row['teen']."],";
             }
-            $sql4 = mysqli_query($conn, "SELECT count(user_Id) AS young FROM users WHERE ageClassification='Young' ");
+            $sql4 = mysqli_query($conn, "SELECT count(residenceId) AS young FROM residence WHERE ageClassification='Young' ");
             while ($row = mysqli_fetch_array($sql4)) {
               echo "['Young', ".$row['young']."],";
             }
-            $sql6 = mysqli_query($conn, "SELECT count(user_Id) AS adult FROM users WHERE ageClassification='Adult' ");
+            $sql6 = mysqli_query($conn, "SELECT count(residenceId) AS adult FROM residence WHERE ageClassification='Adult' ");
             while ($row = mysqli_fetch_array($sql6)) {
               echo "['Adult', ".$row['adult']."],";
             }
-            $sql7 = mysqli_query($conn, "SELECT count(user_Id) AS senior FROM users WHERE ageClassification='Senior' ");
+            $sql7 = mysqli_query($conn, "SELECT count(residenceId) AS senior FROM residence WHERE ageClassification='Senior' ");
             while ($row = mysqli_fetch_array($sql7)) {
               echo "['Senior', ".$row['senior']."],";
             }
@@ -131,15 +131,15 @@
         var data = google.visualization.arrayToDataTable([
           ['Sector', 'Percentage by sector'],
           <?php 
-            $sql1 = mysqli_query($conn, "SELECT count(user_Id) AS senior FROM users WHERE sector='Senior Citizen' ");
+            $sql1 = mysqli_query($conn, "SELECT count(residenceId) AS senior FROM residence WHERE sector='Senior Citizen' ");
             while ($row = mysqli_fetch_array($sql1)) {
               echo "['Senior Citizen', ".$row['senior']."],";
             }
-            $sql2 = mysqli_query($conn, "SELECT count(user_Id) AS solo FROM users WHERE sector='Solo Parents' ");
+            $sql2 = mysqli_query($conn, "SELECT count(residenceId) AS solo FROM residence WHERE sector='Solo Parents' ");
             while ($row = mysqli_fetch_array($sql2)) {
               echo "['Solo Parents', ".$row['solo']."],";
             }
-            $sql3 = mysqli_query($conn, "SELECT count(user_Id) AS pwd FROM users WHERE sector='PWD' ");
+            $sql3 = mysqli_query($conn, "SELECT count(residenceId) AS pwd FROM residence WHERE sector='PWD' ");
             while ($row = mysqli_fetch_array($sql3)) {
               echo "['PWD', ".$row['pwd']."],";
             }
@@ -162,19 +162,19 @@
         var data = google.visualization.arrayToDataTable([
           ['Civil Status', 'Percentage by status'],
           <?php 
-            $sql1 = mysqli_query($conn, "SELECT count(user_Id) AS single FROM users WHERE civilstatus='Single' ");
+            $sql1 = mysqli_query($conn, "SELECT count(residenceId) AS single FROM residence WHERE civilstatus='Single' ");
             while ($row = mysqli_fetch_array($sql1)) {
               echo "['Single', ".$row['single']."],";
             }
-            $sql2 = mysqli_query($conn, "SELECT count(user_Id) AS married FROM users WHERE civilstatus='Married' ");
+            $sql2 = mysqli_query($conn, "SELECT count(residenceId) AS married FROM residence WHERE civilstatus='Married' ");
             while ($row = mysqli_fetch_array($sql2)) {
               echo "['Married', ".$row['married']."],";
             }
-            $sql3 = mysqli_query($conn, "SELECT count(user_Id) AS separated FROM users WHERE civilstatus='Separated' ");
+            $sql3 = mysqli_query($conn, "SELECT count(residenceId) AS separated FROM residence WHERE civilstatus='Separated' ");
             while ($row = mysqli_fetch_array($sql3)) {
               echo "['Separated', ".$row['separated']."],";
             }
-            $sql4 = mysqli_query($conn, "SELECT count(user_Id) AS widow FROM users WHERE civilstatus='Widow/ER' ");
+            $sql4 = mysqli_query($conn, "SELECT count(residenceId) AS widow FROM residence WHERE civilstatus='Widow/ER' ");
             while ($row = mysqli_fetch_array($sql4)) {
               echo "['Widow/ER', ".$row['widow']."],";
             }

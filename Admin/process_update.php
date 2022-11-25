@@ -1,13 +1,6 @@
 <?php 
 	include '../config.php';
 
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
-
-	require '../vendor/PHPMailer/src/Exception.php';
-	require '../vendor/PHPMailer/src/PHPMailer.php';
-	require '../vendor/PHPMailer/src/SMTP.php';
-
 	// UPDATE SYSTEM USER - USER_UPDATE_DELETE.PHP
 	if(isset($_POST['update_system_user'])) {
 
@@ -160,7 +153,7 @@
   // UPDATE RESIDENT - RESIDENT_UPDATE.PHP
 	if(isset($_POST['update_resident'])) {
 
-		$user_Id 		  = $_POST['user_Id'];
+		$residenceId 	  = $_POST['residenceId'];
 		$firstname        = mysqli_real_escape_string($conn, $_POST['firstname']);
 		$middlename       = mysqli_real_escape_string($conn, $_POST['middlename']);
 		$lastname         = mysqli_real_escape_string($conn, $_POST['lastname']);
@@ -293,7 +286,7 @@
 		if(!empty($file) && empty($signature)) {
 
 			// Check if image file is a actual image or fake image
-	        $target_dir = "../images-users/";
+	        $target_dir = "../images-residence/";
 	        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 	        $uploadOk = 1;
 	        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -303,7 +296,7 @@
 	        $_SESSION['message']  = "Only JPG, JPEG, PNG & GIF files are allowed.";
 	        $_SESSION['text'] = "Please try again.";
 	        $_SESSION['status'] = "error";
-			header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+			header('Location: resident_update.php?residenceId='.$residenceId.'');     
 	        $uploadOk = 0;
 	        }
 
@@ -312,32 +305,32 @@
 	        $_SESSION['message']  = "Your file was not uploaded.";
 	        $_SESSION['text'] = "Please try again.";
 	        $_SESSION['status'] = "error";
-			header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+			header('Location: resident_update.php?residenceId='.$residenceId.'');     
 
-        // if everything is ok, try to upload file
-        } else {
+	        // if everything is ok, try to upload file
+	        } else {
 
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-              	$save = mysqli_query($conn, "UPDATE users SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file' WHERE user_Id='$user_Id'");
-				        if($save) {
-			                $_SESSION['message']  = "Residents information has been updated!";
-				            $_SESSION['text'] = "Updated successfully!";
-					        $_SESSION['status'] = "success";
-							header('Location: resident_update.php?resident_Id='.$user_Id.'');                          
-				        } else {
-			                $_SESSION['message'] = "Something went wrong while updating the information.";
-				            $_SESSION['text'] = "Please try again.";
-					        $_SESSION['status'] = "error";
-							header('Location: resident_update.php?resident_Id='.$user_Id.'');     
-				        }
-            } else {
-                  $_SESSION['message'] = "There was an error uploading your picture.";
-	              $_SESSION['text'] = "Please try again.";
-	              $_SESSION['status'] = "error";
-				  header('Location: resident_update.php?resident_Id='.$user_Id.'');     
-            }
+	            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+	              	$save = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file' WHERE residenceId='$residenceId'");
+					        if($save) {
+				                $_SESSION['message']  = "Residents information has been updated!";
+					            $_SESSION['text'] = "Updated successfully!";
+						        $_SESSION['status'] = "success";
+								header('Location: resident_update.php?residenceId='.$residenceId.'');                          
+					        } else {
+				                $_SESSION['message'] = "Something went wrong while updating the information.";
+					            $_SESSION['text'] = "Please try again.";
+						        $_SESSION['status'] = "error";
+								header('Location: resident_update.php?residenceId='.$residenceId.'');     
+					        }
+	            } else {
+	                  $_SESSION['message'] = "There was an error uploading your picture.";
+		              $_SESSION['text'] = "Please try again.";
+		              $_SESSION['status'] = "error";
+					  header('Location: resident_update.php?residenceId='.$residenceId.'');     
+	            }
 
-		}
+			}
 
 		} elseif(!empty($signature) && empty($file)) {
 
@@ -352,7 +345,7 @@
 			    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
 			    $_SESSION['text'] = "Please try again.";
 			    $_SESSION['status'] = "error";
-				header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+				header('Location: resident_update.php?residenceId='.$residenceId.'');     
 		   	    $sign_uploadOk = 0;
 		    }
 
@@ -361,29 +354,29 @@
 			    $_SESSION['message'] = "Your file was not uploaded.";
 			    $_SESSION['text'] = "Please try again.";
 			    $_SESSION['status'] = "error";
-				header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+				header('Location: resident_update.php?residenceId='.$residenceId.'');     
 
 		    // if everything is ok, try to upload file
 		    } else {
 
 		        if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
-		          	$save2 = mysqli_query($conn, "UPDATE users SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', digital_signature='$signature' WHERE user_Id='$user_Id'");
+		          	$save2 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', digital_signature='$signature' WHERE residenceId='$residenceId'");
 				        if($save2) {
 				              $_SESSION['message']  = "Residents information has been updated!";
 			            	  $_SESSION['text'] = "Updated successfully!";
 				              $_SESSION['status'] = "success";
-							  header('Location: resident_update.php?resident_Id='.$user_Id.'');                          
+							  header('Location: resident_update.php?residenceId='.$residenceId.'');                          
 				        } else {
 				              $_SESSION['message'] = "Something went wrong while updating the information.";
 			            	  $_SESSION['text'] = "Please try again.";
 					          $_SESSION['status'] = "error";
-							  header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+							  header('Location: resident_update.php?residenceId='.$residenceId.'');     
 				        }
 		        } else {
 		              $_SESSION['message'] = "There was an error uploading your picture.";
 	            	  $_SESSION['text'] = "Please try again.";
 			          $_SESSION['status'] = "error";
-					  header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+					  header('Location: resident_update.php?residenceId='.$residenceId.'');     
 		        }
 
 			}
@@ -391,7 +384,7 @@
 		} elseif(!empty($file) && !empty($signature)) {
 
 			// Check if image file is a actual image or fake image
-		    $target_dir = "../images-users/";
+		    $target_dir = "../images-residence/";
 		    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		    $uploadOk = 1;
 		    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -402,7 +395,7 @@
 			    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
 			    $_SESSION['text'] = "Please try again.";
 			    $_SESSION['status'] = "error";
-				header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+				header('Location: resident_update.php?residenceId='.$residenceId.'');     
 		    	$uploadOk = 0;
 		    }
 
@@ -411,7 +404,7 @@
 			    $_SESSION['message'] = "Your file was not uploaded.";
 			    $_SESSION['text'] = "Please try again.";
 			    $_SESSION['status'] = "error";
-				header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+				header('Location: resident_update.php?residenceId='.$residenceId.'');     
 
 		    // if everything is ok, try to upload file
 		    } else {
@@ -429,7 +422,7 @@
 					    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
 					    $_SESSION['text'] = "Please try again.";
 					    $_SESSION['status'] = "error";
-						header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+						header('Location: resident_update.php?residenceId='.$residenceId.'');     
 				    	$sign_uploadOk = 0;
 				    }
 
@@ -438,31 +431,31 @@
 					    $_SESSION['message'] = "Your file was not uploaded.";
 					    $_SESSION['text'] = "Please try again.";
 					    $_SESSION['status'] = "error";
-						header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+						header('Location: resident_update.php?residenceId='.$residenceId.'');     
 
 				    // if everything is ok, try to upload file
 				    } else {
 
 				    		if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
 
-				    				$save3 = mysqli_query($conn, "UPDATE users SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file', digital_signature='$signature' WHERE user_Id='$user_Id'");
+				    				$save3 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file', digital_signature='$signature' WHERE residenceId='$residenceId'");
 							      if($save3) {
 							            $_SESSION['message']  = "Residents information has been updated!";
 							            $_SESSION['text'] = "Updated successfully!";
 								        $_SESSION['status'] = "success";
-										header('Location: resident_update.php?resident_Id='.$user_Id.'');                          
+										header('Location: resident_update.php?residenceId='.$residenceId.'');                          
 							      } else {
 							            $_SESSION['message'] = "Something went wrong while updating the information.";
 							            $_SESSION['text'] = "Please try again.";
 								        $_SESSION['status'] = "error";
-										header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+										header('Location: resident_update.php?residenceId='.$residenceId.'');     
 							      }
 
 				    		} else {
 			    				$_SESSION['message'] = "There was an error uploading your digital signature.";
 			           		    $_SESSION['text'] = "Please try again.";
 						        $_SESSION['status'] = "error";
-								header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+								header('Location: resident_update.php?residenceId='.$residenceId.'');     
 				    		}
 				    }
 		       			
@@ -470,29 +463,28 @@
 		        	$_SESSION['message'] = "There was an error uploading your profile picture.";
 		            $_SESSION['text'] = "Please try again.";
 			        $_SESSION['status'] = "error";
-					header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+					header('Location: resident_update.php?residenceId='.$residenceId.'');     
 		        }
 			  }
 
 		} else {
 
-		    $save4 = mysqli_query($conn, "UPDATE users SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay' WHERE user_Id='$user_Id'");
+		    $save4 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay' WHERE residenceId='$residenceId'");
 	        if($save4) {
 	          	$_SESSION['message']  = "Residents information has been updated!";
 	            $_SESSION['text'] = "Updated successfully!";
 		        $_SESSION['status'] = "success";
-				header('Location: resident_update.php?resident_Id='.$user_Id.'');                          
+				header('Location: resident_update.php?residenceId='.$residenceId.'');                          
 	        } else {
 	            $_SESSION['message'] = "Something went wrong while updating the information.";
 	            $_SESSION['text'] = "Please try again.";
 		        $_SESSION['status'] = "error";
-				header('Location: resident_update.php?resident_Id='.$user_Id.'');     
+				header('Location: resident_update.php?residenceId='.$residenceId.'');     
 	        }
 
 		}
 	
 	}
-
 
 
 
@@ -509,19 +501,97 @@
 		$contact    = mysqli_real_escape_string($conn, $_POST['contact']);
 		$email      = mysqli_real_escape_string($conn, $_POST['email']);
 
-		$save = mysqli_query($conn, "UPDATE users SET username='$username', firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', email='$email', contact='$contact' WHERE user_Id='$user_Id'");
-	    if($save) {
-	          $_SESSION['message']  = "Your information has been updated!";
-	          $_SESSION['text'] = "Updated successfully!";
-	          $_SESSION['status'] = "success";
-			  header("Location: profile.php");                          
-	    } else {
-            $_SESSION['message'] = "Something went wrong while saving the information.";
-            $_SESSION['text'] = "Please try again.";
-	        $_SESSION['status'] = "error";
-			header("Location: profile.php");
-	    }
+		$fetch        = mysqli_query($conn, "SELECT * FROM users WHERE user_Id='$user_Id' ");
+		$row          = mysqli_fetch_array($fetch);
+		$get_email    = $row['email'];
+		$get_username = $row['username'];
+
+		if($email == $get_email) {
+			if($username == $get_username) {
+				$save = mysqli_query($conn, "UPDATE users SET username='$username', firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', email='$email', contact='$contact' WHERE user_Id='$user_Id'");
+			    if($save) {
+			          $_SESSION['message']  = "Your information has been updated!";
+			          $_SESSION['text'] = "Updated successfully!";
+			          $_SESSION['status'] = "success";
+					  header("Location: profile.php");                          
+			    } else {
+		            $_SESSION['message'] = "Something went wrong while saving the information.";
+		            $_SESSION['text'] = "Please try again.";
+			        $_SESSION['status'] = "error";
+					header("Location: profile.php");
+			    }
+			} else {
+				$exist = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' ");
+			  	if(mysqli_num_rows($exist) > 0) {
+				  	$_SESSION['message'] = "Username already exists.";
+					$_SESSION['text'] = "Please try again.";
+					$_SESSION['status'] = "error";
+					header("Location: profile.php");
+			  	} else {
+		  			$save = mysqli_query($conn, "UPDATE users SET username='$username', firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', email='$email', contact='$contact' WHERE user_Id='$user_Id'");
+				    if($save) {
+				          $_SESSION['message']  = "Your information has been updated!";
+				          $_SESSION['text'] = "Updated successfully!";
+				          $_SESSION['status'] = "success";
+						  header("Location: profile.php");                          
+				    } else {
+			            $_SESSION['message'] = "Something went wrong while saving the information.";
+			            $_SESSION['text'] = "Please try again.";
+				        $_SESSION['status'] = "error";
+						header("Location: profile.php");
+				    }
+			  	}
+			}
+	  } else {
+			$exist = mysqli_query($conn, "SELECT * FROM users WHERE email='$email' ");
+		  	if(mysqli_num_rows($exist) > 0) {
+	  			$_SESSION['message'] = "Email already exists.";
+		      	$_SESSION['text'] = "Please try again.";
+	  			$_SESSION['status'] = "error";
+				header("Location: profile.php");
+		  	} else {
+	  			if($username == $get_username) {
+					$save = mysqli_query($conn, "UPDATE users SET username='$username', firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', email='$email', contact='$contact' WHERE user_Id='$user_Id'");
+				    if($save) {
+				          $_SESSION['message']  = "Your information has been updated!";
+				          $_SESSION['text'] = "Updated successfully!";
+				          $_SESSION['status'] = "success";
+						  header("Location: profile.php");                          
+				    } else {
+			            $_SESSION['message'] = "Something went wrong while saving the information.";
+			            $_SESSION['text'] = "Please try again.";
+				        $_SESSION['status'] = "error";
+						header("Location: profile.php");
+				    }
+				} else {
+					$exist = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' ");
+				  	if(mysqli_num_rows($exist) > 0) {
+			  			  $_SESSION['message'] = "Username already exists.";
+					      $_SESSION['text'] = "Please try again.";
+					      $_SESSION['status'] = "error";
+						  header("Location: profile.php");
+				  	} else {
+			  			$save = mysqli_query($conn, "UPDATE users SET username='$username', firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', email='$email', contact='$contact' WHERE user_Id='$user_Id'");
+					    if($save) {
+					          $_SESSION['message']  = "Your information has been updated!";
+					          $_SESSION['text'] = "Updated successfully!";
+					          $_SESSION['status'] = "success";
+							  header("Location: profile.php");                          
+					    } else {
+				            $_SESSION['message'] = "Something went wrong while saving the information.";
+				            $_SESSION['text'] = "Please try again.";
+					        $_SESSION['status'] = "error";
+							header("Location: profile.php");
+					    }
+				  	}
+				}
+		  	}
+	  }
+
+		
 	}
+
+
 
 
 	// CHANGE ADMIN PASSWORD - PROFILE.PHP
@@ -624,6 +694,169 @@
 	}
 
 
+
+
+
+
+	// UPDATE OFFICIAL - OFFICIAL_UPDATE_DELETE.PHP
+	if(isset($_POST['update_official'])) {
+		$officialID      = mysqli_real_escape_string($conn, $_POST['officialID']);
+		$position        = mysqli_real_escape_string($conn, $_POST['position']);
+		$firstname	     = mysqli_real_escape_string($conn, $_POST['firstname']);
+		$middlename      = mysqli_real_escape_string($conn, $_POST['middlename']);
+		$lastname        = mysqli_real_escape_string($conn, $_POST['lastname']);
+		$suffix          = mysqli_real_escape_string($conn, $_POST['suffix']);
+		$description     = mysqli_real_escape_string($conn, $_POST['description']);
+		$file            = basename($_FILES["fileToUpload"]["name"]);
+
+		$fetch = mysqli_query($conn, "SELECT * FROM officials WHERE officialID='$officialID' ");
+		$row = mysqli_fetch_array($fetch);
+
+		if(empty($file)) {
+
+			if($row['firstname'] == $firstname && $row['middlename'] == $middlename && $row['lastname'] == $lastname && $row['suffix'] == $suffix && $row['position'] == $position) {
+					$update = mysqli_query($conn, "UPDATE officials SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', position='$position', description='$description' WHERE officialID='$officialID' ");
+					if($update) {
+		            	$_SESSION['message'] = "Barangay Official has been updated!";
+			            $_SESSION['text'] = "Updated successfully!";
+				        $_SESSION['status'] = "success";
+						header("Location: officials.php");
+		            } else {
+			            $_SESSION['message'] = "Something went wrong while updating the information.";
+			            $_SESSION['text'] = "Please try again.";
+				        $_SESSION['status'] = "error";
+						header("Location: officials.php");
+		            }
+			} else {
+				$check = mysqli_query($conn, "SELECT * FROM officials WHERE firstname='$firstname' AND middlename='$middlename' AND lastname='$lastname' AND suffix='$suffix' AND position='$position' ");
+				if(mysqli_num_rows($check)>0) {
+			      $_SESSION['message'] = "This person is already added as an official.";
+			      $_SESSION['text'] = "Please try again.";
+			      $_SESSION['status'] = "error";
+				  header("Location: officials.php");
+				} else {
+					$update = mysqli_query($conn, "UPDATE officials SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', position='$position', description='$description' WHERE officialID='$officialID' ");
+					if($update) {
+		            	$_SESSION['message'] = "Barangay Official has been updated!";
+			            $_SESSION['text'] = "Updated successfully!";
+				        $_SESSION['status'] = "success";
+						header("Location: officials.php");
+		            } else {
+			            $_SESSION['message'] = "Something went wrong while updating the information.";
+			            $_SESSION['text'] = "Please try again.";
+				        $_SESSION['status'] = "error";
+						header("Location: officials.php");
+		            }
+				}
+
+			}
+
+		} else {
+
+			if($row['firstname'] == $firstname && $row['middlename'] == $middlename && $row['lastname'] == $lastname && $row['suffix'] == $suffix && $row['position'] == $position) {
+					// Check if image file is a actual image or fake image
+				    $sign_target_dir = "../images-signature/";
+				    $sign_target_file = $sign_target_dir . basename($_FILES["fileToUpload"]["name"]);
+				    $sign_uploadOk = 1;
+				    $sign_imageFileType = strtolower(pathinfo($sign_target_file,PATHINFO_EXTENSION));
+
+				    // Allow certain file formats
+				    if($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
+					    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header("Location: resident_add.php");
+					    $sign_uploadOk = 0;
+				    }
+
+				    // Check if $sign_uploadOk is set to 0 by an error
+				    if ($sign_uploadOk == 0) {
+					    $_SESSION['message'] = "Your file was not uploaded.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header("Location: resident_add.php");
+
+				    // if everything is ok, try to upload file
+				    } else {
+
+			    		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $sign_target_file)) {
+		    				$update = mysqli_query($conn, "UPDATE officials SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', position='$position', description='$description', digital_signature='$file' WHERE officialID='$officialID' ");
+							if($update) {
+				            	$_SESSION['message'] = "Barangay Official has been updated!";
+					            $_SESSION['text'] = "Updated successfully!";
+						        $_SESSION['status'] = "success";
+								header("Location: officials.php");
+				            } else {
+					            $_SESSION['message'] = "Something went wrong while updating the information.";
+					            $_SESSION['text'] = "Please try again.";
+						        $_SESSION['status'] = "error";
+								header("Location: officials.php");
+				            }  	
+			    		} else {
+		    				$_SESSION['message'] = "There was an error uploading your digital signature.";
+			            	$_SESSION['text'] = "Please try again.";
+					        $_SESSION['status'] = "error";
+							header("Location: officials.php");
+			    		}
+				    }
+					
+			} else {
+				$check = mysqli_query($conn, "SELECT * FROM officials WHERE firstname='$firstname' AND middlename='$middlename' AND lastname='$lastname' AND suffix='$suffix' AND position='$position' ");
+				if(mysqli_num_rows($check)>0) {
+			      $_SESSION['message'] = "This person is already added as an official.";
+			      $_SESSION['text'] = "Please try again.";
+			      $_SESSION['status'] = "error";
+				  header("Location: officials.php");
+				} else {
+					// Check if image file is a actual image or fake image
+				    $sign_target_dir = "../images-signature/";
+				    $sign_target_file = $sign_target_dir . basename($_FILES["fileToUpload"]["name"]);
+				    $sign_uploadOk = 1;
+				    $sign_imageFileType = strtolower(pathinfo($sign_target_file,PATHINFO_EXTENSION));
+
+				    // Allow certain file formats
+				    if($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
+					    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header("Location: resident_add.php");
+					    $sign_uploadOk = 0;
+				    }
+
+				    // Check if $sign_uploadOk is set to 0 by an error
+				    if ($sign_uploadOk == 0) {
+					    $_SESSION['message'] = "Your file was not uploaded.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header("Location: resident_add.php");
+
+				    // if everything is ok, try to upload file
+				    } else {
+
+			    		if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $sign_target_file)) {
+		    				$update = mysqli_query($conn, "UPDATE officials SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', position='$position', description='$description', digital_signature='$file' WHERE officialID='$officialID' ");
+							if($update) {
+				            	$_SESSION['message'] = "Barangay Official has been updated!";
+					            $_SESSION['text'] = "Updated successfully!";
+						        $_SESSION['status'] = "success";
+								header("Location: officials.php");
+				            } else {
+					            $_SESSION['message'] = "Something went wrong while updating the information.";
+					            $_SESSION['text'] = "Please try again.";
+						        $_SESSION['status'] = "error";
+								header("Location: officials.php");
+				            }  	
+			    		} else {
+		    				$_SESSION['message'] = "There was an error uploading your digital signature.";
+			            	$_SESSION['text'] = "Please try again.";
+					        $_SESSION['status'] = "error";
+							header("Location: officials.php");
+			    		}
+				    }
+				}
+			}
+		}
+	}
 
 
 

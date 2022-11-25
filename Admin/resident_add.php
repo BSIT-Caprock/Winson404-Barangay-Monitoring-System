@@ -195,7 +195,7 @@
                                 <option value="Senior Citizen">Senior Citizen</option>
                                 <option value="PWD">PWD</option>
                                 <option value="Solo Parents">Solo Parents</option>
-                                <option value="Others">Others</option>
+                                <!-- <option value="Others">Others</option> -->
                               </select>
                             </div>
                         </div>
@@ -204,9 +204,9 @@
                               <span class="text-dark"><b>Residence status</b></span>
                               <select class="form-control" name="resident_status" required>
                                 <option selected disabled value="">Select residence status</option>
-                                <option value="Temporary">Temporary</option>
-                                <option value="Permanent">Permanent</option>
-                                <option value="Non-Resident">Non-Resident</option>
+                                <option value="Tempo/Rented">Tempo/Rented</option>
+                                <option value="Perma/Owned">Perma/Owned</option>
+                                <!-- <option value="Non-Resident">Non-Resident</option> -->
                               </select>
                             </div>
                         </div>

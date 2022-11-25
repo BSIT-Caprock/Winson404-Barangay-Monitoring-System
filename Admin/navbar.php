@@ -283,14 +283,32 @@
             <a href="resident.php" class="nav-link"> <i class="fa-solid fa-user-group"></i><p>&nbsp; Residence</p></a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fa-solid fa-file"></i><p>&nbsp;&nbsp;&nbsp;  Documents</p></a>
+            <a href="documents.php" class="nav-link"><i class="fa-solid fa-file"></i><p>&nbsp;&nbsp;&nbsp;  Documents</p></a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link"><i class="fa-solid fa-sack-dollar"></i><p>&nbsp;&nbsp; Brgy Income</p></a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; Brgy. Profiles</p></a>
+            <a href="officials.php" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; Brgy. Profiles</p></a>
           </li>
+          <!-- DROPDOWN NAVIGATION LINK -->
+          <!-- <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fa-solid fa-users"></i>
+              <p>
+                Brgy. Profiles 
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; Brgy. Profiles</p></a>
+              </li>
+               <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; View All</p></a>
+              </li>
+            </ul>
+          </li> -->
           <li class="nav-item">
             <a href="users.php" class="nav-link"><i class="fa-solid fa-user-secret"></i><p>&nbsp; Accounts</p></a>
           </li>

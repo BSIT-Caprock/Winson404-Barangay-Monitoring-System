@@ -2,9 +2,9 @@
 <?php 
     include 'navbar.php';
 
-    if(isset($_GET['resident_Id']))
-    $resident_Id = $_GET['resident_Id'];
-    $fetch = mysqli_query($conn, "SELECT * FROM users WHERE user_Id='$resident_Id'");
+    if(isset($_GET['residenceId']))
+    $residenceId = $_GET['residenceId'];
+    $fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
     $row = mysqli_fetch_array($fetch);
   ?>
   <!-- Content Wrapper. Contains page content -->
@@ -36,7 +36,7 @@
               <div class="card-body p-3">
                     <form action="process_update.php" method="POST" enctype="multipart/form-data">
                       <div class="row">
-                        <input type="hidden" class="form-control" name="user_Id" required value="<?php echo $row['user_Id']; ?>">
+                        <input type="hidden" class="form-control" name="residenceId" required value="<?php echo $row['residenceId']; ?>">
                         <div class="col-lg-12 mt-1 mb-2">
                           <a class="h5 text-primary"><b>Basic information</b></a>
                           <div class="dropdown-divider"></div>
@@ -201,7 +201,7 @@
                                 <option value="Senior Citizen" <?php if($row['sector'] == "Senior Citizen") { echo 'selected'; } ?>>Senior Citizen</option>
                                 <option value="PWD"            <?php if($row['sector'] == "PWD")            { echo 'selected'; } ?>>PWD</option>
                                 <option value="Solo Parents"   <?php if($row['sector'] == "Solo Parents")   { echo 'selected'; } ?>>Solo Parents</option>
-                                <option value="Others"         <?php if($row['sector'] == "Others")         { echo 'selected'; } ?>>Others</option>
+                                <!-- <option value="Others"         <?php //if($row['sector'] == "Others")         { echo 'selected'; } ?>>Others</option> -->
                               </select>
                             </div>
                         </div>
@@ -210,9 +210,11 @@
                               <span class="text-dark"><b>Residence status</b></span>
                               <select class="form-control" name="resident_status" required>
                                 <option selected disabled value="">Select residence status</option>
-                                <option value="Temporary"    <?php if($row['resident_status'] == "Temporary")    { echo 'selected'; } ?>>Temporary</option>
-                                <option value="Permanent"    <?php if($row['resident_status'] == "Permanent")    { echo 'selected'; } ?>>Permanent</option>
-                                <option value="Non-Resident" <?php if($row['resident_status'] == "Non-Resident") { echo 'selected'; } ?>>Non-Resident</option>
+                                <!-- <option value="Temporary"    <?php //if($row['resident_status'] == "Temporary")    { echo 'selected'; } ?>>Temporary</option>
+                                <option value="Permanent"    <?php// if($row['resident_status'] == "Permanent")    { echo 'selected'; } ?>>Permanent</option>
+                                <option value="Non-Resident" <?php //if($row['resident_status'] == "Non-Resident") { echo 'selected'; } ?>>Non-Resident</option> -->
+                                <option value="Tempo/Rented" <?php if($row['resident_status'] == "Tempo/Rented") { echo 'selected'; } ?>>Tempo/Rented</option>
+                                <option value="Perma/Owned"  <?php if($row['resident_status'] == "Perma/Owned")  { echo 'selected'; } ?>>Perma/Owned</option>
                               </select>
                             </div>
                         </div>
