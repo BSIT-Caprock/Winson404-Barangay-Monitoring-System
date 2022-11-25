@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2022 at 02:36 PM
+-- Generation Time: Nov 25, 2022 at 05:17 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `officials` (
   `description` text NOT NULL,
   `digital_signature` varchar(255) NOT NULL,
   `date_registered` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `officials`
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `residence` (
 --
 
 INSERT INTO `residence` (`residenceId`, `firstname`, `middlename`, `lastname`, `suffix`, `dob`, `age`, `ageClassification`, `birthplace`, `gender`, `civilstatus`, `citizenship`, `occupation`, `house_no`, `street_name`, `purok`, `zone`, `barangay`, `municipality`, `province`, `region`, `sector`, `resident_status`, `voter_status`, `ID_status`, `QR_status`, `years_of_stay`, `image`, `digital_signature`, `date_registered`) VALUES
-(66, 'dddsdds', 'd', 'd', '', '2022-11-10', '2 weeks old', 'Toddler', 'df', 'Female', 'Single', 'By Birth', 'fsd', 'fds', 'fds', 'fds', 'fds', 'fds', 'fds', 'fdsfsd', 'fdsf', 'PWD', 'Tempo/Rented', 'Active', 'Active', 'None', '43', 'Screenshot (197).png', 'Screenshot (196).png', '2022-11-25'),
+(66, 'dddsdds', 'd', 'd', '', '2022-11-10', '2 weeks old', 'Toddler', 'df', 'Female', 'Single', 'By Birth', 'fsd', 'fds', 'fds', 'fds', 'fds', 'fds', 'fds', 'fdsfsd', 'fdsf', 'PWD', 'Perma/Owned', 'Active', 'Active', 'None', '43', 'Screenshot (197).png', 'Screenshot (196).png', '2022-11-25'),
 (67, 'dsd', 'd', 'd', '', '2016-03-09', '6 years old', 'Child', 'dsa', 'Male', 'Married', 'By Family', 'fdsf', 'fdsf', 'dsf', 'fdsf', 'fdsf', 'dsfsd', 'fdsf', 'fsdfsd', 'fds', 'Senior Citizen', 'Perma/Owned', 'Active', 'Active', 'Active', '43', 'Screenshot (185).png', 'Screenshot (186).png', '2022-11-25'),
 (69, 'cbvc', 'bvcbvc', 'bvcb', '', '1997-10-15', '25 years old', 'Adult', 'bvcbcb', 'Female', 'Separated', 'Naturalization', 'bvcbc', 'bvc', 'bcvbcb', 'vcbcb', 'vcbcv', 'bcvbc', 'bcvbcvbcv', 'bvc', 'bvcbc', 'Solo Parents', 'Tempo/Rented', 'Active', 'None', 'Active', '343', 'Screenshot (193).png', 'Screenshot (188).png', '2022-11-25'),
 (70, 'fsfsd', 'fsdfsf', 'sdfs', '', '1952-07-09', '70 years old', 'Senior', 'fsfs', 'Non-Binary', 'Widow/ER', 'By Marriage', 'gfdgd', 'gfd', 'gdf', 'gfd', 'gfdg', 'fdgdf', 'gfdg', 'fdg', 'gfd', 'PWD', 'Tempo/Rented', 'None', 'None', 'None', '2', 'Screenshot (184).png', 'Screenshot (186).png', '2022-11-25');
@@ -114,7 +114,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_type` varchar(20) NOT NULL DEFAULT 'Resident',
   `verification_code` varchar(255) NOT NULL,
   `date_registered` date NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=67 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=43 ;
 
 --
 -- Dumping data for table `users`
@@ -154,7 +154,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `officials`
 --
 ALTER TABLE `officials`
-MODIFY `officialID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `officialID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `residence`
 --
@@ -164,7 +164,7 @@ MODIFY `residenceId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=71;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `user_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=67;
+MODIFY `user_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=43;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

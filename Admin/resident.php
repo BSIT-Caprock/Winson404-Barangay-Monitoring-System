@@ -33,7 +33,7 @@
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-striped text-sm">
+                 <table id="example1" class="table table-bordered table-striped table-hover text-sm">
                   <thead>
                   <tr>
                     <th>Image</th>
@@ -56,17 +56,15 @@
                             <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
                         </td>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
-                        <td><?php echo $row['sector']; ?></td>
+                        <td class="text-danger"><?php echo $row['sector']; ?></td>
                         <td><?php echo $row['gender']; ?></td>
-                        <td><?php echo $row['citizenship']; ?></td>
+                        <td class="text-primary"><?php echo $row['citizenship']; ?></td>
                         <td>
                           <?php 
-                            if($row['resident_status'] == 'Temporary') {
-                              echo '<span class="badge bg-gradient-warning pt-1">'.$row['resident_status'].'</span>';
-                            } elseif($row['resident_status'] == 'Permanent') {
+                            if($row['resident_status'] == 'Perma/Owned') {
                               echo '<span class="badge bg-gradient-primary pt-1">'.$row['resident_status'].'</span>';
                             } else {
-                              echo '<span class="badge bg-gradient-dark pt-1">'.$row['resident_status'].'</span>';
+                              echo '<span class="badge bg-gradient-warning pt-1">'.$row['resident_status'].'</span>';
                             }
 
                           ?>

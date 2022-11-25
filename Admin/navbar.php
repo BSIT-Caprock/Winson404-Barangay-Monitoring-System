@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BMS | Dashboard</title>
   <!---FAVICON ICON FOR WEBSITE--->
-  <link rel="shortcut icon" type="image/png" href="images/logo.jpg">
+  <link rel="shortcut icon" type="image/png" href="../dist/img/AdminLTELogo.png">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Ionicons -->
@@ -59,7 +59,7 @@
 <!-- <body class="hold-transition sidebar-mini layout-fixed"> -->
 <!-- DARK MODE -->
 <!-- <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">  -->
-<body class="hold-transition sidebar-mini  layout-fixed layout-navbar-fixed layout-footer-fixed"> 
+<body class="hold-transition sidebar-mini  layout-fixed layout-navbar-fixed"> 
 <div class="wrapper">
 
   <!-- Preloader -->
@@ -79,9 +79,9 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="dashboard.php" class="nav-link">Home</a>
       </li>
-     <!--  <li class="nav-item d-none d-sm-inline-block">
+      <li class="nav-item d-none d-sm-inline-block">
         <a href="contact-us.php" class="nav-link">Contact</a>
-      </li> -->
+      </li>
     </ul>
 
 <?php 

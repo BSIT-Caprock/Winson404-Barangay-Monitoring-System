@@ -32,7 +32,7 @@
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-striped text-sm">
+                 <table id="example1" class="table table-bordered table-striped table-hover text-sm">
                   <thead>
                   <tr>
                     <th>Signature</th>
@@ -54,7 +54,7 @@
                             <img src="../images-signature/<?php echo $row['digital_signature']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
                         </td>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
-                        <td><?php echo $row['position']; ?></td>
+                        <td class="text-danger"><?php echo $row['position']; ?></td>
                         <td><?php echo $row['description']; ?></td>
                         <td><?php echo $row['date_registered']; ?></td>
                         <td>

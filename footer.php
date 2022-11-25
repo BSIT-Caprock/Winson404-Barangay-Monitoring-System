@@ -6,12 +6,27 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Version 3.2.2
+    <div class="row p-3">
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12 bg-white">
+        <label>Barangay Mission</label>
+        <p class="text-sm text-justify text-muted">Barangay 193 is dedicated to deliver effective, efficient, & respectful public service with pride, integrity, & accountability by involving our constituents and stakeholders towards the  accomplishments of our goals.</p>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12 bg-white">
+        <label>Barangay Vision</label>
+        <p class="text-sm text-justify text-muted">We envisioned to be a Clean and Green, Organized, Peaceful, God-Fearing and a Progressive Barangay.</p>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-6 col-12 bg-white">
+        <label>Contact Us</label>
+        <p class="text-sm text-justify text-muted"><i class="fa-solid fa-phone"></i> +63 9123456789</p>
+        <p class="text-sm text-justify text-muted"><i class="fa-solid fa-envelope"></i> admin@gmail.com</p>
+      </div>
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">BMS</a>.</strong> All rights reserved.
+    <div class="dropdown-divider"></div>
+    <strong>Copyright &copy; 2022 <a href="#">BMS</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.2.0
+    </div>
   </footer>
 </div>
 <!-- ./wrapper -->

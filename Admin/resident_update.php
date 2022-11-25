@@ -282,7 +282,7 @@
                     </div>
                     <hr>
                     <div class="float-right">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+                      <a href="resident.php" class="btn btn-secondary"><i class="fa-solid fa-ban"></i> Cancel</a>
                       <button type="submit" class="btn bg-gradient-primary" name="update_resident" id="create_admin"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
                     </div>
                     </form>
