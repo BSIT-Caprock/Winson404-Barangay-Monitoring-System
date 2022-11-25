@@ -15,7 +15,7 @@
                 <label>Usertype</label>
                 <select class="form-control" name="usertype" required>
                   <option value="Staff" selected>Staff</option>
-                  <option value="Admin">Admin</option>
+                  <!-- <option value="Admin">Admin</option> -->
                 </select>
             </div>
             <div class="col-lg-6">

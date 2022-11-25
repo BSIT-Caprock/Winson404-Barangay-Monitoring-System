@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
               <li class="breadcrumb-item active">System Users</li>
             </ol>
           </div>
@@ -32,7 +32,7 @@
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-striped">
+                 <table id="example1" class="table table-bordered table-striped text-sm">
                   <thead>
                   <tr>
                     <th>Full name</th>
@@ -55,9 +55,9 @@
                         <td>
                           <?php 
                               if($row['user_type'] == "Admin") {
-                                echo '<span class="badge bg-gradient-primary">'.$row['user_type'].'</span>';
+                                echo '<span class="badge bg-gradient-primary pt-1">'.$row['user_type'].'</span>';
                               } else {
-                                echo '<span class="badge bg-gradient-success">'.$row['user_type'].'</span>';
+                                echo '<span class="badge bg-gradient-success pt-1">'.$row['user_type'].'</span>';
                               }
                           ?>
                         </td>

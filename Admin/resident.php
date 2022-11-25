@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
               <li class="breadcrumb-item active">Resident records</li>
             </ol>
           </div>
@@ -33,7 +33,7 @@
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-striped">
+                 <table id="example1" class="table table-bordered table-striped text-sm">
                   <thead>
                   <tr>
                     <th>Image</th>
@@ -62,11 +62,11 @@
                         <td>
                           <?php 
                             if($row['resident_status'] == 'Temporary') {
-                              echo '<span class="badge bg-gradient-warning">'.$row['resident_status'].'</span>';
+                              echo '<span class="badge bg-gradient-warning pt-1">'.$row['resident_status'].'</span>';
                             } elseif($row['resident_status'] == 'Permanent') {
-                              echo '<span class="badge bg-gradient-primary">'.$row['resident_status'].'</span>';
+                              echo '<span class="badge bg-gradient-primary pt-1">'.$row['resident_status'].'</span>';
                             } else {
-                              echo '<span class="badge bg-gradient-dark">'.$row['resident_status'].'</span>';
+                              echo '<span class="badge bg-gradient-dark pt-1">'.$row['resident_status'].'</span>';
                             }
 
                           ?>

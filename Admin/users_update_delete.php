@@ -16,10 +16,12 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label>Usertype</label>
-              <select class="custom-select" name="usertype" required>
+              <select class="custom-select" name="usertype" required disabled>
                   <option value="Staff" <?php if($row['user_type'] == 'Staff') { echo 'selected'; } ?> >Staff</option>
                   <option value="Admin" <?php if($row['user_type'] == 'Admin') { echo 'selected'; } ?> >Admin</option>
-              </select>  
+              </select>
+              <!-- DISABLE SELECT OPTION ABOVE AND ADD HIDDEN INPUT WITH SAME name AND value TO INCLUDE IN POST METHOD -->
+              <input type="hidden" class="form-control"  placeholder="Username" name="usertype" required value="<?php echo $row['user_type']; ?>">  
             </div>
           </div>
            <div class="col-lg-6">
