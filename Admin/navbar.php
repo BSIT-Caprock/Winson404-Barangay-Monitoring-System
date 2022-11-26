@@ -291,29 +291,27 @@
           <li class="nav-item">
             <a href="officials.php" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; Brgy. Profiles</p></a>
           </li>
-          <!-- DROPDOWN NAVIGATION LINK -->
-          <!-- <li class="nav-item">
+
+         <!--  <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa-solid fa-users"></i>
-              <p>
-                Brgy. Profiles 
-                <i class="right fas fa-angle-left"></i>
-              </p>
+              <i class="fa-sharp fa-solid fa-house"></i>
+              <p>&nbsp;Brgy. Profiles <i class="right fas fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; Brgy. Profiles</p></a>
+                <a href="officials.php" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; Brgy. Profiles</p></a>
               </li>
                <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; View All</p></a>
+                <a href="officials_view.php" class="nav-link"><i class="fa-solid fa-eye"></i><p>&nbsp; View All Brgy. Profiles</p></a>
               </li>
             </ul>
           </li> -->
+          
           <li class="nav-item">
-            <a href="users.php" class="nav-link"><i class="fa-solid fa-user-secret"></i><p>&nbsp; Accounts</p></a>
+            <a href="users.php" class="nav-link"><i class="fa-solid fa-user-secret"></i><p>&nbsp;&nbsp; Accounts</p></a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fa-solid fa-palette"></i><p>&nbsp; Customize</p></a>
+            <a href="#" class="nav-link"><i class="fa-solid fa-palette"></i><p>&nbsp;&nbsp; Customize</p></a>
           </li>
 
         </ul>

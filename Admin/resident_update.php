@@ -2,7 +2,7 @@
 <?php 
     include 'navbar.php';
 
-    if(isset($_GET['residenceId']))
+    if(isset($_GET['residenceId'])) {
     $residenceId = $_GET['residenceId'];
     $fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
     $row = mysqli_fetch_array($fetch);
@@ -293,14 +293,8 @@
         </div>
       </div>
     </section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
   </div>
-  
+  <?php } else { include '404.php'; } ?>
 <?php include 'footer.php';  ?>
 
 <script>

@@ -1,4 +1,4 @@
-<title>BMS | Barangay Officials</title>
+<title>BMS | Barangay Officials Management</title>
 <?php include 'navbar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6">
-            <h1>Barangay Officials</h1>
+            <h1>Barangay Officials Management</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-              <li class="breadcrumb-item active">Barangay Officials</li>
+              <li class="breadcrumb-item active">Barangay Officials Management</li>
             </ol>
           </div>
         </div>
@@ -28,19 +28,19 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header p-2">
-                <button type="button" class="ml-2 btn bg-gradient-primary" data-toggle="modal" data-target="#add_users"><i class="bi bi-plus-circle"></i> Add</button>
+                <button type="button" class="float-right mr-2 btn bg-gradient-primary btn-sm" data-toggle="modal" data-target="#add_users"><i class="fa-sharp fa-solid fa-square-plus"></i> New Official</button>
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-striped table-hover text-sm">
+                 <table id="example1" class="table table-bordered table-hover text-sm">
                   <thead>
                   <tr>
-                    <th>Signature</th>
-                    <th>Full name</th>
-                    <th>Position</th>
-                    <th>Description</th>
-                    <th>Date added</th>
-                    <th>Tools</th>
+                    <th>SIGNATURE</th>
+                    <th>NAME</th>
+                    <th>POSITION</th>
+                    <th>DESCRIPTION</th>
+                    <th>DATE ADDED</th>
+                    <th>TOOLS</th>
                   </tr>
                   </thead>
                   <tbody id="users_data">
@@ -54,7 +54,16 @@
                             <img src="../images-signature/<?php echo $row['digital_signature']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
                         </td>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
-                        <td class="text-danger"><?php echo $row['position']; ?></td>
+                        <td>
+                          <?php 
+                            if($row['position'] == 'Barangay Captain') {
+                              echo '<i class="fa-solid fa-star text-warning"></i> '.$row['position'].'';
+                            } else {
+                              echo '<i class="fa-solid fa-star text-muted"></i> '.$row['position'].'';
+                            }
+
+                          ?>
+                        </td>
                         <td><?php echo $row['description']; ?></td>
                         <td><?php echo $row['date_registered']; ?></td>
                         <td>
@@ -67,16 +76,6 @@
                       </tr>
                     <?php }?>
                   </tbody>
-                  <tfoot>
-                      <tr>
-                        <th>Signature</th>
-                        <th>Full name</th>
-                        <th>Position</th>
-                        <th>Description</th>
-                        <th>Date added</th>
-                        <th>Tools</th>
-                      </tr>
-                  </tfoot>
                 </table>
 
               </div><!-- /.card-body -->

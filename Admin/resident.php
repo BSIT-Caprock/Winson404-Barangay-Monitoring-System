@@ -1,4 +1,4 @@
-<title>BMS | Resident records</title>
+<title>BMS | Resident Management</title>
 <?php include 'navbar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6">
-            <h3>Resident records</h3>
+            <h3>Resident Management</h3>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-              <li class="breadcrumb-item active">Resident records</li>
+              <li class="breadcrumb-item active">Resident Management</li>
             </ol>
           </div>
         </div>
@@ -28,21 +28,20 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header p-2">
-                <a href="resident_add.php" class="ml-2 btn bg-gradient-primary"><i class="bi bi-plus-circle"></i> Add</a>
-                <!-- <button type="button" class="ml-2 btn bg-gradient-primary" data-toggle="modal" data-target="#add_user"><i class="bi bi-plus-circle"></i> Add</button> -->
+                <a href="resident_add.php" class="float-right mr-2 btn bg-gradient-primary btn-sm"><i class="fa-sharp fa-solid fa-square-plus"></i> New Resident</a>
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-striped table-hover text-sm">
+                 <table id="example1" class="table table-bordered table-hover text-sm">
                   <thead>
-                  <tr>
-                    <th>Image</th>
-                    <th>Full name</th>
-                    <th>Sector</th>
-                    <th>Gender</th>
-                    <th>Citizenship</th>
-                    <th>Resident status</th>
-                    <th>Tools</th>
+                  <tr> 
+                    <th>PHOTO</th>
+                    <th>NAME</th>
+                    <th>SECTOR</th>
+                    <th>GENDER</th>
+                    <th>CITIZENSHIP</th>
+                    <th>RESIDENT STATUS</th>
+                    <th>TOOLS</th>
                   </tr>
                   </thead>
                   <tbody id="users_data">
@@ -56,15 +55,15 @@
                             <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
                         </td>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
-                        <td class="text-danger"><?php echo $row['sector']; ?></td>
+                        <td><?php echo $row['sector']; ?></td>
                         <td><?php echo $row['gender']; ?></td>
                         <td class="text-primary"><?php echo $row['citizenship']; ?></td>
                         <td>
                           <?php 
                             if($row['resident_status'] == 'Perma/Owned') {
-                              echo '<span class="badge bg-gradient-primary pt-1">'.$row['resident_status'].'</span>';
+                              echo '<i class="fa-solid fa-circle-dot text-primary"></i> '.$row['resident_status'].'';
                             } else {
-                              echo '<span class="badge bg-gradient-warning pt-1">'.$row['resident_status'].'</span>';
+                              echo '<i class="fa-solid fa-circle-dot text-danger"></i> '.$row['resident_status'].'';
                             }
 
                           ?>
@@ -81,17 +80,6 @@
                     <?php }?>
 
                   </tbody>
-                  <tfoot>
-                      <tr>
-                        <th>Image</th>
-                        <th>Full name</th>
-                        <th>Sector</th>
-                        <th>Gender</th>
-                        <th>Citizenship</th>
-                        <th>Resident status</th>
-                        <th>Tools</th>
-                      </tr>
-                  </tfoot>
                 </table>
 
               </div>

@@ -1,4 +1,4 @@
-<title>BMS | System Users</title>
+<title>BMS | System Users Management</title>
 <?php include 'navbar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -8,12 +8,12 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-sm-6">
-            <h1>System Users</h1>
+            <h1>System Users Management</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-              <li class="breadcrumb-item active">System Users</li>
+              <li class="breadcrumb-item active">System Users Management</li>
             </ol>
           </div>
         </div>
@@ -28,11 +28,11 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header p-2">
-                <button type="button" class="ml-2 btn bg-gradient-primary" data-toggle="modal" data-target="#add_users"><i class="bi bi-plus-circle"></i> Add</button>
+                <button type="button" class="float-right mr-2 btn bg-gradient-primary btn-sm" data-toggle="modal" data-target="#add_users"><i class="bi bi-plus-circle"></i> <i class="fa-sharp fa-solid fa-square-plus"></i> New User</button> 
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-striped table-hover text-sm">
+                 <table id="example1" class="table table-bordered table-hover text-sm">
                   <thead>
                   <tr>
                     <th>Full name</th>
@@ -74,15 +74,6 @@
                       </tr>
                     <?php }?>
                   </tbody>
-                  <tfoot>
-                      <tr>
-                        <th>Full name</th>
-                        <th>Contact number</th>
-                        <th>Email</th>
-                        <th>Usertype</th>
-                        <th>Tools</th>
-                      </tr>
-                  </tfoot>
                 </table>
 
               </div><!-- /.card-body -->
@@ -101,3 +92,4 @@
 
 <?php include 'users_add.php'; ?>
 <?php include 'footer.php'; ?>
+

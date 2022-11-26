@@ -1,5 +1,3 @@
-<title>BMS | 400 Error</title>
-<?php include 'navbar.php'; ?>
 
   <div class="content-wrapper">
     <section class="content-header">
@@ -10,7 +8,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
               <li class="breadcrumb-item active">404 Error Page</li>
             </ol>
           </div>
@@ -27,7 +25,7 @@
             We could not find the page you were looking for.
             Meanwhile, you may <a href="dashboard.php">return to dashboard</a> or try using the search form.
           </p>
-          <form class="search-form">
+          <!-- <form class="search-form">
             <div class="input-group">
               <input type="text" name="search" class="form-control" placeholder="Search">
 
@@ -36,10 +34,9 @@
                 </button>
               </div>
             </div>
-          </form>
+          </form> -->
         </div>
       </div>
     </section>
   </div>
 
-<?php include 'footer.php'; ?>

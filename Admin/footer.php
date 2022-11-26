@@ -3,6 +3,15 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
   <footer class="main-footer">
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-6 col-12 bg-white">
@@ -36,6 +45,9 @@
 </div>
 <!-- ./wrapper -->
 
+<!-- GOOGLE PIE CHART -->
+<script type="text/javascript" src="../plugins/google-pie-chart/loader.js"></script>
+
 <script src="../plugins/jquery/jquery.min.js"></script>
 
 <!-- jQuery UI 1.11.4 -->
@@ -47,7 +59,7 @@
 <!-- Bootstrap 4 -->
 <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- ChartJS -->
-<!-- <script src="js/chart.js/Chart.min.js"></script> -->
+<script src="../plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
 <!-- <script src="js/sparklines/sparkline.js"></script> -->
 <!-- JQVMap -->

@@ -247,6 +247,16 @@
                               <input type="number" class="form-control"  placeholder="Years of stay" name="years_of_stay" required>
                             </div>
                         </div>
+                        <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                          <div class="form-group">
+                            <span class="text-dark"><b>Resident picture</b></span><br>
+                            <div class="btn btn-default btn-file">
+                              <i class="fas fa-paperclip"></i>Attachment
+                              <input type="file" name="attachment" name="fileToUpload" onchange="getImagePreview(event)" required>
+                            </div>
+                            <p class="help-block">Max. 32MB</p>
+                          </div>
+                        </div> -->
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Resident picture</b></span>
