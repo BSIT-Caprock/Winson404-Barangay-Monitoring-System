@@ -1,5 +1,5 @@
 <?php
-    include '../config.php';
+    require("user_auth.php");
     if(isset($_SESSION['admin_Id'])) {
     $id = $_SESSION['admin_Id'];
 ?>
@@ -389,8 +389,6 @@
 
     </script>
 <?php unset($_SESSION['message']); unset($_SESSION['text']); unset($_SESSION['status']); } ?>
-
-
 
 <?php
 // ------------------------------CLOSING THE SESSION OF THE LOGGED IN USER WITH else statement----------//
