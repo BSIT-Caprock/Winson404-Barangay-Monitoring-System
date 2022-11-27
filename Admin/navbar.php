@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BMS | Dashboard</title>
   <!---FAVICON ICON FOR WEBSITE--->
-  <link rel="shortcut icon" type="image/png" href="../dist/img/AdminLTELogo.png">
+  <link rel="shortcut icon" type="image/png" href="../images/logo.png">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Ionicons -->
@@ -63,9 +63,9 @@
 <div class="wrapper">
 
   <!-- Preloader -->
-  <!-- <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-  </div> -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="../images/logo.png" alt="BMSLogo" height="105" width="105">
+  </div> 
 
   <!-- Navbar -->
   <!-- LIGHT MODE -->
@@ -96,30 +96,26 @@
         <a class="mt-3">Today is <?php //echo date("l"); ?> | <?php// echo date("F d, Y"); ?></a>
       </li> -->
        <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="fa-solid fa-user"></i><?php echo ' '.$row['firstname'].' '.$row['lastname'].' '; ?><i class="fa-solid fa-caret-down"></i>
+          <i class="fa-solid fa-user"></i><?php //echo ' '.$row['firstname'].' '.$row['lastname'].' '; ?><i class="fa-solid fa-caret-down"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="profile.php" class="dropdown-item">
             <div class="media">
-              <!-- <img src="../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle"> -->
-              <img src="../images-users/<?php echo $row['image']; ?>" alt="User Image" class="mr-3 img-circle" height="50" width="50">
+              <img src="../images-users/<?php //echo $row['image']; ?>" alt="User Image" class="mr-3 img-circle" height="50" width="50">
               <div class="media-body">
-                  <h3 class="dropdown-item-title"><?php echo ' '.$row['firstname'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></h3>
-                  <p class="text-sm text-muted"><?php echo $row['user_type']; ?></p>
+                  <h3 class="dropdown-item-title"><?php //echo ' '.$row['firstname'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></h3>
+                  <p class="text-sm text-muted"><?php //echo $row['user_type']; ?></p>
               </div>
             </div>
           </a>
           <div class="dropdown-divider"></div>
             <a type="button" href="profile.php" class="dropdown-item">&nbsp;<i class="fa-solid fa-gear"></i>&nbsp;&nbsp; Profile settings</a>
           <div class="dropdown-divider"></div>
-          <!-- DISPLAY LEFT SIDE - LOGOUT  -->
            <a href="#" class="d-flex justify-content-start dropdown-item dropdown-footer" onclick="logout()">&nbsp;<i class="fa-solid fa-power-off"></i>&nbsp;&nbsp; Logout</a>
-          <!-- DISPLAY CENTER -->
-          <!-- <a type="button" href="#" class="dropdown-item dropdown-footer" onclick="logout()"><i class="fa-solid fa-power-off"></i>&nbsp;&nbsp; Logout</a> -->
         </div>
-      </li>
+      </li> -->
 
       <!-- Navbar Search -->
       <!-- <li class="nav-item">
@@ -195,19 +191,55 @@
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
       </li> -->
+       <li class="nav-item dropdown user-menu">
+        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+          <!-- <img src="../images-users/<?php echo $row['image']; ?>" alt="User Image" class="mr-3 img-circle" height="50" width="50"> -->
+          <img src="../images-users/<?php echo $row['image']; ?>" class="user-image img-circle elevation-2" alt="User Image">
+          <span class="d-none d-md-inline"><?php echo ' '.$row['firstname'].' '.$row['lastname'].' '; ?></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+          <!-- User image -->
+          <li class="user-header bg-primary">
+            <img src="../images-users/<?php echo $row['image']; ?>" class="img-circle elevation-2" alt="User Image">
+            <p>
+              <?php echo ' '.$row['firstname'].' '.$row['lastname'].' '; ?>
+              <small><?php echo $row['user_type']; ?></small>
+            </p>
+          </li>
+          <!-- Menu Body -->
+          <li class="user-body">
+            <div class="row">
+              <div class="col-12 text-center">
+                <small>Member since <?php echo date("F d, Y", strtotime($row['date_registered'])); ?></small>
+              </div>
+              <!-- <div class="col-4 text-center">
+                <a href="#">Followers</a>
+              </div>
+              <div class="col-4 text-center">
+                <a href="#">Sales</a>
+              </div>
+              <div class="col-4 text-center">
+                <a href="#">Friends</a>
+              </div> -->
+            </div>
+            <!-- /.row -->
+          </li>
+          <!-- Menu Footer-->
+          <li class="user-footer">
+            <a href="profile.php" class="btn btn-default btn-flat">Profile</a>
+            <a href="#" class="btn btn-default btn-flat float-right" onclick="logout()">Sign out</a>
+          </li>
+        </ul>
+      </li>
 
       <!-- FULL SCREEN -->
-     <!--  <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
-      </li> -->
+      </li>
       <!-- END FULL SCREEN -->
-      <!-- <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li> -->
+      
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -215,30 +247,31 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="dashboard.php" class="brand-link">
-      <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
-      <span class="brand-text font-weight-light ml-1">iCensus</span>
-      <br>
-      <span class="brand-text text-sm ml-5 font-weight-light">&nbsp;&nbsp;&nbsp;Pasig City - Brgy. 193</span>
+    <a href="dashboard.php" class="brand-link text-center">
+      <div class="d-flex m-1 justify-content-center">
+        <img src="../images/logo2.png" alt="BMS Logo" class="brand-image">
+      </div>
+      <!-- <span class="brand-text font-weight-light ml-1">BMS</span> -->
+      <span class="text-sm  font-weight-light mt-2">Pasig City - Brgy. 193</span>
     </a>
 
 
     <!-- Sidebar -->
     <div class="sidebar">
+
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-4 pb-2 pt-2 mb-3 d-flex">
+      <!-- <div class="user-panel mt-4 pb-2 pt-3 mb-3 d-flex">
         <div class="image">
-          <?php if($row['image'] == ""): ?>
+          <?php //if($row['image'] == ""): ?>
           <img src="../dist/img/avatar.png" alt="User Avatar" class="img-size-50 img-circle">
-          <?php else: ?>
-          <img src="../images-users/<?php echo $row['image']; ?>" alt="User Image" style="height: 34px; width: 34px; border-radius: 50%;">
-          <?php endif; ?>
+          <?php //else: ?>
+          <img src="../images-users/<?php //echo $row['image']; ?>" alt="User Image" style="height: 34px; width: 34px; border-radius: 50%;">
+          <?php //endif; ?>
         </div>
         <div class="info">
-          <a href="profile.php" class="d-block"><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></a>
+          <a href="profile.php" class="d-block"><?php //echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></a>
         </div>
-      </div>
-
+      </div> -->
       
 
       <!-- SidebarSearch Form -->
@@ -254,7 +287,7 @@
         </div> -->
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
+      <nav class="mt-5">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
           <!-- DROPDOWN NAVIGATION LINK -->
@@ -275,7 +308,7 @@
               </li>
             </ul>
           </li> -->
-
+       
           <li class="nav-item">
             <a href="dashboard.php" class="nav-link bg-gradient-primary active"><i class="fa-solid fa-gauge"></i><p>&nbsp;&nbsp; Dashboard</p></a>
           </li>
@@ -311,7 +344,7 @@
             <a href="users.php" class="nav-link"><i class="fa-solid fa-user-secret"></i><p>&nbsp;&nbsp; Accounts</p></a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fa-solid fa-palette"></i><p>&nbsp;&nbsp; Customize</p></a>
+            <a href="customize.php" class="nav-link"><i class="fa-solid fa-palette"></i><p>&nbsp;&nbsp; Customize</p></a>
           </li>
 
         </ul>

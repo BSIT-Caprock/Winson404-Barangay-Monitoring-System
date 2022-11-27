@@ -14,8 +14,8 @@
           <h6 class="text-center">Delete resident record?</h6>
       </div>
       <div class="modal-footer alert-light">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
-        <button type="submit" class="btn bg-gradient-primary" name="delete_resident"><i class="fa-solid fa-trash-can"></i> Delete</button>
+        <button type="button" class="btn bg-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+        <button type="submit" class="btn bg-danger" name="delete_resident"><i class="fas fa-trash"></i> Delete</button>
       </div>
         </form>
     </div>

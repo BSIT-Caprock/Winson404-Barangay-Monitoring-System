@@ -15,7 +15,7 @@
           <input type="hidden" class="form-control" value="<?php echo $row['user_Id']; ?>" name="user_Id">
           <div class="col-lg-6">
             <div class="form-group">
-              <label>Usertype</label>
+              <span><b>Usertype</b></span>
               <select class="custom-select" name="usertype" required disabled>
                   <option value="Staff" <?php if($row['user_type'] == 'Staff') { echo 'selected'; } ?> >Staff</option>
                   <option value="Admin" <?php if($row['user_type'] == 'Admin') { echo 'selected'; } ?> >Admin</option>
@@ -25,35 +25,35 @@
             </div>
           </div>
            <div class="col-lg-6">
-              <label>Username</label>
+              <span><b>Username</b></span>
               <input type="text" class="form-control"  placeholder="Username" name="username" required value="<?php echo $row['username']; ?>">
           </div>
           <div class="col-lg-6">
               <div class="form-group">
-                <label>First name</label>
+                <span><b>First name</b></span>
                 <input type="text" class="form-control" name="firstname" required onkeyup="lettersOnly(this)" value="<?php echo $row['firstname']; ?>">
               </div>
           </div>
           <div class="col-lg-6">
             <div class="form-group">
-                <label>Middle name</label>
+                <span><b>Middle name</b></span>
                 <input type="text" class="form-control" name="middlename" required onkeyup="lettersOnly(this)" value="<?php echo $row['middlename']; ?>">
             </div>
           </div>
           <div class="col-lg-6">
               <div class="form-group">
-                <label>Last name</label>
+                <span><b>Last name</b></span>
                 <input type="text" class="form-control" name="lastname" required onkeyup="lettersOnly(this)" value="<?php echo $row['lastname']; ?>">
               </div>
           </div>
           <div class="col-lg-6">
             <div class="form-group">
-              <label>Suffix name</label>
+              <span><b>Suffix name</b></span>
               <input type="text" class="form-control" name="suffix" onkeyup="lettersOnly(this)" value="<?php echo $row['suffix']; ?>">
             </div>
           </div>
           <div class="col-auto form-group col-lg-6">
-              <label for="contact">Contact number</label>
+              <span><b>Contact number</b></span>
               <div class="input-group">
                 <div class="input-group-text">+63</div>
                 <input type="tel" class="form-control" pattern="[7-9]{1}[0-9]{9}" id="contact" name="contact" placeholder = "9123456789" required maxlength="10" value="<?php echo $row['contact']; ?>">
@@ -61,7 +61,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                  <label>Email address</label>
+                   <span><b>Email address</b></span>
                   <input type="email" class="form-control" id="update_email" name="email" placeholder = "email@gmail.com" required onkeydown="update_validation()" onkeyup="update_validation()" value="<?php echo $row['email']; ?>">
                   <small id="update_text" style="font-style: italic;"></small>
                 </div>
@@ -69,8 +69,8 @@
       </div>
       </div>
       <div class="modal-footer alert-light">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
-        <button type="submit" class="btn bg-gradient-primary" name="update_system_user" id="admin_update"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
+        <button type="button" class="btn bg-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+        <button type="submit" class="btn bg-info" name="update_system_user" id="admin_update"><i class="fas fa-pencil-alt"></i> Update</button>
       </div>
       </form>
     </div>
@@ -124,8 +124,8 @@
           <h6 class="text-center">Delete System User record?</h6>
       </div>
       <div class="modal-footer alert-light">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
-        <button type="submit" class="btn bg-gradient-primary" name="delete_system_user"><i class="fa-solid fa-trash-can"></i> Delete</button>
+        <button type="button" class="btn bg-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+        <button type="submit" class="btn bg-danger" name="delete_system_user"><i class="fas fa-trash"></i> Delete</button>
       </div>
         </form>
     </div>
@@ -164,7 +164,7 @@
       </div>
       <div class="modal-footer alert-light">
         <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
-        <button type="submit" class="btn bg-gradient-primary" name="password_system_user" id="new_create"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
+        <button type="submit" class="btn bg-info" name="password_system_user" id="new_create"><i class="fas fa-pencil-alt"></i> Update</button>
       </div>
         </form>
     </div>

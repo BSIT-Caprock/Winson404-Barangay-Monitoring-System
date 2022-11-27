@@ -245,13 +245,24 @@
                           <div class="form-group" id="user_preview">
                           </div>
                       </div>
-                        <div class="col-lg-10 ">
-                            <div class="form-group">
-                              <label for="Upload image" class=" col-form-label">Upload image</label>
-                              <input type="file" class=" form-control-file" name="fileToUpload" required id="Upload image" onchange="newgetImagePreview(event)">
+                      <div class="col-lg-10">
+                        <div class="form-group">
+                          <span class="text-dark"><b>Update profile</b></span>
+                          <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="exampleInputFile" name="fileToUpload" onchange="newgetImagePreview(event)" required>
+                              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
-                            <hr>
-                       </div>
+                            <div class="input-group-append">
+                              <span class="input-group-text">Upload</span>
+                            </div>
+
+                          </div>
+                          <p class="help-block text-danger">Max. 500KB</p>
+                        </div>
+                        <hr>
+                     </div>
+
                       </div>
                      <div class="ml-3">
                        <button type="submit" class="ml-5 btn bg-gradient-primary" name="update_profile_admin">Submit</button>

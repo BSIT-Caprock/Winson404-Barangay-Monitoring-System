@@ -290,9 +290,27 @@
 	        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 	        $uploadOk = 1;
 	        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+	        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			if($check == false) {
+			    $_SESSION['message']  = "Resident file is not an image.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header('Location: resident_update.php?residenceId='.$residenceId.'');
+		    	$uploadOk = 0;
+		    } 
+
+			// Check file size // 500KB max size
+			elseif ($_FILES["fileToUpload"]["size"] > 500000) {
+			  	$_SESSION['message']  = "Resident file must be up to 500KB in size.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header('Location: resident_update.php?residenceId='.$residenceId.'');
+		    	$uploadOk = 0;
+			}
 	  
 	        // Allow certain file formats
-	        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+	        elseif($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
 	        $_SESSION['message']  = "Only JPG, JPEG, PNG & GIF files are allowed.";
 	        $_SESSION['text'] = "Please try again.";
 	        $_SESSION['status'] = "error";
@@ -301,7 +319,7 @@
 	        }
 
 	        // Check if $uploadOk is set to 0 by an error
-	        if ($uploadOk == 0) {
+	        elseif ($uploadOk == 0) {
 	        $_SESSION['message']  = "Your file was not uploaded.";
 	        $_SESSION['text'] = "Please try again.";
 	        $_SESSION['status'] = "error";
@@ -340,8 +358,26 @@
 		    $sign_uploadOk = 1;
 		    $sign_imageFileType = strtolower(pathinfo($sign_target_file,PATHINFO_EXTENSION));
 
+		    $check = getimagesize($_FILES["signature"]["tmp_name"]);
+			if($check == false) {
+			    $_SESSION['message']  = "Digital signature is not an image.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header('Location: resident_update.php?residenceId='.$residenceId.'');
+		    	$uploadOk = 0;
+		    } 
+
+			// Check file size // 500KB max size
+			elseif ($_FILES["signature"]["size"] > 500000) {
+			  	$_SESSION['message']  = "Digital signature must be up to 500KB in size.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header('Location: resident_update.php?residenceId='.$residenceId.'');
+		    	$uploadOk = 0;
+			}
+
 		    // Allow certain file formats
-		    if($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
+		    elseif($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
 			    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
 			    $_SESSION['text'] = "Please try again.";
 			    $_SESSION['status'] = "error";
@@ -350,7 +386,7 @@
 		    }
 
 		    // Check if $sign_uploadOk is set to 0 by an error
-		    if ($sign_uploadOk == 0) {
+		    elseif ($sign_uploadOk == 0) {
 			    $_SESSION['message'] = "Your file was not uploaded.";
 			    $_SESSION['text'] = "Please try again.";
 			    $_SESSION['status'] = "error";
@@ -389,9 +425,26 @@
 		    $uploadOk = 1;
 		    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
+		    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			if($check == false) {
+			    $_SESSION['message']  = "Resident file is not an image.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header('Location: resident_update.php?residenceId='.$residenceId.'');
+		    	$uploadOk = 0;
+		    } 
+
+			// Check file size // 500KB max size
+			elseif ($_FILES["fileToUpload"]["size"] > 500000) {
+			  	$_SESSION['message']  = "Resident file must be up to 500KB in size.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header('Location: resident_update.php?residenceId='.$residenceId.'');
+		    	$uploadOk = 0;
+			}
 
 		    // Allow certain file formats
-		    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+		    elseif($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
 			    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
 			    $_SESSION['text'] = "Please try again.";
 			    $_SESSION['status'] = "error";
@@ -400,7 +453,7 @@
 		    }
 
 		    // Check if $uploadOk is set to 0 by an error
-		    if ($uploadOk == 0) {
+		    elseif ($uploadOk == 0) {
 			    $_SESSION['message'] = "Your file was not uploaded.";
 			    $_SESSION['text'] = "Please try again.";
 			    $_SESSION['status'] = "error";
@@ -417,8 +470,26 @@
 				    $sign_uploadOk = 1;
 				    $sign_imageFileType = strtolower(pathinfo($sign_target_file,PATHINFO_EXTENSION));
 
+				    $check = getimagesize($_FILES["signature"]["tmp_name"]);
+					if($check == false) {
+					    $_SESSION['message']  = "Digital signature is not an image.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header('Location: resident_update.php?residenceId='.$residenceId.'');
+				    	$uploadOk = 0;
+				    } 
+
+					// Check file size // 500KB max size
+					elseif ($_FILES["signature"]["size"] > 500000) {
+					  	$_SESSION['message']  = "Digital signature must be up to 500KB in size.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header('Location: resident_update.php?residenceId='.$residenceId.'');
+				    	$uploadOk = 0;
+					}
+
 				    // Allow certain file formats
-				    if($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
+				    elseif($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
 					    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
 					    $_SESSION['text'] = "Please try again.";
 					    $_SESSION['status'] = "error";
@@ -427,7 +498,7 @@
 				    }
 
 				    // Check if $sign_uploadOk is set to 0 by an error
-				    if ($sign_uploadOk == 0) {
+				    elseif ($sign_uploadOk == 0) {
 					    $_SESSION['message'] = "Your file was not uploaded.";
 					    $_SESSION['text'] = "Please try again.";
 					    $_SESSION['status'] = "error";
@@ -650,8 +721,26 @@
 	    $uploadOk = 1;
 	    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
+	    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+		if($check == false) {
+		    $_SESSION['message']  = "Selected file is not an image.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: profile.php");
+	    	$uploadOk = 0;
+	    } 
+
+		// Check file size // 500KB max size
+		elseif ($_FILES["fileToUpload"]["size"] > 500000) {
+		  	$_SESSION['message']  = "File must be up to 500KB in size.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: profile.php");
+	    	$uploadOk = 0;
+		}
+
 	    // Allow certain file formats
-	    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+	    elseif($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
 		    $_SESSION['message']  = "Only JPG, JPEG, PNG & GIF files are allowed.";
 		    $_SESSION['text'] = "Please try again.";
 		    $_SESSION['status'] = "error";
@@ -660,7 +749,7 @@
 	    }
 
 	    // Check if $uploadOk is set to 0 by an error
-	    if ($uploadOk == 0) {
+	    elseif ($uploadOk == 0) {
 		    $_SESSION['message']  = "Your file was not uploaded.";
 		    $_SESSION['text'] = "Please try again.";
 		    $_SESSION['status'] = "error";
@@ -760,21 +849,39 @@
 				    $sign_uploadOk = 1;
 				    $sign_imageFileType = strtolower(pathinfo($sign_target_file,PATHINFO_EXTENSION));
 
+				    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+					if($check == false) {
+					    $_SESSION['message']  = "Signature file is not an image.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header("Location: officials.php");
+				    	$uploadOk = 0;
+				    } 
+
+					// Check file size // 500KB max size
+					elseif ($_FILES["fileToUpload"]["size"] > 500000) {
+					  	$_SESSION['message']  = "File must be up to 500KB in size.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header("Location: officials.php");
+				    	$uploadOk = 0;
+					}
+
 				    // Allow certain file formats
-				    if($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
+				    elseif($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
 					    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
 					    $_SESSION['text'] = "Please try again.";
 					    $_SESSION['status'] = "error";
-						header("Location: resident_add.php");
+						header("Location: officials.php");
 					    $sign_uploadOk = 0;
 				    }
 
 				    // Check if $sign_uploadOk is set to 0 by an error
-				    if ($sign_uploadOk == 0) {
+				    elseif ($sign_uploadOk == 0) {
 					    $_SESSION['message'] = "Your file was not uploaded.";
 					    $_SESSION['text'] = "Please try again.";
 					    $_SESSION['status'] = "error";
-						header("Location: resident_add.php");
+						header("Location: officials.php");
 
 				    // if everything is ok, try to upload file
 				    } else {
@@ -814,21 +921,39 @@
 				    $sign_uploadOk = 1;
 				    $sign_imageFileType = strtolower(pathinfo($sign_target_file,PATHINFO_EXTENSION));
 
+				    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+					if($check == false) {
+					    $_SESSION['message']  = "Official signature file is not an image.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header("Location: officials.php");
+				    	$uploadOk = 0;
+				    } 
+
+					// Check file size // 500KB max size
+					elseif ($_FILES["fileToUpload"]["size"] > 500000) {
+					  	$_SESSION['message']  = "File must be up to 500KB in size.";
+					    $_SESSION['text'] = "Please try again.";
+					    $_SESSION['status'] = "error";
+						header("Location: officials.php");
+				    	$uploadOk = 0;
+					}
+
 				    // Allow certain file formats
-				    if($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
+				    elseif($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
 					    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
 					    $_SESSION['text'] = "Please try again.";
 					    $_SESSION['status'] = "error";
-						header("Location: resident_add.php");
+						header("Location: officials.php");
 					    $sign_uploadOk = 0;
 				    }
 
 				    // Check if $sign_uploadOk is set to 0 by an error
-				    if ($sign_uploadOk == 0) {
+				    elseif ($sign_uploadOk == 0) {
 					    $_SESSION['message'] = "Your file was not uploaded.";
 					    $_SESSION['text'] = "Please try again.";
 					    $_SESSION['status'] = "error";
-						header("Location: resident_add.php");
+						header("Location: officials.php");
 
 				    // if everything is ok, try to upload file
 				    } else {
@@ -857,6 +982,136 @@
 			}
 		}
 	}
+
+
+
+	// UPDATE CUSTOMIZATION - CUSTOMIZE_UPDATE_DELETE.PHP
+	if(isset($_POST['update_customization'])) {
+		$customID = $_POST['customID'];
+		$file     = basename($_FILES["fileToUpload"]["name"]);
+		
+		$exist = mysqli_query($conn, "SELECT * FROM customization WHERE customID='$customID'");	
+		$row = mysqli_fetch_array($exist);
+		if($file == $row['picture']) {
+			$_SESSION['message'] = "Image is still the same.";
+            $_SESSION['text'] = "Please try again.";
+	        $_SESSION['status'] = "error";
+			header("Location: customize.php");
+		} else {
+
+			// Check if image file is a actual image or fake image
+			$sign_target_dir = "../images-customization/";
+			$sign_target_file = $sign_target_dir . basename($_FILES["fileToUpload"]["name"]);
+			$sign_uploadOk = 1;
+			$sign_imageFileType = strtolower(pathinfo($sign_target_file,PATHINFO_EXTENSION));
+
+			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			if($check == false) {
+			    $_SESSION['message']  = "Signature file is not an image.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header("Location: customize.php");
+				$uploadOk = 0;
+			} 
+
+			// Check file size // 500KB max size
+			elseif ($_FILES["fileToUpload"]["size"] > 500000) {
+			  	$_SESSION['message']  = "File must be up to 500KB in size.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header("Location: customize.php");
+				$uploadOk = 0;
+			}
+
+			// Allow certain file formats
+			elseif($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
+			    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header("Location: customize.php");
+			    $sign_uploadOk = 0;
+			}
+
+			// Check if $sign_uploadOk is set to 0 by an error
+			elseif ($sign_uploadOk == 0) {
+			    $_SESSION['message'] = "Your file was not uploaded.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header("Location: customize.php");
+
+			// if everything is ok, try to upload file
+			} else {
+
+				if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $sign_target_file)) {
+					$update = mysqli_query($conn, "UPDATE customization SET picture='$file' WHERE customID='$customID' ");
+					if($update) {
+			        	$_SESSION['message'] = "Image customization has been updated!";
+			            $_SESSION['text'] = "Updated successfully!";
+				        $_SESSION['status'] = "success";
+						header("Location: customize.php");
+			        } else {
+			            $_SESSION['message'] = "Something went wrong while updating the information.";
+			            $_SESSION['text'] = "Please try again.";
+				        $_SESSION['status'] = "error";
+						header("Location: customize.php");
+			        }  	
+				} else {
+					$_SESSION['message'] = "There was an error uploading your digital signature.";
+			    	$_SESSION['text'] = "Please try again.";
+			        $_SESSION['status'] = "error";
+					header("Location: customize.php");
+				}
+			}
+		}
+	}
+
+
+
+
+		// SET ACTIVE - CUSTOMIZE_UPDATE_DELETE.PHP
+		if(isset($_POST['setActive_customization'])) {
+
+			$customID = $_POST['customID'];
+
+			$exist = mysqli_query($conn, "SELECT * FROM customization WHERE status='Active' ");
+			
+			if(mysqli_num_rows($exist) > 0) {
+				$update = mysqli_query($conn, "UPDATE customization SET status='Inactive'");
+				if($update) {
+					$update2 = mysqli_query($conn, "UPDATE customization SET status='Active' WHERE customID='$customID'");
+		        	if($update2) {
+		        		$_SESSION['message'] = "Image is now Active.";
+			            $_SESSION['text'] = "Updated successfully!";
+				        $_SESSION['status'] = "success";
+						header("Location: customize.php");
+					} else {
+						$_SESSION['message'] = "Something went wrong while settings the image as Active.";
+			            $_SESSION['text'] = "Please try again.";
+				        $_SESSION['status'] = "error";
+						header("Location: customize.php");
+					}
+		        } else {
+		            $_SESSION['message'] = "Something went wrong while settings the image as Active.";
+		            $_SESSION['text'] = "Please try again.";
+			        $_SESSION['status'] = "error";
+					header("Location: customize.php");
+		        }  
+			} else {
+				$update2 = mysqli_query($conn, "UPDATE customization SET status='Active' WHERE customID='$customID'");
+		    	if($update2) {
+		    		$_SESSION['message'] = "Image is now Active.";
+		            $_SESSION['text'] = "Updated successfully!";
+			        $_SESSION['status'] = "success";
+					header("Location: customize.php");
+				} else {
+					$_SESSION['message'] = "Something went wrong while settings the image as Active.";
+		            $_SESSION['text'] = "Please try again.";
+			        $_SESSION['status'] = "error";
+					header("Location: customize.php");
+				}
+			}
+		}
+
 
 
 

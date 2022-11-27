@@ -12,42 +12,42 @@
         <form action="process_save.php" method="POST" enctype="multipart/form-data">
         <div class="row">
             <div class="col-lg-6 mb-2">
-                <label>Usertype</label>
+                <span><b>Usertype</b></span>
                 <select class="form-control" name="usertype" required>
                   <option value="Staff" selected>Staff</option>
                   <!-- <option value="Admin">Admin</option> -->
                 </select>
             </div>
             <div class="col-lg-6">
-                  <label>Username</label>
+                  <span><b>Username</b></span>
                   <input type="text" class="form-control"  placeholder="Username" name="username" required>
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                  <label>First name</label>
+                  <span><b>First name</b></span>
                   <input type="text" class="form-control"  placeholder="First name" name="firstname" required onkeyup="lettersOnly(this)">
                 </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                  <label>Middle name</label>
+                  <span><b>Middle name</b></span>
                   <input type="text" class="form-control"  placeholder="Middle name" name="middlename" onkeyup="lettersOnly(this)">
               </div>
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                  <label>Last name</label>
+                  <span><b>Last name</b></span>
                   <input type="text" class="form-control"  placeholder="Last name" name="lastname" required onkeyup="lettersOnly(this)">
                 </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label>Suffix name</label>
+                <span><b>Suffix name</b></span>
                 <input type="text" class="form-control"  placeholder="Jr./Sr." name="suffix">
               </div>
             </div>
             <div class="col-auto form-group col-lg-6">
-              <label for="contact">Contact number</label>
+              <span><b>Contact number</b></span>
               <div class="input-group">
                 <div class="input-group-text">+63</div>
                 <input type="tel" class="form-control" pattern="[7-9]{1}[0-9]{9}" id="contact" name="contact" placeholder = "9123456789" required maxlength="10">
@@ -55,20 +55,20 @@
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                  <label>Email address</label>
+                  <span><b>Email address</b></span>
                   <input type="email" class="form-control" id="email" name="email" placeholder = "email@gmail.com" required onkeydown="validation()" onkeyup="validation()">
                   <small id="text" style="font-style: italic;"></small>
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                  <label>Password</label>
+                  <span><b>Password</b></span>
                   <input type="password" class="form-control"  placeholder="Password" name="password" required id="password" minlength="8">
                 </div>
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                  <label>Confirm password</label>
+                  <span><b>Confirm password</b></span>
                   <input type="password" class="form-control" placeholder="Confirm password" name="cpassword" required id="cpassword" onkeyup="validate_password()" minlength="8">
                   <small id="wrong_pass_alert" style="font-style: italic;"></small>
                 </div>
@@ -76,8 +76,8 @@
         </div>
       </div>
       <div class="modal-footer alert-light">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
-        <button type="submit" class="btn bg-gradient-primary" name="create_system_user" id="create_admin"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
+        <button type="button" class="btn bg-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+        <button type="submit" class="btn bg-primary" name="create_system_user" id="create_admin"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
       </div>
       </form>
     </div>

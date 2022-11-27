@@ -15,7 +15,7 @@
 
             <div class="col-lg-6">
               <div class="form-group">
-                <label>Position</label>
+                <span><b>Position</b></span>
                 <input type="text" class="form-control"  placeholder="Position" name="position" required value="<?php echo $row['position']; ?>">
               </div>
             </div>
@@ -24,50 +24,60 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
-                <label>First name</label>
+                <span><b>First name</b></span>
                 <input type="text" class="form-control"  placeholder="First name" name="firstname" required onkeyup="lettersOnly(this)" value="<?php echo $row['firstname']; ?>">
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label>Middle name</label>
+                <span><b>Middle name</b></span>
                 <input type="text" class="form-control"  placeholder="Middle name" name="middlename" onkeyup="lettersOnly(this)" value="<?php echo $row['middlename']; ?>">
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label>Last name</label>
+                <span><b>Last name</b></span>
                 <input type="text" class="form-control"  placeholder="Last name" name="lastname" required onkeyup="lettersOnly(this)" value="<?php echo $row['lastname']; ?>">
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
-                <label>Suffix name</label>
+                <span><b>Suffix name</b></span>
                 <input type="text" class="form-control"  placeholder="Jr./Sr." name="suffix" value="<?php echo $row['suffix']; ?>">
               </div>
             </div>
             <div class="col-lg-12">
                 <div class="form-group">
-                  <label>Description</label>
+                  <span><b>Description</b></span>
                   <textarea class="form-control" id="" placeholder="Description" cols="30" rows="2" name="description" required><?php echo $row['description']; ?></textarea>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-8">
                 <div class="form-group">
-                  <label for="Upload image" class=" col-form-label">Upload signature</label>
-                  <input type="file" class=" form-control-file" name="fileToUpload" id="Upload image" onchange="imgPreview(event)">
+                  <span class="text-dark"><b>Official's signature</b></span>
+                  <div class="input-group">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="exampleInputFile" name="fileToUpload" onchange="imgPreview(event)">
+                      <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <span class="input-group-text">Upload</span>
+                    </div>
+
+                  </div>
+                  <p class="help-block text-danger">Max. 500KB</p>
                 </div>
             </div>
             <!-- LOAD IMAGE PREVIEW -->
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="form-group" id="preview">
                 </div>
             </div>
           </div>
       </div>
       <div class="modal-footer alert-light">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
-        <button type="submit" class="btn bg-gradient-primary" name="update_official"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
+        <button type="button" class="btn bg-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+        <button type="submit" class="btn bg-info" name="update_official"><i class="fas fa-pencil-alt"></i> Update</button>
       </div>
       </form>
     </div>
@@ -112,8 +122,8 @@
           <h6 class="text-center">Delete Barangay Official record?</h6>
       </div>
       <div class="modal-footer alert-light">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
-        <button type="submit" class="btn bg-gradient-primary" name="delete_official"><i class="fa-solid fa-trash-can"></i> Delete</button>
+        <button type="button" class="btn bg-secondary" data-dismiss="modal"><i class="fa-solid fa-ban"></i> Cancel</button>
+        <button type="submit" class="btn bg-danger" name="delete_official"><i class="fas fa-trash"></i> Delete</button>
       </div>
         </form>
     </div>

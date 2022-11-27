@@ -28,7 +28,13 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header p-2">
-                <a href="resident_add.php" class="float-right mr-2 btn bg-gradient-primary btn-sm"><i class="fa-sharp fa-solid fa-square-plus"></i> New Resident</a>
+                <a href="resident_add.php" class="btn btn-sm bg-primary ml-2"><i class="fa-sharp fa-solid fa-square-plus"></i> New Resident</a>
+
+                <div class="card-tools mr-1 mt-3">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
               </div>
               <div class="card-body p-3">
 
@@ -65,12 +71,12 @@
                             } else {
                               echo '<i class="fa-solid fa-circle-dot text-danger"></i> '.$row['resident_status'].'';
                             }
-
                           ?>
                         </td>
                         <td>
-                          <a class="btn btn-sm bg-gradient-success" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                          <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-trash-can"></i></button>
+                          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#update<?php //echo $row['officialID']; ?>"><i class="fas fa-folder"></i> View(On-going)</button>
+                          <a class="btn btn-info btn-sm" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-pencil-alt"></i> Edit</a>
+                          <button type="button" class="btn bg-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['residenceId']; ?>"><i class="fas fa-trash"></i> Delete</button>
                         </td> 
                     </tr>
 
@@ -91,3 +97,6 @@
   </div>
 
 <?php include 'footer.php';  ?>
+<!-- <script>
+  window.addEventListener("load", window.print());
+</script> -->

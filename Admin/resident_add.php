@@ -247,49 +247,55 @@
                               <input type="number" class="form-control"  placeholder="Years of stay" name="years_of_stay" required>
                             </div>
                         </div>
-                        <!-- <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                          <div class="form-group">
-                            <span class="text-dark"><b>Resident picture</b></span><br>
-                            <div class="btn btn-default btn-file">
-                              <i class="fas fa-paperclip"></i>Attachment
-                              <input type="file" name="attachment" name="fileToUpload" onchange="getImagePreview(event)" required>
-                            </div>
-                            <p class="help-block">Max. 32MB</p>
-                          </div>
-                        </div> -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Resident picture</b></span>
-                              <input type="file" class="form-control-file" name="fileToUpload" onchange="getImagePreview(event)" required>
+                              <div class="input-group">
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="exampleInputFile" name="fileToUpload" onchange="getImagePreview(event)" required>
+                                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                  <span class="input-group-text">Upload</span>
+                                </div>
+
+                              </div>
+                              <p class="help-block text-danger">Max. 500KB</p>
                             </div>
                         </div>
                          <!-- LOAD IMAGE PREVIEW -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2">
                             <div class="form-group" id="preview">
                             </div>
                         </div>
-
-
-
-
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Digital signature</b></span>
-                              <input type="file" class="form-control-file" name="signature" onchange="signaturess(event)" required>
+                              <div class="input-group">
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="exampleInputFile" name="signature" onchange="signaturess(event)" required>
+                                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                  <span class="input-group-text">Upload</span>
+                                </div>
+
+                              </div>
+                              <p class="help-block text-danger">Max. 500KB</p>
                             </div>
                         </div>
                          <!-- LOAD IMAGE PREVIEW -->
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-2">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2">
                             <div class="form-group" id="qrpreview">
                             </div>
                         </div>
+
                     </div>
+                    <!-- END ROW -->
                     <hr>
                     <div class="float-right">
-                      <a href="resident.php" class="btn btn-secondary"><i class="fa-solid fa-ban"></i> Cancel</a>
-                      <button type="submit" class="btn bg-gradient-primary" name="create_resident" id="create_admin"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
+                      <a href="resident.php" class="btn bg-secondary"><i class="fa-solid fa-ban"></i> Cancel</a>
+                      <button type="submit" class="btn bg-primary" name="create_resident" id="create_admin"><i class="fa-solid fa-floppy-disk"></i> Submit</button>
                     </div>
                     </form>
 

@@ -28,7 +28,13 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header p-2">
-                <button type="button" class="float-right mr-2 btn bg-gradient-primary btn-sm" data-toggle="modal" data-target="#add_users"><i class="fa-sharp fa-solid fa-square-plus"></i> New Official</button>
+                <button type="button" class="btn btn-sm bg-primary ml-2" data-toggle="modal" data-target="#add_users"><i class="fa-sharp fa-solid fa-square-plus"></i> New Official</button>
+
+                <div class="card-tools mr-1 mt-3">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                </div>
               </div>
               <div class="card-body p-3">
 
@@ -67,8 +73,9 @@
                         <td><?php echo $row['description']; ?></td>
                         <td><?php echo $row['date_registered']; ?></td>
                         <td>
-                          <button type="button" class="btn btn-sm bg-gradient-success" data-toggle="modal" data-target="#update<?php echo $row['officialID']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
-                          <button type="button" class="btn btn-sm bg-gradient-danger" data-toggle="modal" data-target="#delete<?php echo $row['officialID']; ?>"><i class="fa-solid fa-trash-can"></i></button>
+                          <!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#update<?php //echo $row['officialID']; ?>"><i class="fas fa-folder"></i> View</button> -->
+                          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update<?php echo $row['officialID']; ?>"><i class="fas fa-pencil-alt"></i> Edit</button>
+                          <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['officialID']; ?>"><i class="fas fa-trash"></i> Delete</button>
                         </td> 
                     </tr>
                     <?php include 'officials_update_delete.php'; } } else { ?>
