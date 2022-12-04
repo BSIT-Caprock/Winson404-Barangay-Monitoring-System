@@ -72,7 +72,7 @@
               <div class="inner">
                 <h5 class="text-center mt-4 p-2">Barangay Clearance</h5>
               </div>
-              <a href="#" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="brgyClearance.php" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-12">
