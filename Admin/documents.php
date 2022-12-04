@@ -35,27 +35,27 @@
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="small-box card">
+            <div class="small-box card  bg-info">
               <div class="inner">
                 <h5 class="text-center mt-4 p-2">Indigency Certificate</h5>
               </div>
-              <a href="#" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="cert_brgyIndigency.php" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="small-box card">
+            <div class="small-box card  bg-info">
               <div class="inner">
                 <h5 class="text-center mt-4 p-2">Residency Certificate</h5>
               </div>
-              <a href="#" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="cert_brgyResidency.php" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="small-box card">
+            <div class="small-box card bg-info">
               <div class="inner">
                 <h5 class="text-center mt-4 p-2">First Time Job Seeker Certificate</h5>
               </div>
-              <a href="#" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="cert_brgyJobseeker.php" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
 
@@ -68,19 +68,19 @@
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="small-box card">
+            <div class="small-box card  bg-info">
               <div class="inner">
                 <h5 class="text-center mt-4 p-2">Barangay Clearance</h5>
               </div>
-              <a href="brgyClearance.php" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="cert_brgyClearance.php" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="small-box card">
+            <div class="small-box card bg-info">
               <div class="inner">
                 <h5 class="text-center mt-4 p-2">Barangay Construction Clearance</h5>
               </div>
-              <a href="#" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="cert_brgyConstruction.php" class="small-box-footer text-dark">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-md-6 col-sm-6 col-12">
