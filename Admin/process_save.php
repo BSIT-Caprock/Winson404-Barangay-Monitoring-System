@@ -1,5 +1,6 @@
 <?php 
 	include '../config.php';
+	date_default_timezone_set('Asia/Manila');
 
 	// SAVE SYSTEM USER - USERS_ADD.PHP
 	if(isset($_POST['create_system_user'])) {
@@ -401,7 +402,7 @@
 
 
 
-
+	// SAVE CUSTOMIZATION - CUSTOMIZATION_ADD.PHP
 	if(isset($_POST['create_customization'])) {
 		$file            = basename($_FILES["fileToUpload"]["name"]);
 		$date_registered = date('Y-m-d');
@@ -494,6 +495,258 @@
 
 
 
+// ACQUIRE INDIGENCY - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_Indigency'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'Barangay Indigency';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = mysqli_real_escape_string($conn, $_POST['purpose']);
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+
+		  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyIndigency.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=indigency");
+		  }  
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=indigency");
+	  } 
+
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+	// $type          = 'Barangay Indigency';
+	// $residenceId   = $_POST['residenceId'];
+	// $purpose       = $_POST['purpose'];
+	// $paidAmount    = $_POST['paidAmount'];
+	// $date_acquired = date('Y-m-d');
+	// $save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	//   if($save) {
+	// 	header('Location: cert_brgyIndigency.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+	//   } else {
+	//     $_SESSION['message'] = "Something went wrong while saving the information.";
+	//     $_SESSION['text'] = "Please try again.";
+	//     $_SESSION['status'] = "error";
+	// 	header("Location: documents_requirements.php?page=indigency");
+	//   }   
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+}
+
+
+// ACQUIRE RESIDENCY - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_Residency'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'Barangay Residency';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = mysqli_real_escape_string($conn, $_POST['purpose']);
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+	  	  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyResidency.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=indigency");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=Residency");
+	  } 
+
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+    // $type          = 'Barangay Residency';
+	// $residenceId   = $_POST['residenceId'];
+	// $purpose       = $_POST['purpose'];
+	// $paidAmount    = $_POST['paidAmount'];
+	// $date_acquired = date('Y-m-d');
+	// $save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	//   if($save) {
+	// 	header('Location: cert_brgyResidency.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+	//   } else {
+	//     $_SESSION['message'] = "Something went wrong while saving the information.";
+	//     $_SESSION['text'] = "Please try again.";
+	//     $_SESSION['status'] = "error";
+	// 	header("Location: documents_requirements.php?page=Residency");
+	//   }  
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+}
+
+
+
+// ACQUIRE JOB SEEKER CERT. - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_Job'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'First Time Job Seeker';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = 'Get First Time Job Seeker Certificate';
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+  		  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyJobseeker.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=indigency");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=JobSeeker");
+	  }  
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+	// $type          = 'First Time Job Seeker';
+	// $residenceId   = $_POST['residenceId'];
+	// $purpose       = 'Get First Time Job Seeker Certificate';
+	// $paidAmount    = $_POST['paidAmount'];
+	// $date_acquired = date('Y-m-d');
+	// $save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	//   if($save) {
+	// 	header('Location: cert_brgyJobseeker.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+	//   } else {
+	//     $_SESSION['message'] = "Something went wrong while saving the information.";
+	//     $_SESSION['text'] = "Please try again.";
+	//     $_SESSION['status'] = "error";
+	// 	header("Location: documents_requirements.php?page=JobSeeker");
+	//   } 
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+}
+
+
+
+
+
+
+// ACQUIRE NON-RESIDENCY CERT. - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_NonResident'])) {
+
+	$adminId	     = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type            = 'Brgy. Non-Residency';
+	$nonresidentname = mysqli_real_escape_string($conn, $_POST['nonresidentname']);
+	$address    	 = mysqli_real_escape_string($conn, $_POST['address']);
+	$purpose         = 'Get Brgy. Non-Residency';
+	$paidAmount      = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired   = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, NonResident, NonResident__Address, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$nonresidentname', '$address', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$nonresidentname', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyNon-Residency.php?nonresidentname='.$nonresidentname.'&&purpose='.$purpose.'&&date='.$date_acquired.'&&address='.$address.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=indigency");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=NonResidency");
+	  }  
+
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+    // $type            = 'Brgy. Non-Residency';
+	// $nonresidentname = $_POST['nonresidentname'];
+	// $address    	 = $_POST['address'];
+	// $purpose         = 'Get Brgy. Non-Residency';
+	// $paidAmount      = $_POST['paidAmount'];
+	// $date_acquired   = date('Y-m-d');
+	// $save = mysqli_query($conn, "INSERT INTO documents (doc_type, NonResident, NonResident__Address, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$nonresidentname', '$address', '$purpose', '$paidAmount', '$date_acquired')");
+
+	//   if($save) {
+	// 	header('Location: cert_brgyNon-Residency.php?nonresidentname='.$nonresidentname.'&&purpose='.$purpose.'&&date='.$date_acquired.'&&address='.$address.'');
+	//   } else {
+	//     $_SESSION['message'] = "Something went wrong while saving the information.";
+	//     $_SESSION['text'] = "Please try again.";
+	//     $_SESSION['status'] = "error";
+	// 	header("Location: documents_requirements.php?page=NonResidency");
+	//   } 
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+}
+
+
+
+
+
+// ACQUIRE BRGY. CLEARANCE - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_BrgyClearance'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'Barangay Clearance';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = 'Get Barangay Clearance';
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyClearance.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=indigency");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=BarangayClearance");
+	  } 
+
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+	// $type            = 'Barangay Clearance';
+	// $residenceId     = $_POST['residenceId'];
+	// $purpose         = 'Get Barangay Clearance';
+	// $paidAmount      = $_POST['paidAmount'];
+	// $date_acquired   = date('Y-m-d');
+	// $save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	//   if($save) {
+	// 	header('Location: cert_brgyClearance.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+	//   } else {
+	//     $_SESSION['message'] = "Something went wrong while saving the information.";
+	//     $_SESSION['text'] = "Please try again.";
+	//     $_SESSION['status'] = "error";
+	// 	header("Location: documents_requirements.php?page=BarangayClearance");
+	//   }  
+	// ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
+}
 
 
 
@@ -501,14 +754,52 @@
 
 
 
+// CREATE/SAVE ACTIVITIY - ACTIVITY_ADD.PHP
+if(isset($_POST['create_activity'])) {
+
+	$activity       = mysqli_real_escape_string($conn, $_POST['activity']);
+	$actDate        = mysqli_real_escape_string($conn, $_POST['actDate']);
+	$date_acquired  = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO activity (actName, actDate, date_added) VALUES ('$activity', '$actDate', '$date_acquired')");
+
+	  if($save) {
+	  	$_SESSION['message'] = "New activity has been added.";
+	    $_SESSION['text'] = "Saved successfully!";
+	    $_SESSION['status'] = "success";
+		header("Location: dashboard.php?#activity");
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: dashboard.php?#activity");
+	  }
+}
 
 
 
 
 
+// SAVE NEW INCOME - BRGYINCOME_ADD.PHP
+if(isset($_POST['new_income'])) {
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$paymentType       = mysqli_real_escape_string($conn, $_POST['paymentType']);
+	$description        = mysqli_real_escape_string($conn, $_POST['description']);
+	$paidAmount        = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired  = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO income (paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$paymentType', '$description', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired')");
 
-
-
+	  if($save) {
+	  	$_SESSION['message'] = "New income record has been added.";
+	    $_SESSION['text'] = "Saved successfully!";
+	    $_SESSION['status'] = "success";
+		header("Location: brgyIncome_Add.php");
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: brgyIncome_Add.php");
+	  }
+}
 
 
 

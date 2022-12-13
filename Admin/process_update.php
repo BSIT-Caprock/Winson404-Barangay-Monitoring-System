@@ -1115,4 +1115,60 @@
 
 
 
+// UPDATE ACTIVITIY - ACTIVITY_UPDATE_DELETE.PHP
+if(isset($_POST['update_activity'])) {
+	$actId 			= $_POST['actId'];
+	$activity       = $_POST['activity'];
+	$actDate        = $_POST['actDate'];
+	$date_acquired  = date('Y-m-d');
+	$update = mysqli_query($conn, "UPDATE activity SET actName='$activity', actDate='$actDate' WHERE actId='$actId'");
+
+	  if($update) {
+	  	$_SESSION['message'] = "Activity has been updated.";
+	    $_SESSION['text'] = "Updated successfully!";
+	    $_SESSION['status'] = "success";
+		header("Location: dashboard.php?#activity");
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: dashboard.php?#activity");
+	  }
+}
+
+
+
+
+
+
+
+// UPDATE INCOME - BRGYINCOME_ADD.PHP
+if(isset($_POST['update_income'])) {
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$incomeId	   = mysqli_real_escape_string($conn, $_POST['incomeId']);
+	$paymentType   = mysqli_real_escape_string($conn, $_POST['paymentType']);
+	$description   = mysqli_real_escape_string($conn, $_POST['description']);
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+
+	$update = mysqli_query($conn, "UPDATE income SET paymentFor='$paymentType', paymentDesc='$description', paymentAmount='$paidAmount', updated_by='$adminId', date_updated='$date_acquired' WHERE incomeId='$incomeId'");
+
+	  if($update) {
+	  	$_SESSION['message'] = "Income record has been updated.";
+	    $_SESSION['text'] = "Saved successfully!";
+	    $_SESSION['status'] = "success";
+		header("Location: brgyIncome_Add.php?page=".$incomeId);
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: brgyIncome_Add.php?page=".$incomeId);
+	  }
+}
+
+
+
+
+
+
 ?>

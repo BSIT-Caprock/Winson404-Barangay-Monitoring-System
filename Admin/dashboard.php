@@ -93,10 +93,20 @@
             </div>
           </div>
 
-          <div class="col-md-12">
+          <section class="content-header">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h1 class="m-0">Activity</h1>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="col-md-12" id="activity">
             <div class="card card-info">
               <div class="card-header">
-                <h3 class="card-title">Activities</h3>
+                <button type="button" class="btn btn-sm bg-white" data-toggle="modal" data-target="#add_activity"><i class="fa-sharp fa-solid fa-square-plus"></i> New Activity</button>
                 <div class="card-tools">
                   <button type="button" class="btn btn-tool pt-3" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
@@ -104,27 +114,42 @@
                 </div>
               </div>
               <div class="card-body">
-                  <table id="example1" class="table table-bordered table-hover text-sm">
+                  <table id="examplse1" class="table table-bordered table-hover text-sm">
                   <thead>
-                  <tr>
-                    <th width="20%">DATE</th>
-                    <th width="80%">TYPE OF ACTIVTY</th>
+                  <tr class="bg-light">
+                    <th width="15%">DATE</th>
+                    <th width="65%">TYPE OF ACTIVTY</th>
+                    <th width="20%">ACTIONS</th>
                   </tr>
                   </thead>
                   <tbody id="users_data">
-                    <tr>
-                      <?php 
-                        $sql = mysqli_query($conn, "SELECT * FROM officials");
+                    <?php 
+                        $sql = mysqli_query($conn, "SELECT * FROM activity WHERE actDate >= '$date_today' ORDER BY actDate");
                         if(mysqli_num_rows($sql) > 0 ) {
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>
-                        <td><?php echo $row['date_registered']; ?></td>
-                        <td>Lorem ipsum, dolor, sit amet consectetur adipisicing elit. Error blanditiis doloribus, necessitatibus corporis. Eum cum tenetur distinctio repudiandae iste? Consectetur officia esse, nesciunt soluta voluptas quisquam eum voluptates dolorum, porro!</td>
+                    <tr>
+                        <?php if($row['actDate'] == $date_today): ?>
+                          <td class="bg-white text-bold"><?php echo $row['actDate']; ?></td>
+                          <td class="bg-white text-justify text-bold"><?php echo $row['actName']; ?></td>
+                          <td class="bg-white">
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update<?php echo $row['actId']; ?>"><i class="fas fa-pencil-alt"></i> Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['actId']; ?>"><i class="fas fa-trash"></i> Delete</button>
+                          </td>
+                        <?php else: ?>
+                          <td class="bg-grey text-muted"><?php echo $row['actDate']; ?></td>
+                          <td class="bg-grey text-muted text-justify"><?php echo $row['actName']; ?></td>
+                          <td class="bg-grey text-muted">
+                            <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#update<?php echo $row['actId']; ?>"><i class="fas fa-pencil-alt"></i> Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['actId']; ?>"><i class="fas fa-trash"></i> Delete</button>
+                          </td>
+                        <?php endif; ?>
+                          
                     </tr>
-                    <?php include 'officials_update_delete.php'; } } else { ?>
-                        <td colspan="100%" class="text-center">No record found</td>
+                    <?php include 'activity_update_delete.php'; } } else { ?>
+                        <td colspan="100%" class="text-center">No activity found</td>
                       </tr>
-                    <?php }?>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>
@@ -135,9 +160,34 @@
 
       </div>
     </section>
+    
   </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
-<?php include 'footer.php'; ?>
+<?php 
+    include 'activity_add.php';
+    include 'footer.php'; 
+
+    // $getActityToday = mysqli_query($conn, "SELECT * FROM activity WHERE actDate='$date_today'");
+    // if(mysqli_num_rows($getActityToday) > 0) {
+    //   echo "<script>
+    //         $(window).on('load', function() {
+    //             $('#reminder').modal('show');
+    //         });
+    //     </script>"; 
+    // }
+?>
+
+
 <script>
   $(function () {
 
@@ -177,7 +227,6 @@
       data: donutData,
       options: donutOptions
     })
-
 
 
 

@@ -1,5 +1,18 @@
-<?php include 'navbar.php'; ?>
-  <!-- Content Wrapper. Contains page content -->
+<?php 
+
+    include 'navbar.php'; 
+    date_default_timezone_set('Asia/Manila');
+    $dateToday = date("F d, Y");
+
+    if(isset($_GET['residenceId']) && isset($_GET['purpose']) && isset($_GET['date'])) {
+    $residenceId = $_GET['residenceId'];
+    $purpose     = $_GET['purpose'];
+    $date        = $_GET['date'];
+
+    $fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+    $row = mysqli_fetch_array($fetch);
+?>
+
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -64,7 +77,7 @@
                         <div class="col-sm-7 invoice-col text-center"></div>
                         <div class="col-sm-5 invoice-col text-center">
                           <small>Control No:__________</small><br>
-                          <small>Issued on: __________</small>
+                          <small>Issued on: <span style="text-decoration: underline;"><?php echo $dateToday; ?></span></small>
                         </div>
                       </div>
 
@@ -74,61 +87,61 @@
                               <p class="name"><strong>FIRST NAME</strong></p>
                           </div>
                           <div class="col-sm-9">
-                              <p class="name"><strong><span style="font-style: italic;">LOREM</span></strong></p>
+                              <p class="name"><strong><span style="font-style: italic;"><?php echo $row['firstname']; ?></span></strong></p>
                           </div>
                           <div class="col-sm-3">
                               <p class="name"><strong>MIDDLE NAME</strong></p>
                           </div>
                           <div class="col-sm-9">
-                              <p class="name"><strong><span style="font-style: italic;">LOREM</span></strong></p>
+                              <p class="name"><strong><span style="font-style: italic;"><?php echo $row['middlename']; ?></span></strong></p>
                           </div>
                           <div class="col-sm-3">
                               <p class="name"><strong>LAST NAME</strong></p>
                           </div>
                           <div class="col-sm-9">
-                              <p class="name"><strong><span style="font-style: italic;">LOREM</span></strong></p>
+                              <p class="name"><strong><span style="font-style: italic;"><?php echo $row['lastname']; ?></span></strong></p>
                           </div>
                           <div class="col-sm-3">
                               <p class="name"><strong>SUFFIX</strong></p>
                           </div>
                           <div class="col-sm-9">
-                              <p class="name"><strong><span style="font-style: italic;">LOREM</span></strong></p>
+                              <p class="name"><strong><span style="font-style: italic;"><?php echo $row['suffix']; ?></span></strong></p>
                           </div>
                           <div class="col-sm-3">
                               <p class="name"><strong>ADDRESS</strong></p>
                           </div>
                           <div class="col-sm-9">
-                              <p class="name"><span style="font-style: italic;">LORfsdfsEM</span></p>
+                              <p class="name"><span style="font-style: italic;"><?php echo ' '.$row['house_no'].' '.$row['street_name'].' '.$row['purok'].' '.$row['zone'].' '.$row['barangay'].' '.$row['municipality'].' '.$row['province'].' '.$row['region'].' '; ?></span></p>
                           </div>
-                          <div class="col-sm-2">
+                          <div class="col-sm-3">
                               <p class="name"><strong>BIRTHDAY</strong></p>
                           </div>
-                          <div class="col-sm-2">
-                              <p class="name"><span style="font-style: italic;">LORfsdfsEM</span></p>
+                          <div class="col-sm-3">
+                              <p class="name"><span style="font-style: italic;"><?php echo date("F d, Y", strtotime($row['dob'])); ?></span></p>
                           </div>
-                          <div class="col-sm-2">
+                          <div class="col-sm-1">
                               <p class="name"><strong>AGE</strong></p>
                           </div>
-                          <div class="col-sm-2">
-                              <p class="name"><span style="font-style: italic;">LORfsdfsEM</span></p>
+                          <div class="col-sm-5">
+                              <p class="name"><span style="font-style: italic;"><?php echo $row['age']; ?></span></p>
                           </div>
-                          <div class="col-sm-2">
+                          <div class="col-sm-3">
                               <p class="name"><strong>CITIZENSHIP</strong></p>
                           </div>
-                          <div class="col-sm-2">
-                              <p class="name"><span style="font-style: italic;">LORfsdfsEM</span></p>
+                          <div class="col-sm-3">
+                              <p class="name"><span style="font-style: italic;"><?php echo $row['citizenship']; ?></span></p>
                           </div>
                           <div class="col-sm-3">
                               <p class="name"><strong>CIVIL STATUS</strong></p>
                           </div>
                           <div class="col-sm-3">
-                              <p class="name"><span style="font-style: italic;">LORfsdfsEM</span></p>
+                              <p class="name"><span style="font-style: italic;"><?php echo $row['civilstatus']; ?></span></p>
                           </div>
                           <div class="col-sm-3">
                               <p class="name"><strong>RESIDENCE STATUS</strong></p>
                           </div>
                           <div class="col-sm-3">
-                              <p class="name"><span style="font-style: italic;">LORfsdfsEM</span></p>
+                              <p class="name"><span style="font-style: italic;"><?php echo $row['resident_status']; ?></span></p>
                           </div>
                       </div>
 
@@ -163,7 +176,7 @@
    
   </div>
  
-
+<?phP } else { include '404.php'; } ?>
 <script src="print.js"> </script>
 <?php include 'footer.php'; ?>
  

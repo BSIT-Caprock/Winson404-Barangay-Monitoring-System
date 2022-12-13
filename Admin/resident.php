@@ -43,8 +43,8 @@
                   <tr> 
                     <th>PHOTO</th>
                     <th>NAME</th>
-                    <th>SECTOR</th>
                     <th>GENDER</th>
+                    <th>SECTOR</th>
                     <th>CITIZENSHIP</th>
                     <th>RESIDENT STATUS</th>
                     <th>TOOLS</th>
@@ -58,11 +58,13 @@
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>
                         <td>
-                            <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
+                            <a data-toggle="modal" data-target="#viewphoto<?php echo $row['residenceId']; ?>">
+                              <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
+                            </a href="">
                         </td>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
-                        <td><?php echo $row['sector']; ?></td>
                         <td><?php echo $row['gender']; ?></td>
+                        <td><?php echo $row['sector']; ?></td>
                         <td class="text-primary"><?php echo $row['citizenship']; ?></td>
                         <td>
                           <?php 
@@ -74,7 +76,7 @@
                           ?>
                         </td>
                         <td>
-                          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#update<?php //echo $row['officialID']; ?>"><i class="fas fa-folder"></i> View(On-going)</button>
+                          <a class="btn btn-primary btn-sm" href="resident_view.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-folder"></i> View</a>
                           <a class="btn btn-info btn-sm" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-pencil-alt"></i> Edit</a>
                           <button type="button" class="btn bg-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['residenceId']; ?>"><i class="fas fa-trash"></i> Delete</button>
                         </td> 

@@ -2,6 +2,9 @@
     require("user_auth.php");
     if(isset($_SESSION['admin_Id'])) {
     $id = $_SESSION['admin_Id'];
+
+    date_default_timezone_set('Asia/Manila');
+    $date_today = date('Y-m-d');
 ?>
 
 <!DOCTYPE html>
@@ -9,9 +12,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BMS | Dashboard</title>
+  <title>BMS</title>
   <!---FAVICON ICON FOR WEBSITE--->
   <link rel="shortcut icon" type="image/png" href="../images/logo.png">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Ionicons -->
@@ -165,32 +171,67 @@
       </li> -->
 
       <!-- Notifications Dropdown Menu -->
-      <!-- <li class="nav-item dropdown">
+      <?php 
+
+        $get = mysqli_query($conn, "SELECT * FROM activity WHERE actDate='$date_today'");
+        $count = mysqli_num_rows($get);
+
+        // LIMIT NUMBER OF CHARACTERS
+        function custom_echo($x, $length)
+        {
+          if(strlen($x)<=$length) {
+            echo $x;
+          } else {
+            $y=substr($x,0,$length) . '...';
+            echo $y;
+          }
+        }
+
+      ?>
+      <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-warning navbar-badge"><?php echo $count; ?></span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
+          <span class="dropdown-item dropdown-header">
+            <?php 
+                if(mysqli_num_rows($get) < 1) { 
+                  echo 'No Activity for today'; 
+                } elseif(mysqli_num_rows($get) == 1) {  
+                  echo $count. ' activity notification'; 
+                } else {  
+                  echo $count. ' activity notifications'; 
+                } 
+            ?> 
+          </span>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+
+          
+          <?php 
+              if(mysqli_num_rows($get) > 0) {
+                while ($r_count = mysqli_fetch_array($get)) {
+          ?>
+              <a href="#" class="dropdown-item">
+                <i class="fa-solid fa-circle-info mr-2"></i> <?php echo custom_echo($r_count['actName'], 15); ?>
+                <span class="float-right text-muted text-sm"><?php echo $r_count['actDate']; ?></span>
+              </a>
+              <div class="dropdown-divider"></div>
+          <?php
+                }
+              }
+          ?>
+
+          <?php if(mysqli_num_rows($get) == 1) : ?>
+            <a type="button" data-toggle="modal" data-target="#reminder" class="dropdown-item dropdown-footer">See Activity</a>
+          <?php elseif(mysqli_num_rows($get) > 1): ?>
+            <a type="button" data-toggle="modal" data-target="#reminder" class="dropdown-item dropdown-footer">See All Activity</a>
+          <?php endif; ?>
         </div>
-      </li> -->
+      </li>
+
+
+
        <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
           <!-- <img src="../images-users/<?php echo $row['image']; ?>" alt="User Image" class="mr-3 img-circle" height="50" width="50"> -->
@@ -290,24 +331,7 @@
       <nav class="mt-5">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-          <!-- DROPDOWN NAVIGATION LINK -->
-          <!-- <li class="nav-item">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-              </li>
-            </ul>
-          </li> -->
+          
        
           <li class="nav-item">
             <a href="dashboard.php" class="nav-link bg-gradient-primary active"><i class="fa-solid fa-gauge"></i><p>&nbsp;&nbsp; Dashboard</p></a>
@@ -319,8 +343,17 @@
             <a href="documents.php" class="nav-link"><i class="fa-solid fa-file"></i><p>&nbsp;&nbsp;&nbsp;  Documents</p></a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fa-solid fa-sack-dollar"></i><p>&nbsp;&nbsp; Brgy Income</p></a>
+            <a href="#" class="nav-link"><i class="fa-solid fa-sack-dollar"></i><p>&nbsp;&nbsp; Brgy Income<i class="right fas fa-angle-left"></i></p></a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+               <a href="brgyIncome.php" class="nav-link"><i class="fa-solid fa-sack-dollar"></i><p>&nbsp;&nbsp; Income report</p></a>
+              </li>
+              <li class="nav-item">
+               <a href="brgyIncome_list.php" class="nav-link"><i class="fa-solid fa-sack-dollar"></i><p>&nbsp;&nbsp; Add income  </p></a>
+              </li>
+            </ul>
           </li>
+
           <li class="nav-item">
             <a href="officials.php" class="nav-link"><i class="fa-solid fa-users"></i><p>&nbsp; Brgy. Profiles</p></a>
           </li>
@@ -354,6 +387,13 @@
     <!-- /.sidebar -->
   </aside>
 
+
+
+
+
+
+
+
   <script>
 
     function logout() {
@@ -366,8 +406,15 @@
         })
         .then((willDelete) => {
           if (willDelete) {
+          //   swal("Poof! Your imaginary file has been deleted!", {
+          //   icon: "success",
+          // }); 
             window.location = "../logout.php";
+            
           } else {
+            // swal("Poof! Your imaginary file has been deleted!", {
+            //       icon: "info",
+            //     }); 
           }
         });
     }

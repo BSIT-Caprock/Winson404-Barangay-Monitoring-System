@@ -1,3 +1,24 @@
+<!-- VIEW PROFILE PHOTO -->
+<div class="modal fade" id="viewphoto<?php echo $row['residenceId']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+       <div class="modal-header bg-light">
+        <h5 class="modal-title" id="exampleModalLabel">Resident's photo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
+        </button>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+          <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="200" height="200" class="img-circle" style="box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+      </div>
+      <div class="modal-footer alert-light d-flex justify-content-center">
+        <a href="../images-residence/<?php echo $row['image']; ?>" type="button" class="btn bg-gradient-primary" download><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- DELETE -->
 <div class="modal fade" id="delete<?php echo $row['residenceId']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
@@ -20,3 +41,5 @@
         </form>
     </div>
   </div>
+
+

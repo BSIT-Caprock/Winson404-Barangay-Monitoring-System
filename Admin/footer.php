@@ -58,6 +58,8 @@
 </script> -->
 <!-- Bootstrap 4 -->
 <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
 <!-- ChartJS -->
 <script src="../plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
@@ -78,6 +80,7 @@
 <!-- <script src="js/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script> -->
 <!-- AdminLTE App -->
 <script src="../dist/js/adminlte.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
@@ -117,6 +120,18 @@
   });
 
 </script>
+<script>
+    $(function () {
+      //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+    });
+</script>
+
 
 <!-- AUTO LOGOUT AFTER 5 MINS // OTHER CODE CAN BE SEEN IN NAVBAR.PHP(USER_AUTH.PHP)-->
 <script>
