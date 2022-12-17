@@ -792,12 +792,12 @@ if(isset($_POST['new_income'])) {
 	  	$_SESSION['message'] = "New income record has been added.";
 	    $_SESSION['text'] = "Saved successfully!";
 	    $_SESSION['status'] = "success";
-		header("Location: brgyIncome_Add.php");
+		header("Location: brgyIncome_Add.php?page=newIncome");
 	  } else {
 	    $_SESSION['message'] = "Something went wrong while saving the information.";
 	    $_SESSION['text'] = "Please try again.";
 	    $_SESSION['status'] = "error";
-		header("Location: brgyIncome_Add.php");
+		header("Location: brgyIncome_Add.php?page=newIncome");
 	  }
 }
 

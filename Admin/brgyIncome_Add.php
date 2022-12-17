@@ -6,29 +6,28 @@
 ?>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-          <!-- Content Header (Page header) -->
-          <section class="content-header">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-sm-6">
-                  <h3>New income required fields</h3>
-                </div>
-                <div class="col-sm-6">
-                  <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">New income</li>
-                  </ol>
-                </div>
-              </div>
-            </div><!-- /.container-fluid -->
-          </section>
 
 <?php 
     if($page !== 'newIncome') {
       $incomeId = $_GET['page'];
       $fetch = mysqli_query($conn, "SELECT * FROM income WHERE incomeId='$incomeId'");
       $row = mysqli_fetch_array($fetch);
-?>
+?>      
+          <section class="content-header">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h3>Update income required fields</h3>
+                </div>
+                <div class="col-sm-6">
+                  <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">Update income</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </section>
           <!-- Main content -->
           <section class="content">
             <div class="container-fluid">
@@ -72,6 +71,22 @@
           </section>
 
 <?php } else { ?>
+
+          <section class="content-header">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h3>New income required fields</h3>
+                </div>
+                <div class="col-sm-6">
+                  <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active">New income</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </section>
 
          <!-- Main content -->
           <section class="content">
