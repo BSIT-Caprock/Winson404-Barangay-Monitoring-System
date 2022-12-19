@@ -37,7 +37,7 @@
           <div class="col-12">
 
             <!-- Main content -->
-            <div class="invoice p-3 mb-3" id="printElement" style="border: none;">
+            <div class="invoice" id="printElement" style="border: none;">
 
               <!-- CERTIFICATE HEADER -->
               <?php include 'certificate-Header.php'; ?>
@@ -51,7 +51,7 @@
                       font-size: 10px;
                       margin-top: -10px;
                     }
-                     div.row div.col-4 p.role {
+                    div.row div.col-4 p.role {
                       margin-top: -25px;
                       font-size: 10px;
                     }
@@ -88,6 +88,7 @@
                       <p class="text-sm m-0" style="text-indent: 30px; text-align: justify;">This is to further certify that he/she has minimal means of livelihood to augment her needs to support the cost of their medical expenses; and that the above-mentioned individual needs assistance with his/her treatment medication.</p>
                       <br>
                       <p class="text-sm m-0" style="text-indent: 30px; text-align: justify;">This certification is being issued upon the request of the above-mentioned individual for <b><?php echo $purpose; ?></b>. </p>
+                     
                   </div>
 
                 </div>
@@ -96,14 +97,14 @@
                 <?php include 'cert-Footer.php'; ?>
                 <!-- CERTIFICATE FOOTER -->
 
-
-              </div>
+               
+            </div>
 
 
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                  <button id="printButton"type="button" class="btn btn-primary" style="margin-right: 5px;"><i class="fas fa-print"></i> Print</button>
+                  <button id="printButton" type="button" class="btn btn-dark float-right mt-3"><i class="fas fa-print"></i> Print</button>
                 </div>
               </div>
             </div>

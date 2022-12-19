@@ -24,7 +24,7 @@
           <div class="col-12">
 
             <!-- Main content -->
-            <div class="invoice p-3 mb-3" id="printElement" style="border: none;">
+            <div class="invoice mb-3" id="printElement" style="border: none;">
 
               <!-- CERTIFICATE HEADER -->
               <?php include 'certificate-Header.php'; ?>
@@ -157,7 +157,7 @@
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                  <button id="printButton"type="button" class="btn btn-primary" style="margin-right: 5px;"><i class="fas fa-print"></i> Print</button>
+                  <button id="printButton" type="button" class="btn btn-dark float-right mt-3"><i class="fas fa-print"></i> Print</button>
                 </div>
               </div>
             </div>

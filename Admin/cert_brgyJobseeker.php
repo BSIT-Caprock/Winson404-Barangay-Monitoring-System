@@ -37,7 +37,7 @@
           <div class="col-12">
 
             <!-- Main content -->
-            <div class="invoice p-3 mb-3" id="printElement" style="border: none;">
+            <div class="invoice mb-3" id="printElement" style="border: none;">
 
               <!-- CERTIFICATE HEADER -->
               <?php include 'certificate-Header.php'; ?>
@@ -111,15 +111,17 @@
                             </div>
                             <p class="text-sm float-right">Encoded by: </p><br>
                             <p class="text-sm text-right mt-3" style="border-bottom: 1px solid grey;width: 50%;position: absolute;right: 0;"></p><br>
-                            <p class="text-sm float-right" style="margin-top: -10px;">R. ENRIQUEZ</p>
+                            <p class="text-sm float-right" style="margin-top: -10px;">E. GOMEZ</p>
                         </div>
                       </div>
                   </div>
                 </div>
 
+                <br><br><br><br><br>
+                
                 <div class="row mt-4">
                   <div class="col-4 d-flex justify-content-center">
-                      <img src="../images/pasay.png" alt="" width="100" class="position-absolute" >
+                      <img src="../images/PasayLoo.png" alt="" width="110" class="position-absolute" >
                   </div>
                   <div class="col-4">
                       <p class="name">THIS FORM NEED NOT BE NOTARIZED</p>
@@ -131,6 +133,102 @@
                   </div>
                 </div>
 
+                 <br><br><br><br>
+                
+                
+                <div class="row invoice-info position-relative p-0 m-0" style="line-height: 18px;">
+                  <div class="col-sm-2 invoice-col justify-content-center mt-2">
+                    <img src="../images/logo.png" alt="" class="d-block m-auto" width="75">
+                  </div>
+                  <div class="col-sm-8 invoice-col text-center mt-3">
+                    <br>
+                    <address>
+                      <strong style="text-decoration: underline;">OATH OF UNDERTAKING</strong><br>
+                      <small>Republic Act 11261 – First Time Jobseekers Assistance Act</small>
+                    </address>
+                  </div>
+                  <div class="col-sm-2 invoice-col justify-content-center mt-2">
+                    <img src="../images/Picture3.png" alt="" class="d-block m-auto" width="75">
+                  </div>
+                </div>
+
+              <div class="row p-0 m-0" style="line-height: 16px;">
+                 <div class="col-sm-12 text-justify p-5" style="margin-bottom: -30px;">
+                    <small>I, <span style="text-transform: uppercase;"><b><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></b></span> , <?php echo $row['age']; ?> of age, resident of <span style="text-decoration: underline;"><?php echo ' '.$row['house_no'].' '.$row['street_name'].' '.$row['purok'].' '.$row['zone'].' '.$row['barangay'].' '.$row['municipality'].' '.$row['province'].' '.$row['region'].' '; ?></span>, availing the benefits of <b>Republic Act 11261</b>, otherwise known as the <b>First Time Jobseekers Act of 2019</b>, do hereby declare, agree and undertake to abide and be bound by the following:</small>
+
+                    <br>
+                    <br>
+                    <small><b>1.</b> That this is the first time that I will actively look for a job, and therefore requesting that a Barangay Certification be issued in my favor to avail the benefits of the law;</small>
+                    <br>
+                    <small><b>2.</b> That I am aware that the benefit and privilege/s under the said law shall be valid only for one (1) year from the date that the Barangay Certification is issued;</small>
+                    <br>
+                    <small><b>3.</b> That I can avail the benefits of the law only once;</small>
+                    <br>
+                    <small><b>4.</b> That I understand that my personal information shall be included in the Roster/List of First Time Jobseekers and will not be used for any unlawful purpose;</small>
+                    <br>
+                    <small><b>5.</b> That I will inform and/or report to the Barangay personally, through text or other means, or through my family/relatives once I get employed;</small>
+                    <br>
+                    <small><b>6.</b> That I am not a beneficiary of the JobStart Program under R.A. No. 10869 and other laws that give similar exemptions for the documents or transactions exempted under R.A No. 11261;</small>
+                    <br>
+                    <small><b>7.</b> That if issued the requested Certification, I will not use the same in any fraud, neither falsify nor help and/or assist in the fabrication of the said certification;</small>
+                    <br>
+                    <small><b>8.</b> That this undertaking is made solely for the purpose of obtaining a Barangay Certification consistent with the objective of R.A. No. 11261 and not for any other purpose; and</small>
+                    <br>
+                    <small><b>9.</b> That I consent to the use of my personal information pursuant to the Data Privacy Act and other applicable laws, rules, and regulations.</small>
+
+                    <br><br>
+                    <small>Signed this <?php echo date("d"); ?>th day of <?php echo date("F"); ?>, <?php echo date("Y"); ?>, in the City of Pasay.</small>
+
+                  </div>
+                  <div class="col-sm-1"></div>
+                  <div class="col-sm-4">
+                    <br>
+                    <small>Signed by:</small><br>
+                    <div class="text-center">
+                      <br>
+                      <br>
+                      <small>_________________________</small><br>
+                      <small><b>First Time Jobseeker</b></small>
+                    </div>
+                  </div>
+                  <div class="col-sm-2"></div>
+                  <div class="col-sm-4">
+                    <br>
+                    <small>Witnessed by:</small><br>
+                    <div class="text-center">
+                      <br>
+                      <br>
+                      <small>_________________________</small><br> 
+                      <small><b>MELITA L. LLONOR</b></small><br>
+                      <small class="text-muted">Barangay Secretary</small><br>
+                      <small><b>Barangay 193, Zone 20 Pasay City</b></small>
+                    </div>
+                  </div>
+               
+                  <div class="col-11 d-block m-auto" style="text-align: justify;">
+                    <hr>
+                    <small>For applicants at least fifteen years old to less than 18 years of age:</small><br>
+                    <small>I,___________________________________, ______ years of age, parent/guardian of ___________________________________, and a resident of ___________________________________(complete address), for _______(years/months), do hereby give my consent for my child/dependent to avail the benefits of Republic Act 11261 and be bound by the abovementioned conditions.</small>
+
+                  </div>
+                  <div class="col-sm-8 d-block m-auto">
+                    <br>
+                    <br>
+                    <small>Signed by:  _________________________</small><br>
+                    <small style="margin-left: 80px;"><b>Parent/Guardian</b></small>
+
+                  </div>
+
+                  <div class="col-sm-11 d-block m-auto">
+                    <br>
+                    <br>
+                    <small><b>THIS FORM NEED NOT BE NOTARIZED</b></small><br>
+                    <small class="text-muted">RA 11261 Form 2</small><br>
+                    <small class="float-right">Revised as of 23 November 2021</small>
+                  </div>
+
+              </div>
+
 
               </div>
 
@@ -138,7 +236,7 @@
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                  <button id="printButton"type="button" class="btn btn-primary" style="margin-right: 5px;"><i class="fas fa-print"></i> Print</button>
+                  <button id="printButton" type="button" class="btn btn-dark float-right mt-3"><i class="fas fa-print"></i> Print</button>
                 </div>
               </div>
             </div>

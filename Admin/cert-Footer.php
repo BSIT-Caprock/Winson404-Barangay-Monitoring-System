@@ -1,6 +1,6 @@
-<div class="row" style="margin-top: -35px;" >
+<div class="row p-3 m-0" style="margin-top: -35px;" >
   <div class="col-4 d-flex justify-content-center mt-3">
-      <img src="../images/pasay.png" alt="" width="100" class="position-absolute" style="top:40px">
+      <img src="../images/PasayLoo.png" alt="" width="150" class="position-absolute" style="top:40px">
   </div>
     <div class="col-4 d-flex justify-content-center mt-3">
   </div>
@@ -13,7 +13,7 @@
         </div>
         <p class="text-sm float-right">Encoded by: </p><br>
         <p class="text-sm text-right mt-3" style="border-bottom: 1px solid grey;width: 50%;position: absolute;right: 0;"></p><br>
-        <p class="text-sm float-right" style="margin-top: -10px;">R. ENRIQUEZ</p>
+        <p class="text-sm float-right" style="margin-top: -10px;">M. LLONOR</p>
     </div>
 
     <div class="col-12 text-center" style="margin-top: -20px;">

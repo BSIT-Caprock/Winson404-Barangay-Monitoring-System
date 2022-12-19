@@ -706,7 +706,7 @@ if(isset($_POST['acquire_BrgyClearance'])) {
 	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
 	$type          = 'Barangay Clearance';
 	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
-	$purpose       = 'Get Barangay Clearance';
+	$purpose       = mysqli_real_escape_string($conn, $_POST['purpose']);
 	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 	$date_acquired = date('Y-m-d');
 	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");

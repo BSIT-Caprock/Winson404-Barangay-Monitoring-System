@@ -37,7 +37,7 @@
           <div class="col-12">
 
             <!-- Main content -->
-            <div class="invoice p-3 mb-3" id="printElement" style="border: none;">
+            <div class="invoice mb-3" id="printElement" style="border: none;">
 
               <!-- CERTIFICATE HEADER -->
               <?php include 'certificate-Header.php'; ?>
@@ -148,8 +148,11 @@
                       <p class="text-sm m-0" style="text-indent: 30px; text-align: justify;">This certifies that the above-named individual whose signature, photo, and right thumbprint appear hereunder ia a bona fide resident of this barangay and as far as this office is concerned as of this date, he/she is a good moral character and good standing in the country.</p>
                       <p class="text-sm m-0" style="text-indent: 30px; text-align: justify;">Furthermore, this certifies that he/she has no derogatory nor criminal record nor pending charge for any violation or infraction of rules or regulations, ordinances and laws per periods kept and filed in this office: ("Katarungang Pambarangay", Book III, Chapter 7, Sec. 399-422; RA 7160).</p>
                       <p class="text-sm m-0" style="text-indent: 30px; text-align: justify;">This certification is being issued upon the verbal request of the above-mentioned individual for the purpose of: </p>
-                      <h6 class="text-center">FINANCIAL ASSISTANCE</h6>
+                      <h6 class="text-center text-bold" style="text-transform: uppercase; text-decoration: underline;"><?php echo $purpose; ?></h6>
+
+                      <img src="../images/Picture4.png" class="position-absolute mt-5 pt-2" alt="" width="140">
                   </div>
+
 
                 </div>
 
@@ -164,7 +167,7 @@
               <!-- this row will not appear when printing -->
               <div class="row no-print">
                 <div class="col-12">
-                  <button id="printButton"type="button" class="btn btn-primary" style="margin-right: 5px;"><i class="fas fa-print"></i> Print</button>
+                  <button id="printButton" type="button" class="btn btn-dark float-right mt-3"><i class="fas fa-print"></i> Print</button>
                 </div>
               </div>
             </div>

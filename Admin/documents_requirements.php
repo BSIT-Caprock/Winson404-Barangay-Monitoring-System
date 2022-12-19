@@ -160,7 +160,7 @@
 
               <?php elseif($certificate == 'NonResidency') : ?>
 
-              <!-- RESIDENCY -->
+              <!-- NON-RESIDENCY -->
               <form action="process_save.php" method="POST" autocomplete="off">
                 <input type="hidden" class="form-control" name="adminId" value="<?php echo $id; ?>">
                 <div class="card-body p-3">
@@ -185,7 +185,7 @@
 
               <?php elseif($certificate == 'BarangayClearance') : ?>
 
-              <!-- RESIDENCY -->
+              <!-- BARANGAY CLEARANCE -->
               <form action="process_save.php" method="POST" autocomplete="off">
                 <input type="hidden" class="form-control" name="adminId" value="<?php echo $id; ?>">
                 <div class="card-body p-3">
@@ -206,6 +206,10 @@
                     <!-- PASSING VALUE ON CHANGE -->
                         <input type="hidden" class="form-control" id="as_is_resident" name="residenceId" required>
                         <!-- END PASSING VALUE ON CHANGE -->
+                  </div>
+                  <div class="form-group">
+                    <span><b>Purpose:</b></span>
+                    <textarea name="purpose" id="" cols="30" rows="5" class="form-control" placeholder="Enter purpose in getting Brgy. Residency here..." required></textarea>
                   </div>
                   <div class="form-group">
                     <span class="text-dark"><b>Amount in Peso (₱)</b></span>

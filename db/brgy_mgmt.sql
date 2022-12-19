@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2022 at 05:18 PM
+-- Generation Time: Dec 19, 2022 at 05:18 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `documents` (
   `doc_purpose` text NOT NULL,
   `doc_paidAmount` varchar(50) NOT NULL,
   `date_acquired` varchar(20) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
 -- Dumping data for table `documents`
@@ -93,7 +93,18 @@ INSERT INTO `documents` (`doc_Id`, `doc_type`, `doc_residenceId`, `NonResident`,
 (15, 'Barangay Residency', 67, '', '', 'Purpose 2', '150', '2022-12-12'),
 (19, 'First Time Job Seeker', 71, '', '', 'Get First Time Job Seeker Certificate', '200', '2022-12-12'),
 (20, 'Brgy. Non-Residency', 0, 'Erwin C. SOn', 'Purok San Isidro Daanlungsod, Medellin, Cebu', 'Get Brgy. Non-Residency', '300', '2022-11-12'),
-(21, 'Barangay Clearance', 70, '', '', 'Get Barangay Clearance', '350', '2022-12-11');
+(21, 'Barangay Clearance', 70, '', '', 'Get Barangay Clearance', '350', '2022-12-11'),
+(22, 'Barangay Residency', 69, '', '', 'fdg', '100', '2022-12-18'),
+(23, 'Barangay Clearance', 70, '', '', 'Get Barangay Clearance', '333', '2022-12-18'),
+(24, 'Barangay Clearance', 69, '', '', 'gag', '333', '2022-12-18'),
+(25, 'Barangay Indigency', 71, '', '', 'Test 123', '100', '2022-12-18'),
+(26, 'Barangay Indigency', 67, '', '', 'test', '111', '2022-12-18'),
+(27, 'Barangay Indigency', 67, '', '', 'test123', '11111', '2022-12-18'),
+(28, 'First Time Job Seeker', 66, '', '', 'Get First Time Job Seeker Certificate', '3232', '2022-12-19'),
+(29, 'Barangay Indigency', 66, '', '', 'sda', '22', '2022-12-19'),
+(30, 'Barangay Residency', 66, '', '', 'd', '33', '2022-12-19'),
+(31, 'Brgy. Non-Residency', 0, 'ds', 'fds', 'Get Brgy. Non-Residency', '3', '2022-12-19'),
+(32, 'Barangay Clearance', 67, '', '', 'd', '222', '2022-12-19');
 
 -- --------------------------------------------------------
 
@@ -112,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `income` (
   `date_added` varchar(255) NOT NULL,
   `updated_by` varchar(255) NOT NULL,
   `date_updated` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `income`
@@ -127,7 +138,18 @@ INSERT INTO `income` (`incomeId`, `paid_by`, `paymentFor`, `paymentDesc`, `payme
 (9, '', 'Retal fee', 'Retal fee description', '350', '2022-12-12', '40', '2022-12-12', '40', '2022-12-12'),
 (10, '', 'Sample Payment', 'HEHE', '500', '2022-12-13', '40', '2022-12-13', '', ''),
 (11, '', 'SS', 'ss', '2200', '2022-12-13', '40', '2022-12-13', '', ''),
-(12, '', 'SS', 'ss', '2200', '2022-12-13', '40', '2022-12-13', '', '');
+(12, '', 'SS', 'ss', '2200', '2022-12-13', '40', '2022-12-13', '', ''),
+(13, '69', 'Barangay Residency', 'fdg', '100', '2022-12-18', '40', '2022-12-18', '', ''),
+(14, '70', 'Barangay Clearance', 'Get Barangay Clearance', '333', '2022-12-18', '40', '2022-12-18', '', ''),
+(15, '69', 'Barangay Clearance', 'GAGA', '333', '2022-12-18', '40', '2022-12-18', '', ''),
+(16, '71', 'Barangay Indigency', 'Test 123', '100', '2022-12-18', '40', '2022-12-18', '', ''),
+(17, '67', 'Barangay Indigency', 'test', '111', '2022-12-18', '40', '2022-12-18', '', ''),
+(18, '67', 'Barangay Indigency', 'test123', '11111', '2022-12-18', '40', '2022-12-18', '', ''),
+(19, '66', 'First Time Job Seeker', 'Get First Time Job Seeker Certificate', '3232', '2022-12-19', '40', '2022-12-19', '', ''),
+(20, '66', 'Barangay Indigency', 'sda', '22', '2022-12-19', '40', '2022-12-19', '', ''),
+(21, '66', 'Barangay Residency', 'd', '33', '2022-12-19', '40', '2022-12-19', '', ''),
+(22, 'ds', 'Brgy. Non-Residency', 'Get Brgy. Non-Residency', '3', '2022-12-19', '40', '2022-12-19', '', ''),
+(23, '67', 'Barangay Clearance', 'd', '222', '2022-12-19', '40', '2022-12-19', '', '');
 
 -- --------------------------------------------------------
 
@@ -234,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`user_Id`, `username`, `firstname`, `middlename`, `lastname`, `suffix`, `email`, `contact`, `password`, `image`, `user_type`, `verification_code`, `date_registered`) VALUES
 (40, 'Admin', 'Erwin', 'Cabag', 'Son', '', 'admin@gmail.com', '9359428961', '0192023a7bbd73250516f069df18b500', 'user1-128x128.jpg', 'Admin', '374025', '2022-09-10'),
-(42, 'Winson404', 'Erwin', 'Cabag', 'Son', '', 'sonerwin12@gmail.com', '9359428963', '0192023a7bbd73250516f069df18b500', '636e2ff4b5ad2.png', 'Staff', '841930', '2022-10-22');
+(42, 'Winson404', 'Erwin', 'Cabag', 'Son', '', 'sonerwin12@gmail.com', '9359428963', '0192023a7bbd73250516f069df18b500', '636e2ff4b5ad2.png', 'Staff', '261901', '2022-10-22');
 
 --
 -- Indexes for dumped tables
@@ -300,12 +322,12 @@ MODIFY `customID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-MODIFY `doc_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+MODIFY `doc_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `income`
 --
 ALTER TABLE `income`
-MODIFY `incomeId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `incomeId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `officials`
 --

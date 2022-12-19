@@ -1,6 +1,7 @@
-<div class="row invoice-info" style="line-height: 18px;">
+<div class="row invoice-info position-relative p-0 m-0" style="line-height: 18px;">
+  <img src="../images/Picture1.png" class="position-absolute" width="100%" alt="">
   <div class="col-sm-2 invoice-col justify-content-center">
-    <img src="../images/logo.png" alt="" class="d-block m-auto" width="80">
+    <img src="../images/logo.png" alt="" class="d-block m-auto" width="75">
   </div>
   <div class="col-sm-8 invoice-col text-center">
     <address>
@@ -11,7 +12,7 @@
     </address>
   </div>
   <div class="col-sm-2 invoice-col justify-content-center">
-    <img src="../images/logo.png" alt="" class="d-block m-auto" width="80">
+    <img src="../images/Picture3.png" alt="" class="d-block m-auto" width="75">
   </div>
 
   <div class="col-sm-12">
