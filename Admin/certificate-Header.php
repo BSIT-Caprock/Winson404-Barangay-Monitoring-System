@@ -12,7 +12,7 @@
     </address>
   </div>
   <div class="col-sm-2 invoice-col justify-content-center">
-    <img src="../images/Picture3.png" alt="" class="d-block m-auto" width="75">
+    <img src="../images/pasay-logo-1.png" alt="" class="d-block m-auto" width="75">
   </div>
 
   <div class="col-sm-12">

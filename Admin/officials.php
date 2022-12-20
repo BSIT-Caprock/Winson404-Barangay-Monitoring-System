@@ -57,7 +57,7 @@
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>
                         <td>
-                            <img src="../images-signature/<?php echo $row['digital_signature']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
+                            <img src="../images-signature/<?php echo $row['digital_signature']; ?>" alt="" width="25" height="25" class="img-circle d-block m-auto" data-toggle="modal" data-target="#viewphoto<?php echo $row['officialID']; ?>">
                         </td>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
                         <td>

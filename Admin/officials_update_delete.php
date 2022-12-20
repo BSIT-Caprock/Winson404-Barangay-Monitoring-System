@@ -1,3 +1,24 @@
+<!-- VIEW PROFILE PHOTO -->
+<div class="modal fade" id="viewphoto<?php echo $row['officialID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+       <div class="modal-header bg-light">
+        <h5 class="modal-title" id="exampleModalLabel">Official's Signature</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
+        </button>
+      </div>
+      <div class="modal-body d-flex justify-content-center">
+          <img src="../images-signature/<?php echo $row['digital_signature']; ?>" alt="" width="200" class="shadow-sm">
+      </div>
+      <div class="modal-footer alert-light d-flex justify-content-center">
+        <a href="../images-signature/<?php echo $row['image']; ?>" type="button" class="btn bg-gradient-primary" download><i class="fa-solid fa-download"></i> Download</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- CREATE NEW -->
 <div class="modal fade" id="update<?php echo $row['officialID']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -127,4 +148,7 @@
       </div>
         </form>
     </div>
-  </div>
+</div>
+
+
+

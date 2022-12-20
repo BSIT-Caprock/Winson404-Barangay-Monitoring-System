@@ -161,7 +161,7 @@
     var donutChartCanvas = $('#overAll').get(0).getContext('2d')
     var donutData        = {
 
-    labels: [ 'Permit', 'Indigency', 'Residency', 'Job Seeker', 'Non-Residency', 'Barangay Clearance', 'Barangay Construction', 'Barangay Business', 'Barangay Plate', 'Barangay ID Card', 'Other',],
+    labels: [ 'Permit', 'Indigency', 'Residency', 'Job Seeker', 'Non-Residency', 'Barangay Clearance', 'Barangay Construction', 'Barangay Business', 'Barangay Plate', 'Barangay ID Card', 'Ownership', 'Other',],
      <?php 
   
       // ORIGINAL CODE WHEN *INCOME TABLE* HAS NOT BEEN CREATED YET
@@ -214,13 +214,18 @@
       $sql10 = mysqli_query($conn, "SELECT SUM(paymentAmount) AS IDCard FROM income WHERE paymentFor='Barangay ID Card'");
       $row10 = mysqli_fetch_array($sql10);
 
-      $sql11 = mysqli_query($conn, "SELECT SUM(paymentAmount) AS otherFee FROM income WHERE paid_by=''");
+      $sql11 = mysqli_query($conn, "SELECT SUM(paymentAmount) AS ownership FROM income WHERE paymentFor='Barangay Ownership'");
       $row11 = mysqli_fetch_array($sql11);
+
+      $sql12 = mysqli_query($conn, "SELECT SUM(paymentAmount) AS otherFee FROM income WHERE paid_by=''");
+      $row12 = mysqli_fetch_array($sql12);
+
+      
 
       echo " datasets: [ 
               { 
-                data: [".$row['permit'].", ".$row2['indigency'].", ".$row3['residency'].", ".$row4['job'].", ".$row5['nonresidency'].", ".$row6['brgyclearance'].", ".$row7['construction'].", ".$row8['business'].", ".$row9['plate'].", ".$row10['IDCard'].", ".$row11['otherFee']."], 
-                backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de', '#ffcccc', '#33cc33', '#ff6600', '#6600cc', '#ff66a3'],
+                data: [".$row['permit'].", ".$row2['indigency'].", ".$row3['residency'].", ".$row4['job'].", ".$row5['nonresidency'].", ".$row6['brgyclearance'].", ".$row7['construction'].", ".$row8['business'].", ".$row9['plate'].", ".$row10['IDCard'].", ".$row11['ownership'].", ".$row12['otherFee']."], 
+                backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de', '#ffcccc', '#33cc33', '#ff6600', '#6600cc', '#00ff80', '#ff66a3'],
               } 
              ] ";
       ?>
@@ -261,7 +266,7 @@
     var donutChartCanvas = $('#ReportThisMonth').get(0).getContext('2d')
     var donutData        = {
 
-    labels: [ 'Permit', 'Indigency', 'Residency', 'Job Seeker', 'Non-Residency', 'Barangay Clearance', 'Barangay Construction', 'Barangay Business', 'Barangay Plate', 'Barangay ID Card', 'Other',],
+    labels: [ 'Permit', 'Indigency', 'Residency', 'Job Seeker', 'Non-Residency', 'Barangay Clearance', 'Barangay Construction', 'Barangay Business', 'Barangay Plate', 'Barangay ID Card', 'Ownership', 'Other',],
      <?php 
 
       date_default_timezone_set('Asia/Manila');
@@ -319,13 +324,16 @@
       $sql10 = mysqli_query($conn, "SELECT SUM(paymentAmount) AS IDCard FROM income WHERE paymentFor='Barangay ID Card' AND MONTH(date_paid)='$monthFormat' AND YEAR(date_paid)='$year'");
       $row10 = mysqli_fetch_array($sql10);
 
-      $sql11 = mysqli_query($conn, "SELECT SUM(paymentAmount) AS otherFee FROM income WHERE paid_by='' AND MONTH(date_paid)='$monthFormat' AND YEAR(date_paid)='$year'");
+      $sql11 = mysqli_query($conn, "SELECT SUM(paymentAmount) AS ownership FROM income WHERE paymentFor='Barangay Ownership' AND MONTH(date_paid)='$monthFormat' AND YEAR(date_paid)='$year'");
       $row11 = mysqli_fetch_array($sql11);
+
+      $sql12 = mysqli_query($conn, "SELECT SUM(paymentAmount) AS otherFee FROM income WHERE paid_by='' AND MONTH(date_paid)='$monthFormat' AND YEAR(date_paid)='$year'");
+      $row12 = mysqli_fetch_array($sql12);
 
       echo " datasets: [ 
               { 
-                data: [".$row['permit'].", ".$row2['indigency'].", ".$row3['residency'].", ".$row4['job'].", ".$row5['nonresidency'].", ".$row6['brgyclearance'].", ".$row7['construction'].", ".$row8['business'].", ".$row9['plate'].", ".$row10['IDCard'].", ".$row11['otherFee']."], 
-                backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de', '#ffcccc', '#33cc33', '#ff6600', '#6600cc', '#ff66a3'],
+                data: [".$row['permit'].", ".$row2['indigency'].", ".$row3['residency'].", ".$row4['job'].", ".$row5['nonresidency'].", ".$row6['brgyclearance'].", ".$row7['construction'].", ".$row8['business'].", ".$row9['plate'].", ".$row10['IDCard'].", ".$row11['ownership'].", ".$row12['otherFee']."], 
+                backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de', '#ffcccc', '#33cc33', '#ff6600', '#6600cc', '#00ff80', '#ff66a3'],
               } 
              ] ";
       ?>

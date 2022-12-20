@@ -50,7 +50,7 @@
                     }
                 </style>
 
-                <div class="row p-0">
+                <div class="row p-3">
                   <div class="col-12" style="line-height: 18px;">
                     <!-- BACKGROUND LOGO -->
                       <img src="../images/logo.png" alt="" width="80%" class="position-absolute" style="opacity: .15; top: 100px; left: 72px;">
@@ -69,7 +69,7 @@
                       <p class="text-sm m-0" style="text-indent: 30px; text-align: justify; ">Clearance is hereby granted to <b>SAMPLE NAME</b> with present address at # 0083 Road 4, Pildera II, NAIA Pasay City to <b>construct/renovate/operate/excavate/install</b> as follows:</p>
                       <p class="text-sm mt-2" style="text-indent: 30px; text-align: justify;">Described here under subject to the requirements provided under existing ordinance and other pertinent laws and related implementing administrative resolutions.</p>
 
-                      <div class="row p-0">
+                      <div class="row">
                         <div class="col-12 table-responsive">
                           <table class="table table-striped table-sm text-sm table-bordered text-center">
                             <thead>
@@ -142,7 +142,7 @@
 
                 <div class="row">
                   <div class="col-4 d-flex justify-content-center mt-3">
-                      <img src="../images/pasay.png" alt="" width="100" class="position-absolute" style="top:-20px">
+                      <img src="../images/PasayLoo.png" alt="" width="120" class="position-absolute" style="top:-20px">
                   </div>
                   <div class="col-12 text-center" style="margin-top: 60px;">
                     <div class="dropdown-divider"></div>

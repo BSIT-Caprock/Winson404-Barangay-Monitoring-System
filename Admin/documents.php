@@ -35,8 +35,8 @@
             <div class="info-box bg-info">
               <span class="info-box-icon"><i class="fa-solid fa-certificate"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text text-sm">Barangay Permit</span>
-                <span class="text-sm text-info">Certificate</span>
+                <span class="info-box-text text-sm">Barangay Business</span>
+                <span class="text-sm">Permit Certificate</span>
                 <?php 
                     $doc = mysqli_query($conn, "SELECT * FROM documents WHERE doc_type='Barangay Permit' ");
                     $Permit = mysqli_num_rows($doc);
@@ -45,7 +45,7 @@
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
                 </div>
-                <a  href="#" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
+                <a  href="cert_brgyPermit.php" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
               </div>
             </div>
           </div>
@@ -165,31 +165,14 @@
             </div>
           </div>
 
+         
+
           <div class="col-md-3 col-sm-6 col-12">
             <div class="info-box bg-danger">
               <span class="info-box-icon"><i class="fa-solid fa-certificate"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text text-sm">Barangay Business</span>
-                <span class="text-sm">Clearance</span>
-                <?php 
-                    $doc8 = mysqli_query($conn, "SELECT * FROM documents WHERE doc_type='Barangay Business' ");
-                    $Business = mysqli_num_rows($doc8);
-                ?>
-                <span class="info-box-number"><?php echo $Business; ?></span>
-                <div class="progress">
-                  <div class="progress-bar" style="width: 100%"></div>
-                </div>
-                <a href="#" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-success">
-              <span class="info-box-icon"><i class="fa-solid fa-certificate"></i></span>
-              <div class="info-box-content">
                 <span class="info-box-text text-sm">Business Plate</span>
-                <span class="text-sm text-success">Certificate</span>
+                <span class="text-sm text-danger">Certificate</span>
                 <?php 
                     $doc9 = mysqli_query($conn, "SELECT * FROM documents WHERE doc_type='Barangay Plate' ");
                     $Plate = mysqli_num_rows($doc9);
@@ -198,17 +181,17 @@
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
                 </div>
-                <a href="#" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
+                <a href="documents_requirements.php?page=BarangayPlate" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
               </div>
             </div>
           </div>
 
           <div class="col-md-3 col-sm-6 col-12">
-            <div class="info-box bg-warning">
+            <div class="info-box bg-success">
               <span class="info-box-icon"><i class="fa-solid fa-certificate"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text text-sm">Barangay ID Card</span>
-                <span class="text-sm text-warning">Clearance</span>
+                <span class="text-sm text-success">Clearance</span>
                 <?php 
                     $doc10 = mysqli_query($conn, "SELECT * FROM documents WHERE doc_type='Barangay ID Card' ");
                     $Id_card = mysqli_num_rows($doc10);
@@ -217,7 +200,26 @@
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
                 </div>
-                <a href="#" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
+                <a href="documents_requirements.php?page=BarangayID" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
+              </div>
+            </div>
+          </div>
+
+           <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box bg-warning">
+              <span class="info-box-icon"><i class="fa-solid fa-certificate"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text text-sm">Barangay Ownership</span>
+                <span class="text-sm">Certificate</span>
+                <?php 
+                    $doc11 = mysqli_query($conn, "SELECT * FROM documents WHERE doc_type='Barangay Ownership' ");
+                    $Business = mysqli_num_rows($doc11);
+                ?>
+                <span class="info-box-number"><?php echo $Business; ?></span>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 100%"></div>
+                </div>
+                <a href="documents_requirements.php?page=BarangayOwnership" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
               </div>
             </div>
           </div>

@@ -59,7 +59,7 @@
                       ?>
                         <td>
                             <a data-toggle="modal" data-target="#viewphoto<?php echo $row['residenceId']; ?>">
-                              <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" style="margin-left: auto;margin-right: auto;display: block;border-radius: 50%;">
+                              <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" class="img-circle d-block m-auto">
                             </a href="">
                         </td>
                         <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
@@ -79,6 +79,9 @@
                           <a class="btn btn-primary btn-sm" href="resident_view.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-folder"></i> View</a>
                           <a class="btn btn-info btn-sm" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-pencil-alt"></i> Edit</a>
                           <button type="button" class="btn bg-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['residenceId']; ?>"><i class="fas fa-trash"></i> Delete</button>
+                          <?php if($row['qrCode'] != ''): ?>
+                          <button type="button" class="btn bg-dark btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-qrcode"></i> QR</button>
+                          <?php endif; ?>
                         </td> 
                     </tr>
 

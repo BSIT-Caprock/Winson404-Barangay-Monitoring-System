@@ -28,7 +28,7 @@
           <div class="col-5 text-center d-flex align-items-center justify-content-center">
             <div class="">
               <h2>Barangay Monitoring <strong>System</strong></h2>
-              <p class="lead mb-5">Sample Address<br>
+              <p class="lead mb-5">Pasig City - Barangay 193<br>
                 Phone: +1 234 56789012
               </p>
             </div>

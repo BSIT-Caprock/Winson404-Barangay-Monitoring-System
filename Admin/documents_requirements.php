@@ -80,8 +80,6 @@
               </form>
 
 
-
-
               <?php elseif($certificate == 'Residency') : ?>
 
                 <!-- RESIDENCY -->
@@ -220,6 +218,113 @@
                   <button type="submit" class="btn bg-primary btn-sm" name="acquire_BrgyClearance">Proceed</button>
                 </div>
               </form>
+
+
+              <?php elseif($certificate == 'BarangayOwnership') : ?>
+
+              <!-- BARANGAY OWNERSHIP -->
+              <form action="process_save.php" method="POST" autocomplete="off">
+                <input type="hidden" class="form-control" name="adminId" value="<?php echo $id; ?>">
+                <div class="card-body p-3">
+                  <div class="form-group">
+                    <span><b>Resident name:</b></span>
+                    <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;" id="resident" onchange="myFunction(this.value)" required>
+                        <option selected disabled value="">Select resident</option>
+                        <?php  
+                            $residence = mysqli_query($conn, "SELECT * FROM residence");
+                            if(mysqli_num_rows($residence) > 0) { 
+                            while($row_residence = mysqli_fetch_array($residence)) {
+                        ?>
+                            <option value="<?php echo $row_residence['residenceId']; ?>"><?php echo ' '.$row_residence['firstname'].' '.$row_residence['middlename'].' '.$row_residence['lastname'].' '.$row_residence['suffix'].' '; ?></option>
+                        <?php } } else { ?>
+                            <option selected disabled value="">No record found</option>
+                        <?php } ?>
+                    </select>
+                    <!-- PASSING VALUE ON CHANGE -->
+                        <input type="hidden" class="form-control" id="as_is_resident" name="residenceId" required>
+                        <!-- END PASSING VALUE ON CHANGE -->
+                  </div>
+                  <div class="form-group">
+                    <span class="text-dark"><b>Amount in Peso (₱)</b></span>
+                    <input type="number" class="form-control"  placeholder="Enter amount here..." name="paidAmount" required>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn bg-primary btn-sm" name="acquire_BrgyOwnership">Proceed</button>
+                </div>
+              </form>
+
+
+              <?php elseif($certificate == 'BarangayPlate') : ?>
+
+              <!-- BARANGAY PLATE -->
+              <form action="process_save.php" method="POST" autocomplete="off">
+                <input type="hidden" class="form-control" name="adminId" value="<?php echo $id; ?>">
+                <div class="card-body p-3">
+                  <div class="form-group">
+                    <span><b>Resident name:</b></span>
+                    <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;" id="resident" onchange="myFunction(this.value)" required>
+                        <option selected disabled value="">Select resident</option>
+                        <?php  
+                            $residence = mysqli_query($conn, "SELECT * FROM residence");
+                            if(mysqli_num_rows($residence) > 0) { 
+                            while($row_residence = mysqli_fetch_array($residence)) {
+                        ?>
+                            <option value="<?php echo $row_residence['residenceId']; ?>"><?php echo ' '.$row_residence['firstname'].' '.$row_residence['middlename'].' '.$row_residence['lastname'].' '.$row_residence['suffix'].' '; ?></option>
+                        <?php } } else { ?>
+                            <option selected disabled value="">No record found</option>
+                        <?php } ?>
+                    </select>
+                    <!-- PASSING VALUE ON CHANGE -->
+                        <input type="hidden" class="form-control" id="as_is_resident" name="residenceId" required>
+                        <!-- END PASSING VALUE ON CHANGE -->
+                  </div>
+                  <div class="form-group">
+                    <span class="text-dark"><b>Amount in Peso (₱)</b></span>
+                    <input type="number" class="form-control"  placeholder="Enter amount here..." name="paidAmount" required>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn bg-primary btn-sm" name="acquire_BrgyPlate">Proceed</button>
+                </div>
+              </form>
+
+
+            <?php elseif($certificate == 'BarangayID') : ?>
+
+              <!-- BARANGAY PLATE -->
+              <form action="process_save.php" method="POST" autocomplete="off">
+                <input type="hidden" class="form-control" name="adminId" value="<?php echo $id; ?>">
+                <div class="card-body p-3">
+                  <div class="form-group">
+                    <span><b>Resident name:</b></span>
+                    <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;" id="resident" onchange="myFunction(this.value)" required>
+                        <option selected disabled value="">Select resident</option>
+                        <?php  
+                            $residence = mysqli_query($conn, "SELECT * FROM residence");
+                            if(mysqli_num_rows($residence) > 0) { 
+                            while($row_residence = mysqli_fetch_array($residence)) {
+                        ?>
+                            <option value="<?php echo $row_residence['residenceId']; ?>"><?php echo ' '.$row_residence['firstname'].' '.$row_residence['middlename'].' '.$row_residence['lastname'].' '.$row_residence['suffix'].' '; ?></option>
+                        <?php } } else { ?>
+                            <option selected disabled value="">No record found</option>
+                        <?php } ?>
+                    </select>
+                    <!-- PASSING VALUE ON CHANGE -->
+                        <input type="hidden" class="form-control" id="as_is_resident" name="residenceId" required>
+                        <!-- END PASSING VALUE ON CHANGE -->
+                  </div>
+                  <div class="form-group">
+                    <span class="text-dark"><b>Amount in Peso (₱)</b></span>
+                    <input type="number" class="form-control"  placeholder="Enter amount here..." name="paidAmount" required>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn bg-primary btn-sm" name="acquire_BrgyID">Proceed</button>
+                </div>
+              </form>
+
+
               <?php else : ?>
 
               <?php endif; ?>

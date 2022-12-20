@@ -1,5 +1,12 @@
 <?php 
 	include '../config.php';
+	include('../phpqrcode/qrlib.php');
+	use PHPMailer\PHPMailer\PHPMailer;
+	use PHPMailer\PHPMailer\Exception;
+
+	require '../vendor/PHPMailer/src/Exception.php';
+	require '../vendor/PHPMailer/src/PHPMailer.php';
+	require '../vendor/PHPMailer/src/SMTP.php';
 	date_default_timezone_set('Asia/Manila');
 
 	// SAVE SYSTEM USER - USERS_ADD.PHP
@@ -40,7 +47,6 @@
 	}
 
 
-
 	// SAVE RESIDENT - RESIDENT_ADD.PHP
 	if(isset($_POST['create_resident'])) {
 		$firstname        = mysqli_real_escape_string($conn, $_POST['firstname']);
@@ -71,6 +77,20 @@
 		$date_registered  = date('Y-m-d');
 		$file             = basename($_FILES["fileToUpload"]["name"]);
 		$signature		  = basename($_FILES["signature"]["name"]);
+
+
+		// SAVING QR CODES**********************************************************************
+    	$name = $firstname. ' ' .$middlename. ' ' .$lastname. ' ' .$suffix;
+	    $path = '../images-qr-codes/';
+	    $qr_image = $path.uniqid().".png";
+
+	    $ecc = 'L';
+	    $pixel_Size = 10;
+	    $frame_Size = 10;
+	    QRcode::png($name,$qr_image,$ecc,$pixel_Size,$frame_Size);
+	    // *************************************************************************************
+
+	
 
 		$ageClassification = "";
 		if (
@@ -272,7 +292,7 @@
 
 		    		if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
 
-	    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, house_no, street_name, purok, zone, barangay, municipality, province, region, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$date_registered')");
+	    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, house_no, street_name, purok, zone, barangay, municipality, province, region, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, qrCode, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$qr_image', '$date_registered')");
 
 		              	  if($save) {
 				          	$_SESSION['message'] = "Resident information has been saved!";
@@ -544,6 +564,7 @@ if(isset($_POST['acquire_Indigency'])) {
 }
 
 
+
 // ACQUIRE RESIDENCY - DOCUMENT_REQUIREMENTS.PHP
 if(isset($_POST['acquire_Residency'])) {
 
@@ -563,7 +584,7 @@ if(isset($_POST['acquire_Residency'])) {
 		    $_SESSION['message'] = "Something went wrong while saving the information.";
 		    $_SESSION['text'] = "Please try again.";
 		    $_SESSION['status'] = "error";
-			header("Location: documents_requirements.php?page=indigency");
+			header("Location: documents_requirements.php?page=Residency");
 		  } 
 		
 	  } else {
@@ -613,7 +634,7 @@ if(isset($_POST['acquire_Job'])) {
 		    $_SESSION['message'] = "Something went wrong while saving the information.";
 		    $_SESSION['text'] = "Please try again.";
 		    $_SESSION['status'] = "error";
-			header("Location: documents_requirements.php?page=indigency");
+			header("Location: documents_requirements.php?page=JobSeeker");
 		  } 
 		
 	  } else {
@@ -643,9 +664,6 @@ if(isset($_POST['acquire_Job'])) {
 
 
 
-
-
-
 // ACQUIRE NON-RESIDENCY CERT. - DOCUMENT_REQUIREMENTS.PHP
 if(isset($_POST['acquire_NonResident'])) {
 
@@ -666,7 +684,7 @@ if(isset($_POST['acquire_NonResident'])) {
 		    $_SESSION['message'] = "Something went wrong while saving the information.";
 		    $_SESSION['text'] = "Please try again.";
 		    $_SESSION['status'] = "error";
-			header("Location: documents_requirements.php?page=indigency");
+			header("Location: documents_requirements.php?page=NonResidency");
 		  } 
 		
 	  } else {
@@ -698,8 +716,6 @@ if(isset($_POST['acquire_NonResident'])) {
 
 
 
-
-
 // ACQUIRE BRGY. CLEARANCE - DOCUMENT_REQUIREMENTS.PHP
 if(isset($_POST['acquire_BrgyClearance'])) {
 
@@ -719,7 +735,7 @@ if(isset($_POST['acquire_BrgyClearance'])) {
 		    $_SESSION['message'] = "Something went wrong while saving the information.";
 		    $_SESSION['text'] = "Please try again.";
 		    $_SESSION['status'] = "error";
-			header("Location: documents_requirements.php?page=indigency");
+			header("Location: documents_requirements.php?page=BarangayClearance");
 		  } 
 		
 	  } else {
@@ -752,6 +768,106 @@ if(isset($_POST['acquire_BrgyClearance'])) {
 
 
 
+// ACQUIRE BRGY. OWNERSHIP - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_BrgyOwnership'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'Barangay Ownership';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = 'Get Brgy. Ownership Certificate';
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyOwnership.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=BarangayOwnership");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=BarangayOwnership");
+	  } 
+}
+
+
+
+
+
+// ACQUIRE BRGY. PLATE - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_BrgyPlate'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'Barangay Plate';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = 'Get Brgy. Plate Certificate';
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyPlate.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=BarangayPlate");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=BarangayPlate");
+	  } 
+}
+
+
+
+
+
+// ACQUIRE BRGY. ID - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_BrgyID'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'Barangay ID Card';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = 'Get Brgy. ID Card';
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyID.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=BarangayID");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=BarangayID");
+	  } 
+}
+
+
+
 
 
 // CREATE/SAVE ACTIVITIY - ACTIVITY_ADD.PHP
@@ -774,8 +890,6 @@ if(isset($_POST['create_activity'])) {
 		header("Location: dashboard.php?#activity");
 	  }
 }
-
-
 
 
 
@@ -804,21 +918,7 @@ if(isset($_POST['new_income'])) {
 
 
 
-
-
-
-
-
-
-
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require '../vendor/PHPMailer/src/Exception.php';
-require '../vendor/PHPMailer/src/PHPMailer.php';
-require '../vendor/PHPMailer/src/SMTP.php';
-
+// CONTACT EMAIL MESSAGING - CONTACT-US.PHP
 if(isset($_POST['sendEmail'])) {
 
 	$name    = mysqli_real_escape_string($conn, $_POST['name']);
