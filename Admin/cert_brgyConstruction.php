@@ -1,4 +1,19 @@
-<?php include 'navbar.php'; ?>
+<?php 
+
+    include 'navbar.php'; 
+    date_default_timezone_set('Asia/Manila');
+    $dateToday = date("F d, Y");
+
+    if(isset($_GET['residenceId']) && isset($_GET['purpose']) && isset($_GET['date'])) {
+    $residenceId = $_GET['residenceId'];
+    $purpose     = $_GET['purpose'];
+    $date        = $_GET['date'];
+
+    $fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+    $row = mysqli_fetch_array($fetch);
+
+    
+?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -60,13 +75,13 @@
                         </div>
                         <div class="col-sm-5 invoice-col text-right" style="line-height: 15px;">
                           <small>Control No:__________</small><br>
-                          <small>Issued on: __________</small>
+                          <small>Issued on: <span style="text-decoration: underline;"><?php echo $dateToday; ?></span></small>
                         </div>
                       </div>
 
                       <h4 class="text-center mt-3 mb-3">BARANGAY CLEARANCE</h4>
 
-                      <p class="text-sm m-0" style="text-indent: 30px; text-align: justify; ">Clearance is hereby granted to <b>SAMPLE NAME</b> with present address at # 0083 Road 4, Pildera II, NAIA Pasay City to <b>construct/renovate/operate/excavate/install</b> as follows:</p>
+                      <p class="text-sm m-0" style="text-indent: 30px; text-align: justify; ">Clearance is hereby granted to <span class="text-bold" style="text-transform: uppercase;"><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></span> with present address at <?php echo ' '.$row['house_no'].' '.$row['street_name'].' '.$row['purok'].' '.$row['zone'].' '.$row['barangay'].' '.$row['municipality'].' '.$row['province'].' '.$row['region'].' '; ?> to <b>construct/renovate/operate/excavate/install</b> as follows:</p>
                       <p class="text-sm mt-2" style="text-indent: 30px; text-align: justify;">Described here under subject to the requirements provided under existing ordinance and other pertinent laws and related implementing administrative resolutions.</p>
 
                       <div class="row">
@@ -90,22 +105,22 @@
                             </thead>
                             <tbody>
                               <tr>
-                                <td>1</td>
-                                <td>Call of Duty</td>
-                                <td>455-981-221</td>
-                                <td>El snort testosterone trophy driving gloves handsome</td>
-                                <td>$64.50</td>
-                                <td>El snort testosterone trophy driving gloves handsome</td>
-                                <td>$64.50</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                               </tr>
                               <tr>
-                                <td>1</td>
-                                <td>Call of Duty</td>
-                                <td>455-981-221</td>
-                                <td>El snort testosterone trophy driving gloves handsome</td>
-                                <td>$64.50</td>
-                                <td>El snort testosterone trophy driving gloves handsome</td>
-                                <td>$64.50</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                               </tr>
                             </tbody>
                           </table>
@@ -169,7 +184,7 @@
    
   </div>
  
-
+<?phP } else { include '404.php'; } ?>
 <script src="print.js"> </script>
 <?php include 'footer.php'; ?>
  

@@ -45,7 +45,7 @@
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
                 </div>
-                <a  href="cert_brgyPermit.php" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
+                <a  href="documents_requirements.php?page=permit" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@
                 <div class="progress">
                   <div class="progress-bar" style="width: 100%"></div>
                 </div>
-                <a href="cert_brgyConstruction.php" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
+                <a href="documents_requirements.php?page=BarangayConstruction" class="progress-description text-light text-sm">More info <i class="fa-solid fa-circle-info"></i></a>
               </div>
             </div>
           </div>

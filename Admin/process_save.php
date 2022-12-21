@@ -868,6 +868,75 @@ if(isset($_POST['acquire_BrgyID'])) {
 
 
 
+// ACQUIRE BRGY. BUSINESS CLEARANCE PERMIT - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_BrgyPermit'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'Barangay Permit';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = 'Get Brgy. Business Clearance Permit';
+	$tradeName     = mysqli_real_escape_string($conn, $_POST['tradeName']);
+	$scopeBusiness = mysqli_real_escape_string($conn, $_POST['scopeBusiness']);
+	$controlNumber = mysqli_real_escape_string($conn, $_POST['controlNumber']);
+	$ORNumber      = mysqli_real_escape_string($conn, $_POST['ORNumber']);
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, tradeName, businessNature, controlNumber, ORNumber, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$tradeName', '$scopeBusiness', '$controlNumber', '$ORNumber', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyPermit.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'&&ORNumber='.$ORNumber.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=permit");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=permit");
+	  } 
+}
+
+
+
+
+
+
+// ACQUIRE BRGY. CONSTRUCTION CLEARANCE - DOCUMENT_REQUIREMENTS.PHP
+if(isset($_POST['acquire_BrgyConstruction'])) {
+
+	$adminId	   = mysqli_real_escape_string($conn, $_POST['adminId']);
+	$type          = 'Barangay Construction';
+	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$purpose       = 'Get Barangay Construction Certificate';
+	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
+	$date_acquired = date('Y-m-d');
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+
+	  if($save) {
+	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  	  if($save2) {
+			header('Location: cert_brgyConstruction.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while saving the information.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: documents_requirements.php?page=BarangayConstruction");
+		  } 
+		
+	  } else {
+	    $_SESSION['message'] = "Something went wrong while saving the information.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: documents_requirements.php?page=BarangayConstruction");
+	  } 
+}
+
 
 
 // CREATE/SAVE ACTIVITIY - ACTIVITY_ADD.PHP

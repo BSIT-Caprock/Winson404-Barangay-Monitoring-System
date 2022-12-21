@@ -1,4 +1,21 @@
-<?php include 'navbar.php'; ?>
+<?php 
+
+    include 'navbar.php'; 
+    date_default_timezone_set('Asia/Manila');
+    $dateToday = date("F d, Y");
+
+    if(isset($_GET['residenceId']) && isset($_GET['purpose']) && isset($_GET['date']) && isset($_GET['ORNumber'])) {
+    $residenceId = $_GET['residenceId'];
+    $purpose     = $_GET['purpose'];
+    $ORNumber    = $_GET['ORNumber'];
+    $date        = $_GET['date'];
+
+    $dt = strtotime($date);
+    $plus = date("Y-m-d", strtotime("+1 month", $dt));
+
+    $fetch = mysqli_query($conn, "SELECT * FROM residence JOIN documents ON residence.residenceId=documents.doc_residenceId WHERE residence.residenceId='$residenceId' AND documents.ORNumber='$ORNumber' AND date_acquired='$date'");
+    $row = mysqli_fetch_array($fetch);
+?>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -27,21 +44,21 @@
             <div class="invoice mb-3" id="printElement" style="border: none;line-height: 16px;">
 
                   <div class="row p-0 m-0 position-relative" style="max-height: 530px; min-height: 530px;">
-                    <div class="col-12"  style="z-index: 1; font-style: italic;">
-                       <h5 class="text-center" style=" margin-top: 162px;"><b>SAMPLE NAME</b></h5>
-                       <h5 class="text-center" style=" margin-top: 23px;"><b>SAMPLE NAME</b></h5>
-                       <h5 class="text-center" style=" margin-top: 23px;"><b>SAMPLE NAME</b></h5>
-                       <h5 class="text-center" style=" margin-top: 35px;"><b>SAMPLE NAME</b></h5>
+                    <div class="col-12"  style="z-index: 1; font-style: italic; text-transform: uppercase;">
+                       <h5 class="text-center" style=" margin-top: 162px;"><b><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></b></h5>
+                       <h5 class="text-center" style=" margin-top: 25px;"><b><?php echo $row['tradeName']; ?></b></h5>
+                       <h5 class="text-center" style=" margin-top: 23px;"><b><?php echo $row['businessNature']; ?></b></h5>
+                       <h5 class="text-center" style=" margin-top: 33px;"><b><?php echo ' '.$row['house_no'].' '.$row['street_name'].' '.$row['purok'].' '.$row['zone'].' '.$row['barangay'].' '.$row['municipality'].' '.$row['province'].' '.$row['region'].' '; ?></b></h5>
                     </div>
 
                     <div class="col-12 position-absolute" style="z-index: 1; top: 403px;">
-                      <p class="text-sm" style="margin-left: 110px; margin-top: 40px;"><b>2022-120</b></p>
-                      <p class="text-sm" style="margin-left: 110px; margin-top: -16px;"><b>2022-120</b></p>
-                      <p class="text-sm" style="margin-left: 110px; margin-top: -16px;"><b>2022-120</b></p>
-                      <p class="text-sm" style="margin-left: 110px; margin-top: -16px;"><b>2022-120</b></p>
-                      <p class="text-sm" style="margin-left: 110px; margin-top: -16px;"><b>2022-120</b></p>
+                      <p class="text-sm" style="margin-left: 110px; margin-top: 40px;"><b><?php echo $row['controlNumber']; ?></b></p>
+                      <p class="text-sm" style="margin-left: 110px; margin-top: -16px;"><b>₱<?php echo number_format($row['doc_paidAmount'], 2, '.', ','); ?></b></p>
+                      <p class="text-sm" style="margin-left: 110px; margin-top: -16px;"><b><?php echo $row['ORNumber']; ?></b></p>
+                      <p class="text-sm" style="margin-left: 110px; margin-top: -16px;"><b><?php echo $date; ?></b></p>
+                      <p class="text-sm" style="margin-left: 110px; margin-top: -16px;"><b><?php echo $date; ?></b></p>
 
-                      <p class="text-xs position-absolute" style="right: 50px; margin-top: -47px;"><b>December 21, 2022</b></p>
+                      <p class="text-xs position-absolute" style="right: 50px; margin-top: -47px;"><b><?php echo date("F d, Y", strtotime($plus)); ?></b></p>
                     </div>
 
                     <img src="../images/Permit2.jpg" alt="" class="position-absolute" width="100%" height="100%">
@@ -65,7 +82,7 @@
    
   </div>
  
-
+<?phP } else { include '404.php'; } ?>
 <script src="print.js"> </script>
 <?php include 'footer.php'; ?>
  

@@ -32,7 +32,7 @@
           <div class="col-md-8">
             <div class="card">
               <div class="card-header col-12">
-                <a class="h6 text-primary"><b>Fill in the required fields</b></a>
+                <a class="h6 text-primary" id="instruct"><b>Fill in the required fields</b></a>
                 <a type="button" onclick="window.history.go(-1); return false;" class="btn bg-success btn-xs float-sm-right"><i class="fa-solid fa-backward"></i> Back</a>
               </div>
 
@@ -325,7 +325,118 @@
               </form>
 
 
+              <?php elseif($certificate == 'permit') : ?>
+
+              <!-- BARANGAY PLATE -->
+              <form action="process_save.php" method="POST" autocomplete="off">
+                <input type="hidden" class="form-control" name="adminId" value="<?php echo $id; ?>">
+                <div class="card-body p-3">
+                  <div class="form-group">
+                    <span><b>Resident name:</b></span>
+                    <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;" id="resident" onchange="myFunction(this.value)" required>
+                        <option selected disabled value="">Select resident</option>
+                        <?php  
+                            $residence = mysqli_query($conn, "SELECT * FROM residence");
+                            if(mysqli_num_rows($residence) > 0) { 
+                            while($row_residence = mysqli_fetch_array($residence)) {
+                        ?>
+                            <option value="<?php echo $row_residence['residenceId']; ?>"><?php echo ' '.$row_residence['firstname'].' '.$row_residence['middlename'].' '.$row_residence['lastname'].' '.$row_residence['suffix'].' '; ?></option>
+                        <?php } } else { ?>
+                            <option selected disabled value="">No record found</option>
+                        <?php } ?>
+                    </select>
+                    <!-- PASSING VALUE ON CHANGE -->
+                        <input type="hidden" class="form-control" id="as_is_resident" name="residenceId" required>
+                        <!-- END PASSING VALUE ON CHANGE -->
+                  </div>
+
+                  <div class="form-group">
+                    <span class="text-dark"><b>Trade Name</b></span>
+                    <input type="text" class="form-control"  placeholder="Enter Trade Name..." name="tradeName" required>
+                  </div>
+
+                  <div class="form-group">
+                    <span class="text-dark"><b>Nature/Scope of Business</b></span>
+                    <input type="text" class="form-control"  placeholder="Enter Nature/Scope of Business..." name="scopeBusiness" required>
+                  </div>
+
+                  <div class="form-group">
+                    <span class="text-dark"><b>Control Number</b></span>
+                    <input type="text" class="form-control"  placeholder="Enter Control Number..." name="controlNumber" required>
+                  </div>
+
+                  <div class="form-group">
+                    <span class="text-dark"><b>O.R. Number</b></span>
+                    <input type="text" class="form-control"  placeholder="Enter O.R. Number..." name="ORNumber" required>
+                  </div>
+
+                  <div class="form-group">
+                    <span class="text-dark"><b>Amount in Peso (₱)</b></span>
+                    <input type="number" class="form-control"  placeholder="Enter amount here..." name="paidAmount" required>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn bg-primary btn-sm" name="acquire_BrgyPermit">Proceed</button>
+                </div>
+              </form>
+
+
+
+              <?php elseif($certificate == 'BarangayConstruction') : ?>
+
+              <!-- BARANGAY PLATE -->
+              <form action="process_save.php" method="POST" autocomplete="off">
+                <input type="hidden" class="form-control" name="adminId" value="<?php echo $id; ?>">
+                <div class="card-body p-3">
+                  <div class="form-group">
+                    <span><b>Resident name:</b></span>
+                    <select class="form-control select2 select2-primary" data-dropdown-css-class="select2-primary" style="width: 100%;" id="resident" onchange="myFunction(this.value)" required>
+                        <option selected disabled value="">Select resident</option>
+                        <?php  
+                            $residence = mysqli_query($conn, "SELECT * FROM residence");
+                            if(mysqli_num_rows($residence) > 0) { 
+                            while($row_residence = mysqli_fetch_array($residence)) {
+                        ?>
+                            <option value="<?php echo $row_residence['residenceId']; ?>"><?php echo ' '.$row_residence['firstname'].' '.$row_residence['middlename'].' '.$row_residence['lastname'].' '.$row_residence['suffix'].' '; ?></option>
+                        <?php } } else { ?>
+                            <option selected disabled value="">No record found</option>
+                        <?php } ?>
+                    </select>
+                    <!-- PASSING VALUE ON CHANGE -->
+                        <input type="hidden" class="form-control" id="as_is_resident" name="residenceId" required>
+                        <!-- END PASSING VALUE ON CHANGE -->
+                  </div>
+                  <div class="form-group">
+                    <span class="text-dark"><b>Amount in Peso (₱)</b></span>
+                    <input type="number" class="form-control"  placeholder="Enter amount here..." name="paidAmount" required>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <button type="submit" class="btn bg-primary btn-sm" name="acquire_BrgyConstruction">Proceed</button>
+                </div>
+              </form>
+
+
               <?php else : ?>
+
+                <section class="content p-5">
+                  <div class="error-page">
+                    <h2 class="headline text-warning"> 404</h2>
+                    <div class="error-content">
+                      <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! Page not found.</h3>
+                      <p>
+                        We could not find the page you were looking for.
+                        Meanwhile, you may <a href="dashboard.php">return to dashboard</a> or try using the search form.
+                      </p>
+                    </div>
+                  </div>
+                </section>
+
+                <script>
+                  window.onload = function() {
+                    document.getElementById('instruct').style.display = 'none';
+                  };
+                </script>
 
               <?php endif; ?>
 
