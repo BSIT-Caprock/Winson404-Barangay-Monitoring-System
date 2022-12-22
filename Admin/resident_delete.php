@@ -8,8 +8,9 @@
           <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
         </button>
       </div>
-      <div class="modal-body d-flex justify-content-center">
-          <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" alt="" width="300" class="shadow-sm">
+      <div class="modal-body ">
+          <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" alt="" width="300" class="shadow-sm d-block m-auto">
+          <h5 class="text-center mt-3">PIN: <?php if($row['residentPIN'] == '') { echo 'NOT SET'; } else { echo $row['residentPIN']; } ?></h5>
       </div>
       <div class="modal-footer alert-light d-flex justify-content-center">
         <a href="../images-qr-codes/<?php echo $row['qrCode']; ?>" type="button" class="btn bg-gradient-primary" download><i class="fa-solid fa-download"></i> Download</a>

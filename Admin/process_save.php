@@ -80,14 +80,18 @@
 
 
 		// SAVING QR CODES**********************************************************************
-    	$name = $firstname. ' ' .$middlename. ' ' .$lastname. ' ' .$suffix;
+		$bms = 'BMS-';
+    	$residentCode = $bms.uniqid();
+
+    	// $residentCode = $firstname. ' ' .$middlename. ' ' .$lastname. ' ' .$suffix;
+
 	    $path = '../images-qr-codes/';
 	    $qr_image = $path.uniqid().".png";
 
 	    $ecc = 'L';
 	    $pixel_Size = 10;
 	    $frame_Size = 10;
-	    QRcode::png($name,$qr_image,$ecc,$pixel_Size,$frame_Size);
+	    QRcode::png($residentCode,$qr_image,$ecc,$pixel_Size,$frame_Size);
 	    // *************************************************************************************
 
 	
@@ -292,7 +296,7 @@
 
 		    		if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
 
-	    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, house_no, street_name, purok, zone, barangay, municipality, province, region, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, qrCode, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$qr_image', '$date_registered')");
+	    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, house_no, street_name, purok, zone, barangay, municipality, province, region, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, qrCode, residentCode, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$qr_image', '$residentCode', '$date_registered')");
 
 		              	  if($save) {
 				          	$_SESSION['message'] = "Resident information has been saved!";
@@ -843,14 +847,15 @@ if(isset($_POST['acquire_BrgyID'])) {
 	$type          = 'Barangay ID Card';
 	$residenceId   = mysqli_real_escape_string($conn, $_POST['residenceId']);
 	$purpose       = 'Get Brgy. ID Card';
+	$IDNumber	   = mysqli_real_escape_string($conn, $_POST['IDNumber']);
 	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 	$date_acquired = date('Y-m-d');
-	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
+	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, brgyIDnumber, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$IDNumber', '$paidAmount', '$date_acquired')");
 
 	  if($save) {
 	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 	  	  if($save2) {
-			header('Location: cert_brgyID.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
+			header('Location: cert_brgyID.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&IDNumber='.$IDNumber.'&&date='.$date_acquired.'');
 		  } else {
 		    $_SESSION['message'] = "Something went wrong while saving the information.";
 		    $_SESSION['text'] = "Please try again.";

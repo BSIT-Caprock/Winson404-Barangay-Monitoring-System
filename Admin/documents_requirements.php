@@ -315,6 +315,10 @@
                         <!-- END PASSING VALUE ON CHANGE -->
                   </div>
                   <div class="form-group">
+                    <span class="text-dark"><b>Barangay ID Number</b></span>
+                    <input type="number" class="form-control"  placeholder="Enter Barangay ID Number..." name="IDNumber" required>
+                  </div>
+                  <div class="form-group">
                     <span class="text-dark"><b>Amount in Peso (₱)</b></span>
                     <input type="number" class="form-control"  placeholder="Enter amount here..." name="paidAmount" required>
                   </div>

@@ -4,9 +4,10 @@
     date_default_timezone_set('Asia/Manila');
     $dateToday = date("F d, Y");
 
-    if(isset($_GET['residenceId']) && isset($_GET['purpose']) && isset($_GET['date'])) {
+    if(isset($_GET['residenceId']) && isset($_GET['purpose']) && isset($_GET['date']) && isset($_GET['IDNumber'])) {
     $residenceId = $_GET['residenceId'];
     $purpose     = $_GET['purpose'];
+    $IDNumber     = $_GET['IDNumber'];
     $date        = $_GET['date'];
 
     $fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
@@ -46,7 +47,7 @@
                     <img src="../images/pasay-logo-2.png" alt="" class="position-absolute" width="300" style="right: 100px;top: 100px;">
                     <div class="col-3  text-center" >
                       <h5 style="color: #ffe6f3; text-shadow: 2px 0 #fff;"><b>ID NUMBER</b><br>
-                      <span class="bg-light p-1">2022-0664</span></h5>
+                      <span class="bg-light p-1">2023-<?php echo $IDNumber; ?></span></h5>
                     </div>
                     <div class="col-6  text-center text-white" style="text-shadow: 2px 0 #fff;">
                        <address>
