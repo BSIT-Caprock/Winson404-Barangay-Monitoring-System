@@ -121,6 +121,30 @@
                               <input type="text" class="form-control"  placeholder="Profession/ Occupation" name="occupation" required>
                             </div>
                         </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                          <div class="form-group">
+                            <span class="text-dark"><b>Religion</b></span>
+                            <select class="form-control" name="religion" required>
+                              <option selected disabled value="">Select religion</option>
+                              <option value="Roman Catholic">Roman Catholic</option>
+                              <option value="Iglesia Ni Cristo">Iglesia Ni Cristo</option>
+                              <option value="Evangelical Christianity">Evangelical Christianity</option>
+                              <option value="Islam">Islam</option>
+                              <option value="Protestants">Protestants</option>
+                              <option value="Seventh-day Adventism">Seventh-day Adventism</option>
+                              <option value="Aglipayan">Aglipayan</option>
+                              <option value="Bible Baptist Church">Bible Baptist Church</option>
+                              <option value="United Church of Christ in the Philippines">United Church of Christ in the Philippines</option>
+                              <option value="Jehovah's Witnesses">Jehovah's Witnesses</option>
+                              <option value="Buddhist">Buddhist</option>
+                              <option value="Methodist">Methodist</option>
+                              <option value="Hindu">Hindu</option>
+                              <option value="Judaism">Judaism</option>
+                              <option value="Ang Dating Daan">Ang Dating Daan</option>
+                              <option value="Other Religion">Other Religion</option>
+                            </select>
+                          </div>
+                        </div>
 
 
 
@@ -305,14 +329,13 @@
         </div>
       </div>
     </section>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
   </div>
-  
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 <?php include 'footer.php';  ?>
 
 <script>

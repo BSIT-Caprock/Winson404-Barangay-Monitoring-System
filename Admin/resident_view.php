@@ -91,13 +91,12 @@
                         </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                      <div class="d-flex justify-content-center">
-                        <img src="../images-residence/<?php echo $row['image']; ?>" alt="" class="img-fluid" width="100">
+                    <div class="col-lg-3 col-md-6 col-12 text-dark">
+                      <div class=" d-flex justify-content-center bg-dark d-block m-auto" style="max-height: 120px; min-height: 120px; width: 120px; border: 3px solid darkgray;">
+                        <img src="../images-residence/<?php echo $row['image']; ?>" alt="" class="img-fluid d-block m-auto">
                       </div>
-                      <div class="dropdown-divider"></div>
-                      <h6 class="text-center">Resident photo</h6>
-                    </div> 
+                      <p class="text-center text-sm text-muted">Resident photo</p>
+                    </div>
                   </div>
                       
                   <div class="row p-2">
@@ -157,13 +156,12 @@
                             </div>
                               </div>
                       </div>
-                      <div class="col-lg-3 col-md-6 col-12">
-                        <div class="d-flex justify-content-center">
-                          <img src="../images-signature/<?php echo $row['digital_signature']; ?>" alt="" class="img-fluid" width="100">
+                      <div class="col-lg-3 col-md-6 col-12 text-dark">
+                        <div class=" d-flex justify-content-center bg-dark d-block m-auto" style="max-height: 120px; min-height: 120px; width: 120px; border: 3px solid darkgray;">
+                          <img src="../images-signature/<?php echo $row['digital_signature']; ?>" alt="" class="img-fluid d-block m-auto">
                         </div>
-                        <div class="dropdown-divider"></div>
-                        <h6 class="text-center">Digital Signature</h6>
-                      </div>
+                        <p class="text-center text-sm text-muted">Digital Signature</p>
+                      </div> 
                   </div> 
 
 

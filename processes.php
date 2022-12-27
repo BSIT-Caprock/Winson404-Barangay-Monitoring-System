@@ -1,9 +1,7 @@
 <?php 
 	include 'config.php';
 
-// ****************************************************************LOGIN**********************************************************************************
-	
-	// users LOGIN
+	// USERS LOGIN
 	if(isset($_POST['login'])) {
 		$email    = $_POST['email'];
 		$password = md5($_POST['password']);
@@ -28,10 +26,7 @@
 				header("Location: login.php");
 		}
 	}
-// ****************************************************************END LOGIN******************************************************************************
 
-
-// ****************************************************************REGISTRATIONS**************************************************************************
 
 // SAVE USER
 	if(isset($_POST['create_user'])) {
@@ -110,6 +105,63 @@
 
 	}
 	
-// ************************************************************END REGISTRATIONS**************************************************************************
+
+
+// QR CODE SCANNING - SCANQRCODE.PHP
+if(isset($_POST['residentQR'])) {
+	$residentQR = $_POST['residentQR'];
+
+	$check = mysqli_query($conn, "SELECT * FROM residence WHERE residentCode='$residentQR'");
+	if(mysqli_num_rows($check) > 0 ) {
+		$row = mysqli_fetch_array($check);
+		$residenceId = $row['residenceId'];
+		$checkPin = mysqli_query($conn, "SELECT * FROM residence WHERE residentPIN='' AND residenceId='$residenceId'");
+		if(mysqli_num_rows($checkPin) > 0) {
+			header("Location: PINsettings.php?page=firstTimer&&residenceId=".$residenceId);
+		} else {
+			header("Location: PINsettings.php?page=accessInfo&&residenceId=".$residenceId);
+		}
+	} else {
+		$_SESSION['message'] = "There is no resident record found with this QR Code.";
+    $_SESSION['text'] = "Please try again.";
+    $_SESSION['status'] = "error";
+		header("Location: scanQRCode.php");
+	}
+}
+
+
+
+// PIN SETTINGS - PINSETTINGS.PHP
+if(isset($_POST['PINSettings'])) {
+	$residenceId = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$PIN = mysqli_real_escape_string($conn, $_POST['PIN']);
+
+	$update = mysqli_query($conn, "UPDATE residence SET residentPIN='$PIN' WHERE residenceId='$residenceId'");
+	if($update) {
+		header("Location: resident_view.php?residenceId=".$residenceId);
+	} else {
+		$_SESSION['message'] = "Cannot set PIN right now.";
+    $_SESSION['text'] = "Please try again.";
+    $_SESSION['status'] = "error";
+		header("Location: scanQRCode.php");
+	}
+}
+
+
+// ACCESS AGAIN INFO THRU PIN - PINSETTINGS.PHP
+if(isset($_POST['accessAgain'])) {
+	$residenceId = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$PIN = mysqli_real_escape_string($conn, $_POST['PIN']);
+
+	$check = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId' AND residentPIN='$PIN'");
+	if(mysqli_num_rows($check)) {
+		header("Location: resident_view.php?residenceId=".$residenceId);
+	} else {
+		$_SESSION['message'] = "Incorrect PIN.";
+    $_SESSION['text'] = "Please try again.";
+    $_SESSION['status'] = "error";
+		header("Location: PINsettings.php?page=accessInfo&&residenceId=".$residenceId);
+	}
+}
 
 ?>

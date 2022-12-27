@@ -165,6 +165,7 @@
 		$civilstatus      = mysqli_real_escape_string($conn, $_POST['civilstatus']);
 		$citizenship      = mysqli_real_escape_string($conn, $_POST['citizenship']);
 		$occupation       = mysqli_real_escape_string($conn, $_POST['occupation']);
+		$religion		  = mysqli_real_escape_string($conn, $_POST['religion']);
 		$house_no         = mysqli_real_escape_string($conn, $_POST['house_no']);
 		$street_name      = mysqli_real_escape_string($conn, $_POST['street_name']);
 		$purok            = mysqli_real_escape_string($conn, $_POST['purok']);
@@ -329,7 +330,7 @@
 	        } else {
 
 	            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-	              	$save = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file' WHERE residenceId='$residenceId'");
+	              	$save = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file' WHERE residenceId='$residenceId'");
 					        if($save) {
 				                $_SESSION['message']  = "Residents information has been updated!";
 					            $_SESSION['text'] = "Updated successfully!";
@@ -396,7 +397,7 @@
 		    } else {
 
 		        if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
-		          	$save2 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', digital_signature='$signature' WHERE residenceId='$residenceId'");
+		          	$save2 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', digital_signature='$signature' WHERE residenceId='$residenceId'");
 				        if($save2) {
 				              $_SESSION['message']  = "Residents information has been updated!";
 			            	  $_SESSION['text'] = "Updated successfully!";
@@ -509,7 +510,7 @@
 
 				    		if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
 
-				    				$save3 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file', digital_signature='$signature' WHERE residenceId='$residenceId'");
+				    				$save3 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file', digital_signature='$signature' WHERE residenceId='$residenceId'");
 							      if($save3) {
 							            $_SESSION['message']  = "Residents information has been updated!";
 							            $_SESSION['text'] = "Updated successfully!";
@@ -540,7 +541,7 @@
 
 		} else {
 
-		    $save4 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay' WHERE residenceId='$residenceId'");
+		    $save4 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay' WHERE residenceId='$residenceId'");
 	        if($save4) {
 	          	$_SESSION['message']  = "Residents information has been updated!";
 	            $_SESSION['text'] = "Updated successfully!";
