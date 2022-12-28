@@ -21,24 +21,25 @@
                       }
                     ?>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-12 bg-light">
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12 bg-light pb-2">
                     <div class="card-header text-center justify-content-center d-flex p-0 mt-3">
                       <div class="col-12 p-1">
                         <a  class="h3" ><b>INPUT QR CODE</b></a>
-                        <p>Please Place the QR Code Located at the back of your ID in front of the camera.</p>
+                        <p>Please place the QR Code located at the back of your ID in front of the camera.</p>
                       </div>
                     </div>
                      <form action="processes.php" method="POST" class="form-horizontal">
                         <input type="hidden" name="residentQR" id="residentQR" class="form-control" autofocus>
                      </form>
-                  <div class="card-body p-1 m-0">
-                    <div class="position-relative mt-3 bg-dark"  style="max-height: 200px; min-height: 200px;" id="containerScanner">
-                       <video id="preview" width="100%" height="100%" class="position-absolute rounded"></video>
+                  <div class="card-body p-2 m-0">
+                    <div class="position-relative">
+                      <div class="d-block m-auto mt-3 bg-dark" id="containerScanner" style="">
+                       <video id="preview" width="100%" class="shadow-sm" style="border: 4px solid gray;"></video>
+                    </div>
                     </div>
                   </div>
-                  <div class="card-footer position-relative d-flex justify-content-center bg-light">
-                    <!-- <p class="mb-1"><a href="forgot-password.php">I forgot my password</a></p> -->
-                    <button type="button" class="btn bg-gradient-primary position-absolute mt-3" id="clickMe" onclick="refreshPage()"><i class="fa-solid fa-camera"></i> RESET CAMERA</button>
+                  <div class="mt-3">
+                    <button type="button" class="btn bg-gradient-primary d-block m-auto mt-3" id="clickMe" onclick="refreshPage()"><i class="fa-solid fa-camera"></i> RESET CAMERA</button>
                   </div>
                 </div>
               </div>
@@ -48,6 +49,16 @@
         </div>
       </div>
     </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br><br>
+    <br>
+    <br>
+    <br>
+    <br>
 
 <?php include 'footer.php'; ?>
 

@@ -39,7 +39,7 @@
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-hover text-sm">
+                 <table id="exampleUser" class="table table-bordered table-hover text-sm">
                   <thead>
                   <tr>
                     <th>Full name</th>

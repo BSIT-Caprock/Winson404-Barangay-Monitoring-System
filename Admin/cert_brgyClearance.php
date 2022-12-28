@@ -183,3 +183,8 @@
 <script src="print.js"> </script>
 <?php include 'footer.php'; ?>
  
+ <script>
+   $(window).on('load', function() {
+    document.getElementById("printButton").click();
+   })
+ </script>

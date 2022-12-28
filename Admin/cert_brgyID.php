@@ -187,7 +187,7 @@
                     </div>
 
                     <div class="col-12 text-center text-bold" style="line-height: 16px; text-align: justify;">
-                      <p style="font-style: italic; ">THIS IS TO CERTIFY THAT THE BEARER OF THIS CARD WHOSE PICTURE, SIGNATURE AND THUMB MARK APPEAR HERE ON IS A REGISTERED RESIDENT OF BARANGAY 193, ZONE 20, PASAY CITY. <br> THIS IDENTIFICATION CARD IS BEING ISSUED FOR WHATEVER <br>LAWFUL PURPOSE IT MAY SERVE. </p><br>
+                      <p style="font-style: italic; color: red;">THIS IS TO CERTIFY THAT THE BEARER OF THIS CARD WHOSE PICTURE, SIGNATURE AND THUMB MARK APPEAR HERE ON IS A REGISTERED RESIDENT OF BARANGAY 193, ZONE 20, PASAY CITY. <br> THIS IDENTIFICATION CARD IS BEING ISSUED FOR WHATEVER <br>LAWFUL PURPOSE IT MAY SERVE. </p><br>
 
                       <p style="letter-spacing: 2px;">Barangay 193 Multi-Purpose Hall Pildera II, Pasay City 1300, MM., Philippines <br>
                       Contact Number: 8-853-6275</p>
@@ -218,3 +218,8 @@
 <script src="print.js"> </script>
 <?php include 'footer.php'; ?>
  
+ <script>
+   $(window).on('load', function() {
+    document.getElementById("printButton").click();
+   })
+ </script>

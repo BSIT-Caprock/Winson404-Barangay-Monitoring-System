@@ -29,16 +29,17 @@
             <div class="card">
               <div class="card-header p-2">
                 <button type="button" class="btn btn-sm bg-primary ml-2" data-toggle="modal" data-target="#add_users"><i class="fa-sharp fa-solid fa-square-plus"></i> New Official</button>
-
-                <div class="card-tools mr-1 mt-3">
+                <a href="export.php?export=officials" class="btn btn-sm bg-success float-right mr-2"><i class="fa-solid fa-file-excel"></i> Export</a>
+               <!--  <div class="card-tools mr-1 mt-3">
                   <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="fas fa-minus"></i>
                   </button>
-                </div>
+                </div> -->
               </div>
               <div class="card-body p-3">
 
-                 <table id="example1" class="table table-bordered table-hover text-sm">
+                 <!-- <table id="example1" class="table table-bordered table-hover text-sm"> -->
+                 <table id="exampleUser" class="table table-bordered table-hover text-sm">
                   <thead>
                   <tr>
                     <th>SIGNATURE</th>

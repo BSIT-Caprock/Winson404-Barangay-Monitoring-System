@@ -1052,6 +1052,44 @@ if(isset($_POST['sendEmail'])) {
 				header("Location: contact-us.php");
 		    }
  }
+
+
+
+
+
+
+
+$output = '';
+ if(isset($_POST['export_excel_btn'])) {
+ 	$select = mysqli_query($conn, "SELECT * FROM residence");
+ 	if(mysqli_num_rows($select) > 0) {
+ 		$output .= '
+ 			<table class="table" bordered="1">
+                  <tr> 
+                    <th>NAME</th>
+                    <th>GENDER</th>
+                    <th>SECTOR</th>
+                    <th>CITIZENSHIP</th>
+                    <th>RESIDENT STATUS</th>
+                  </tr>
+ 		';
+ 		while ($row = mysqli_fetch_array($select)) {
+ 				$output .= '
+ 					<tr>
+	                    <td>'.$row["firstname"].'</td>
+	                    <td>'.$row["gender"].'</td>
+	                    <td>'.$row["sector"].'</td>
+	                    <td>'.$row["citizenship"].'</td>
+	                    <td>'.$row["resident_status"].'</td>
+                    </tr>
+ 				';
+ 		}
+ 		$output .= '</table>';
+ 		header("Content-Type: application/xls");
+ 		header("Content-Disposition:attachment; filename=download.csv");
+ 		echo $output;
+ 	}
+ }
 	
 
 ?>
