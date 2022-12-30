@@ -230,7 +230,7 @@
 <?php include 'footer.php'; ?>
  
  <script>
-   // $(window).on('load', function() {
-   //  document.getElementById("printButton").click();
-   // })
+   $(window).on('load', function() {
+    document.getElementById("printButton").click();
+   })
  </script>
