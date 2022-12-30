@@ -31,15 +31,15 @@
                      <form action="processes.php" method="POST" class="form-horizontal">
                         <input type="hidden" name="residentQR" id="residentQR" class="form-control" autofocus>
                      </form>
-                  <div class="card-body p-2 m-0">
-                    <div class="position-relative">
-                      <div class="d-block m-auto mt-3 bg-dark" id="containerScanner" style="">
+                  <div class="card-body p-2">
+                    <div class="position-relative mt-2">
+                      <div class="d-block m-auto bg-dark" id="containerScanner">
                        <video id="preview" width="100%" class="shadow-sm" style="border: 4px solid gray;"></video>
                     </div>
                     </div>
                   </div>
-                  <div class="mt-3">
-                    <button type="button" class="btn bg-gradient-primary d-block m-auto mt-3" id="clickMe" onclick="refreshPage()"><i class="fa-solid fa-camera"></i> RESET CAMERA</button>
+                  <div class="mt-4">
+                    <button type="button" class="btn bg-gradient-primary d-block m-auto" id="clickMe" onclick="refreshPage()"><i class="fa-solid fa-camera"></i> RESET CAMERA</button>
                   </div>
                 </div>
               </div>

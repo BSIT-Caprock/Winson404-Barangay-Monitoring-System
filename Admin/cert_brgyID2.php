@@ -157,7 +157,7 @@
 
 
                           <div class="position-absolute" style="height: 70px;width: 70px; right: 15px; top: 245px;">
-                            <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" alt="" width="100%" height="100%" style="object-fit: contain;">
+                            <img src="../images-residence/<?php echo $row['qrCode']; ?>" alt="" width="100%" height="100%" style="object-fit: contain;">
                           </div>
 
 
@@ -192,15 +192,10 @@
                       <p>_______________________________________ <br> HON. MICHAEL F. DAWAL <br><span class="text-sm" style="font-style: italic;">Punong Barangay</span><br><span class="text-xs" style="font-style: italic;"><b>"Pag Nag Droga Ka, Lagot Ka"</b></span></p>
                     </div>
 
-                    
                     <div class="col-12 text-center text-bold" style="line-height: 16px; text-align: justify;">
-                      <div class="d-block m-auto shadow-md" style="height: 80px;width: 80px; border: 2px solid gray;">
-                        <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" alt="" width="100%" height="100%" style="object-fit: contain;">
-                      </div>
+                      <p style="font-style: italic;">THIS IS TO CERTIFY THAT THE BEARER OF THIS CARD WHOSE PICTURE, SIGNATURE AND THUMB MARK APPEAR HERE ON IS A REGISTERED RESIDENT OF BARANGAY 193, ZONE 20, PASAY CITY. <br> THIS IDENTIFICATION CARD IS BEING ISSUED FOR WHATEVER <br>LAWFUL PURPOSE IT MAY SERVE. </p><br>
 
-                      <p class="mt-3" style="font-style: italic;">THIS IS TO CERTIFY THAT THE BEARER OF THIS CARD WHOSE PICTURE, SIGNATURE AND THUMB MARK APPEAR HERE ON IS A REGISTERED RESIDENT OF BARANGAY 193, ZONE 20, PASAY CITY. <br> THIS IDENTIFICATION CARD IS BEING ISSUED FOR WHATEVER <br>LAWFUL PURPOSE IT MAY SERVE. </p><br>
-
-                      <p style="letter-spacing: 2px; margin-top: -15px;">Barangay 193 Multi-Purpose Hall Pildera II, Pasay City 1300, MM., Philippines <br>
+                      <p style="letter-spacing: 2px;">Barangay 193 Multi-Purpose Hall Pildera II, Pasay City 1300, MM., Philippines <br>
                       Contact Number: 8-853-6275</p>
                     </div>
                       

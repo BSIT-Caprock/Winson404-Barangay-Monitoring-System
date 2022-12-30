@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2022 at 10:45 AM
+-- Generation Time: Dec 30, 2022 at 05:20 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `documents` (
   `ORNumber` varchar(255) NOT NULL,
   `doc_paidAmount` varchar(50) NOT NULL,
   `date_acquired` varchar(20) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=61 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=62 ;
 
 --
 -- Dumping data for table `documents`
@@ -137,7 +137,8 @@ INSERT INTO `documents` (`doc_Id`, `doc_type`, `doc_residenceId`, `NonResident`,
 (57, 'Barangay Plate', 67, '', '', 'Get Brgy. Plate Certificate', '', '', '', '', '', '3', '2022-12-28'),
 (58, 'Barangay Construction', 67, '', '', 'Get Barangay Construction Certificate', '', '', '', '', '', '333', '2022-12-28'),
 (59, 'Barangay Ownership', 69, '', '', 'Get Brgy. Ownership Certificate', '', '', '', '', '', '3', '2022-12-28'),
-(60, 'First Time Job Seeker', 69, '', '', 'Get First Time Job Seeker Certificate', '', '', '', '', '', '22', '2022-12-28');
+(60, 'First Time Job Seeker', 69, '', '', 'Get First Time Job Seeker Certificate', '', '', '', '', '', '22', '2022-12-28'),
+(61, 'Barangay ID Card', 69, '', '', 'Get Brgy. ID Card', '', '', '', '22', '', '22', '2022-12-30');
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `income` (
   `date_added` varchar(255) NOT NULL,
   `updated_by` varchar(255) NOT NULL,
   `date_updated` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=53 ;
 
 --
 -- Dumping data for table `income`
@@ -210,7 +211,8 @@ INSERT INTO `income` (`incomeId`, `paid_by`, `paymentFor`, `paymentDesc`, `payme
 (48, '67', 'Barangay Plate', 'Get Brgy. Plate Certificate', '3', '2022-12-28', '40', '2022-12-28', '', ''),
 (49, '67', 'Barangay Construction', 'Get Barangay Construction Certificate', '333', '2022-12-28', '40', '2022-12-28', '', ''),
 (50, '69', 'Barangay Ownership', 'Get Brgy. Ownership Certificate', '3', '2022-12-28', '40', '2022-12-28', '', ''),
-(51, '69', 'First Time Job Seeker', 'Get First Time Job Seeker Certificate', '22', '2022-12-28', '40', '2022-12-28', '', '');
+(51, '69', 'First Time Job Seeker', 'Get First Time Job Seeker Certificate', '22', '2022-12-28', '40', '2022-12-28', '', ''),
+(52, '69', 'Barangay ID Card', 'Get Brgy. ID Card', '22', '2022-12-30', '40', '2022-12-30', '', '');
 
 -- --------------------------------------------------------
 
@@ -289,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `residence` (
 INSERT INTO `residence` (`residenceId`, `firstname`, `middlename`, `lastname`, `suffix`, `dob`, `age`, `ageClassification`, `birthplace`, `gender`, `civilstatus`, `citizenship`, `occupation`, `religion`, `house_no`, `street_name`, `purok`, `zone`, `barangay`, `municipality`, `province`, `region`, `sector`, `resident_status`, `voter_status`, `ID_status`, `QR_status`, `years_of_stay`, `image`, `digital_signature`, `qrCode`, `residentCode`, `residentPIN`, `date_registered`) VALUES
 (66, 'dddsdds', 'd', 'd', '', '1993-06-16', '29 years old', 'Adult', 'df', 'Female', 'Single', 'By Birth', 'fsd', 'Roman Catholic', 'fds', 'fds', 'fds', 'fds', 'fds', 'fds', 'fdsfsd', 'fdsf', 'PWD', 'Perma/Owned', 'Active', 'Active', 'None', '43', '2.jpg', '3.jpg', '', '', '', '2022-11-25'),
 (67, 'dsd', 'd', 'd', '', '2016-03-09', '6 years old', 'Child', 'dsa', 'Male', 'Married', 'By Family', 'fdsf', 'Iglesia Ni Cristo', 'fdsf', 'dsf', 'fdsf', 'fdsf', 'dsfsd', 'fdsf', 'fsdfsd', 'fds', 'Senior Citizen', 'Perma/Owned', 'Active', 'Active', 'Active', '43', 'Screenshot (185).png', 'Screenshot (186).png', '', '', '', '2022-11-25'),
-(69, 'Erwin', 'Cabag', 'Son', '', '1997-10-15', '25 years old', 'Adult', 'bvcbcb', 'Female', 'Separated', 'Naturalization', 'bvcbc', 'Ang Dating Daan', 'bvc', 'bcvbcb', 'vcbcb', 'vcbcv', 'bcvbc', 'bcvbcvbcv', 'bvc', 'bvcbc', 'Solo Parents', 'Tempo/Rented', 'Active', 'None', 'Active', '343', 'Screenshot (193).png', 'Screenshot (188).png', '', '', '', '2022-11-25'),
+(69, 'Erwin', 'Cabag', 'Son', '', '1997-10-15', '25 years old', 'Adult', 'bvcbcb', 'Female', 'Separated', 'Naturalization', 'bvcbc', 'Ang Dating Daan', 'bvc', 'bcvbcb', 'vcbcb', 'vcbcv', 'bcvbc', 'bcvbcvbcv', 'bvc', 'bvcbc', 'Solo Parents', 'Tempo/Rented', 'Active', 'None', 'Active', '343', 'Screenshot (193).png', 'Screenshot (188).png', '../images-qr-codes/63a70b9feddb2.png', '', '', '2022-11-25'),
 (70, 'fsfsd', 'fsdfsf', 'sdfs', '', '1952-07-09', '70 years old', 'Senior', 'fsfs', 'Non-Binary', 'Widow/ER', 'By Marriage', 'gfdgd', 'Islam', 'gfd', 'gdf', 'gfd', 'gfdg', 'fdgdf', 'gfdg', 'fdg', 'gfd', 'PWD', 'Tempo/Rented', 'None', 'None', 'None', '2', 'Screenshot (184).png', 'Screenshot (186).png', '', '', '', '2022-11-25'),
 (71, 'fdgfdgdg', 'gwq', 'wq', 'w', '2022-11-10', '2 weeks old', 'Toddler', 'wq', 'Female', 'Widow/ER', 'By Family', 'wq', 'Protestants', 'wq', 'w', 'qwq', 'w', 'w', 'w', 'qwq', 'w', 'Solo Parents', 'Tempo/Rented', 'Active', 'Active', 'None', '3', '1fLSnJV.jpg', '1fLSnJV.jpg', '', '', '', '2022-11-27'),
 (72, 'DADADAD', 'DADADAD', 'DADADAD', '', '2022-12-13', '6 days old', 'Toddler', 'DADADAD', 'Female', 'Married', 'By Marriage', 'DADADAD', 'Seventh-day Adventism', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'Senior Citizen', 'Tempo/Rented', 'Active', 'None', 'Active', '2', '315423302_2170759329772205_8153808227283622299_n.jpg', '315423302_2170759329772205_8153808227283622299_n.jpg', '../images-qr-codes/63a071bf9f8fa.png', '', '', '2022-12-19'),
@@ -393,12 +395,12 @@ MODIFY `customID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-MODIFY `doc_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=61;
+MODIFY `doc_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `income`
 --
 ALTER TABLE `income`
-MODIFY `incomeId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=52;
+MODIFY `incomeId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `officials`
 --
