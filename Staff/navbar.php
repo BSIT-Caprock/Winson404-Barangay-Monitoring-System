@@ -297,7 +297,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="dashboard.php" class="brand-link text-center">
+    <a href="resident.php" class="brand-link text-center">
       <div class="d-flex m-1 justify-content-center">
         <img src="../images/logo2.png" alt="BMS Logo" class="brand-image">
       </div>
