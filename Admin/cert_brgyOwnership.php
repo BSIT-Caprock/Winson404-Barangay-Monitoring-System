@@ -1,3 +1,4 @@
+<title>BMS | Brgy Ownership certificate</title>
 <?php 
 
     include 'navbar.php'; 

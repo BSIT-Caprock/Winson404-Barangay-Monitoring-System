@@ -1,3 +1,4 @@
+<title>BMS | Brgy Clearance</title>
 <?php 
 
     include 'navbar.php'; 

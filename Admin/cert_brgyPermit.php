@@ -1,3 +1,4 @@
+<title>BMS | Brgy Permit Certificate</title>
 <?php 
 
     include 'navbar.php'; 

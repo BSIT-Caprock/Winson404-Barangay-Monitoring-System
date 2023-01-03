@@ -1,3 +1,4 @@
+<title>BMS | Brgy Job Seeker Certificate</title>
 <?php 
 
     include 'navbar.php'; 

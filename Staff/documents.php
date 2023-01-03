@@ -17,7 +17,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="profile.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="resident.php">Home</a></li>
               <li class="breadcrumb-item active">Documents</li>
             </ol>
           </div><!-- /.col -->

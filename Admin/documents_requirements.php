@@ -1,3 +1,4 @@
+<title>BMS | Document requirements</title>
 <?php 
       include 'navbar.php'; 
       if(isset($_GET['page'])) {

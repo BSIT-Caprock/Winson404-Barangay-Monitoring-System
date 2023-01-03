@@ -1,3 +1,4 @@
+<title>BMS | Brgy Residency certificate</title>
 <?php 
 
     include 'navbar.php'; 

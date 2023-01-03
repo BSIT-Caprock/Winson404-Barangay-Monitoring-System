@@ -1,3 +1,4 @@
+<title>BMS | Brgy Indigency Certificate</title>
 <?php 
 
     include 'navbar.php'; 

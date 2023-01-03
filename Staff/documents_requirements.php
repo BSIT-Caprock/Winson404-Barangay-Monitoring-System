@@ -1,3 +1,4 @@
+<title>BMS | Document requirements</title>
 <?php 
       include 'navbar.php'; 
       if(isset($_GET['page'])) {
@@ -16,7 +17,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="profile.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="resident.php">Home</a></li>
               <li class="breadcrumb-item active">Certification required fields</li>
             </ol>
           </div>

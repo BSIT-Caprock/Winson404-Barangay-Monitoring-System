@@ -1,3 +1,4 @@
+<title>BMS | Barangay ID</title>
 <?php 
 
     include 'navbar.php'; 

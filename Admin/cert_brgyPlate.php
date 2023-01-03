@@ -1,3 +1,4 @@
+<title>BMS | Brgy Plate</title>
 <?php 
 
     include 'navbar.php'; 

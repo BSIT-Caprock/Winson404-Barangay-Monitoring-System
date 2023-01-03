@@ -1,3 +1,4 @@
+<title>BMS | Brgy Construction</title>
 <?php 
 
     include 'navbar.php'; 

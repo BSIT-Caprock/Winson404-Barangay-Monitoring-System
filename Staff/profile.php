@@ -1,4 +1,4 @@
-<title>BMS | Admin profile</title>
+<title>BMS | Staff profile</title>
 <?php include 'navbar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="profile.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="resident.php">Home</a></li>
               <li class="breadcrumb-item active">Admin Profile</li>
             </ol>
           </div>

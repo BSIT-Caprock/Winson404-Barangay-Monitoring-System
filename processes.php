@@ -16,7 +16,7 @@
 					header("Location: Admin/dashboard.php");
 				} else {
 					$_SESSION['staff_Id'] = $row['user_Id'];
-					header("Location: Staff/profile.php");
+					header("Location: Staff/resident.php");
 				}
 		} else {
 				$_SESSION['message'] = "Incorrect password.";
