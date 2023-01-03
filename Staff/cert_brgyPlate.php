@@ -26,7 +26,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="profile.php">Home</a></li>
               <li class="breadcrumb-item active">Barangay Business Plate</li>
             </ol>
           </div>
@@ -49,7 +49,7 @@
                     <div class="sbg-red" style="z-index: 1; position: absolute; top: 215px;left: 27px; width: 505px;">
                       <h2 class="text-center text-green" style="font-size: 140px;-webkit-text-stroke: 1px  magenta;"><b>0001</b></h2>
                     </div>
-                    <img src="../images/Plate.png" alt="" class="position-absolute" width="100%" height="100%">
+                    <img src="../images/Plate2.jpg" alt="" class="position-absolute" width="100%" height="100%">
                     
                     
                   </div>

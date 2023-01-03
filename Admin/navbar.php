@@ -235,13 +235,22 @@
        <li class="nav-item dropdown user-menu">
         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
           <!-- <img src="../images-users/<?php //echo $row['image']; ?>" alt="User Image" class="mr-3 img-circle" height="50" width="50"> -->
-          <img src="../images-users/<?php echo $row['image']; ?>" class="user-image img-circle elevation-2" alt="User Image">
+          <?php if($row['image'] != ''): ?>
+            <img src="../images-users/<?php echo $row['image']; ?>" class="user-image img-circle elevation-2" alt="User Image">
+          <?php else: ?>
+            <img src="../images-users/user.png" class="user-image img-circle elevation-2" alt="User Image">
+          <?php endif; ?>
+          
           <span class="d-none d-md-inline"><?php echo ' '.$row['firstname'].' '.$row['lastname'].' '; ?></span>
         </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <!-- User image -->
           <li class="user-header bg-primary">
+            <?php if($row['image'] != ''): ?>
             <img src="../images-users/<?php echo $row['image']; ?>" class="img-circle elevation-2" alt="User Image">
+            <?php else: ?>
+            <img src="../images-users/user.png" alt="User Image" class="img-circle elevation-2" alt="User Image">
+            <?php endif; ?>
             <p>
               <?php echo ' '.$row['firstname'].' '.$row['lastname'].' '; ?>
               <small><?php echo $row['user_type']; ?></small>
