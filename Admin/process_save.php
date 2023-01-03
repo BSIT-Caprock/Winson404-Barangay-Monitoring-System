@@ -887,7 +887,8 @@ if(isset($_POST['acquire_BrgyPermit'])) {
 	$ORNumber      = mysqli_real_escape_string($conn, $_POST['ORNumber']);
 	$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 	$date_acquired = date('Y-m-d');
-	$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, tradeName, businessNature, controlNumber, ORNumber, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$tradeName', '$scopeBusiness', '$controlNumber', '$ORNumber', '$paidAmount', '$date_acquired')");
+
+	  $save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, tradeName, businessNature, controlNumber, ORNumber, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$tradeName', '$scopeBusiness', '$controlNumber', '$ORNumber', '$paidAmount', '$date_acquired')");
 
 	  if($save) {
 	  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
@@ -905,7 +906,7 @@ if(isset($_POST['acquire_BrgyPermit'])) {
 	    $_SESSION['text'] = "Please try again.";
 	    $_SESSION['status'] = "error";
 		header("Location: documents_requirements.php?page=permit");
-	  } 
+	  }
 }
 
 
@@ -994,65 +995,64 @@ if(isset($_POST['new_income'])) {
 
 
 // CONTACT EMAIL MESSAGING - CONTACT-US.PHP
-if(isset($_POST['sendEmail'])) {
+	if(isset($_POST['sendEmail'])) {
 
-	$name    = mysqli_real_escape_string($conn, $_POST['name']);
-	$email	 = mysqli_real_escape_string($conn, $_POST['email']);
-	$subject = mysqli_real_escape_string($conn, $_POST['subject']);
-	$msg     = mysqli_real_escape_string($conn, $_POST['message']);
+		$name    = mysqli_real_escape_string($conn, $_POST['name']);
+		$email	 = mysqli_real_escape_string($conn, $_POST['email']);
+		$subject = mysqli_real_escape_string($conn, $_POST['subject']);
+		$msg     = mysqli_real_escape_string($conn, $_POST['message']);
 
-    $message = '<h3>'.$subject.'</h3>
-				<p>
-					Good day!<br>
-					'.$msg.'
-				</p>
-				<p>
-					Name of Sender: '.$name.'<br>
-					Email: '.$email.'
-				</p>
-				<p><b>Note:</b> This is a system generated email please do not reply.</p>';
-				//Load composer's autoloader
+	    $message = '<h3>'.$subject.'</h3>
+					<p>
+						Good day!<br>
+						'.$msg.'
+					</p>
+					<p>
+						Name of Sender: '.$name.'<br>
+						Email: '.$email.'
+					</p>
+					<p><b>Note:</b> This is a system generated email please do not reply.</p>';
+					//Load composer's autoloader
 
-		    $mail = new PHPMailer(true);                            
-		    try {
-		        //Server settings
-		        $mail->isSMTP();                                     
-		        $mail->Host = 'smtp.gmail.com';                      
-		        $mail->SMTPAuth = true;                             
-		        $mail->Username = 'nhsmedellin@gmail.com';     
-        		$mail->Password = 'fgzyhjjhjxdikkjp';                
-		        $mail->SMTPOptions = array(
-		            'ssl' => array(
-		            'verify_peer' => false,
-		            'verify_peer_name' => false,
-		            'allow_self_signed' => true
-		            )
-		        );                         
-		        $mail->SMTPSecure = 'ssl';                           
-		        $mail->Port = 465;                                   
+			    $mail = new PHPMailer(true);                            
+			    try {
+			        //Server settings
+			        $mail->isSMTP();                                     
+			        $mail->Host = 'smtp.gmail.com';                      
+			        $mail->SMTPAuth = true;                             
+			        $mail->Username = 'goodsamaritan2k20@gmail.com';     
+	        		$mail->Password = 'duxkxivrezeuguqe';                
+			        $mail->SMTPOptions = array(
+			            'ssl' => array(
+			            'verify_peer' => false,
+			            'verify_peer_name' => false,
+			            'allow_self_signed' => true
+			            )
+			        );                         
+			        $mail->SMTPSecure = 'ssl';                           
+			        $mail->Port = 465;                                   
 
-		        //Send Email
-		        $mail->setFrom('nhsmedellin@gmail.com');
-		        
-		        //Recipients
-		        $mail->addAddress('sonerwin12@gmail.com');              
-		        $mail->addReplyTo('sonesrwin12@gmail.com');
-		        
-		        //Content
-		        $mail->isHTML(true);                                  
-		        $mail->Subject = $subject;
-		        $mail->Body    = $message;
+			        //Send Email
+			        $mail->setFrom('goodsamaritan2k20@gmail.com');
+			        
+			        //Recipients
+			        $mail->addAddress('goodsamaritan2k20@gmail.com');              
+			        $mail->addReplyTo('goodsamaritan2k20@gmail.com');
+			        
+			        //Content
+			        $mail->isHTML(true);                                  
+			        $mail->Subject = $subject;
+			        $mail->Body    = $message;
 
-		        $mail->send();
-				$_SESSION['success'] = "Email sent successfully!";
-				header("Location: contact-us.php");
+			        $mail->send();
+					$_SESSION['success'] = "Email sent successfully!";
+					header("Location: contact-us.php");
 
-		    } catch (Exception $e) {
-		    	$_SESSION['success'] = "Message could not be sent. Mailer Error: ".$mail->ErrorInfo;
-				header("Location: contact-us.php");
-		    }
- }
-
+			    } catch (Exception $e) {
+			    	$_SESSION['success'] = "Message could not be sent. Mailer Error: ".$mail->ErrorInfo;
+					header("Location: contact-us.php");
+			    }
+	 }
 
 
 

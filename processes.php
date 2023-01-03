@@ -15,14 +15,13 @@
 					$_SESSION['admin_Id'] = $row['user_Id'];
 					header("Location: Admin/dashboard.php");
 				} else {
-					$_SESSION['user_Id'] = $row['user_Id'];
-					header("Location: User/profile.php");
+					$_SESSION['staff_Id'] = $row['user_Id'];
+					header("Location: Staff/profile.php");
 				}
 		} else {
 				$_SESSION['message'] = "Incorrect password.";
 		    $_SESSION['text'] = "Please try again.";
 		    $_SESSION['status'] = "error";
-		    $email    = $_POST['email'];
 				header("Location: login.php");
 		}
 	}
