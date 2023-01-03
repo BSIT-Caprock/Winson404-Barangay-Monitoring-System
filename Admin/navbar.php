@@ -334,7 +334,7 @@
           
        
           <li class="nav-item">
-            <a href="dashboard.php" class="nav-link bg-gradient-primary active"><i class="fa-solid fa-gauge"></i><p>&nbsp;&nbsp; Dashboard</p></a>
+            <a href="dashboard.php" class="nav-link"><i class="fa-solid fa-gauge"></i><p>&nbsp;&nbsp; Dashboard</p></a>
           </li>
           <li class="nav-item">
             <a href="resident.php" class="nav-link"> <i class="fa-solid fa-user-group"></i><p>&nbsp; Residence</p></a>
