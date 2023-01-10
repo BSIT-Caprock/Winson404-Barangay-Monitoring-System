@@ -1171,5 +1171,48 @@ if(isset($_POST['update_income'])) {
 
 
 
+// RESET PIN - RESIDENT_DELETE.PHP
+if(isset($_POST['resetPIN'])) {
+	$residenceId = mysqli_real_escape_string($conn, $_POST['residenceId']);
+	$PIN	     = mysqli_real_escape_string($conn, $_POST['PIN']);
+	$cPIN        = mysqli_real_escape_string($conn, $_POST['cPIN']);
+
+	if($PIN != $cPIN) {
+		$_SESSION['message'] = "PIN does not matched.";
+	    $_SESSION['text'] = "Please try again.";
+	    $_SESSION['status'] = "error";
+		header("Location: resident.php");
+	} else {
+		$update = mysqli_query($conn, "UPDATE residence SET residentPIN='$PIN' WHERE residenceId='$residenceId'");
+		  if($update) {
+		  	$_SESSION['message'] = "PIN has been updated.";
+		    $_SESSION['text'] = "Saved successfully!";
+		    $_SESSION['status'] = "success";
+			header("Location: resident.php");
+		  } else {
+		    $_SESSION['message'] = "Something went wrong while updating PIN.";
+		    $_SESSION['text'] = "Please try again.";
+		    $_SESSION['status'] = "error";
+			header("Location: resident.php");
+		  }
+	}
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ?>
