@@ -9,7 +9,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="process_save.php" method="POST" enctype="multipart/form-data">
+        <form action="process_save.php" method="POST" enctype="multipart/form-data" autocomplete="off">
         <div class="row">
             <div class="col-lg-6 mb-2">
                 <span><b>Usertype</b></span>

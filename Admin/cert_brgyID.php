@@ -43,7 +43,7 @@
             <!-- Main content -->
             <div class="invoice mb-3" id="printElement" style="border: none;line-height: 16px;">
 
-                  <div class="row p-0 m-0 position-relative" style="max-height: 500px; min-height: 500px;">
+                  <div class="row p-0 m-0 position-relative" style="max-height: 480px; min-height: 480px;">
                     <img src="../images/Screenshot (239).jpg" alt="" class="position-absolute" width="100%" height="100%">
                     <img src="../images/pasay-logo-2.png" alt="" class="position-absolute" width="300" style="right: 100px;top: 100px;">
                     <div class="col-3  text-center" >
@@ -183,35 +183,53 @@
                         </div>
                     </div>
                     <div class="col-9 mt-3" style="line-height: 25px;">
-                      <p><b><span style="letter-spacing: 5px;">IN CASE OF EMERGENCY, PLEASE CONTACT:</span></b></br>
-                      Name:______________________________________________________________________</br>
-                      Address:____________________________________________________________________</br>
-                      Contact No:_________________________________________________________________</br>
-                      SSS/GSIS/UMID No:_________________________________________________________</br>
-                      TIN No:_____________________________________________________________________
+                        <div class="row">
+                          <div class="col-12">
+                            <p><b><span style="letter-spacing: 5px;">IN CASE OF EMERGENCY, PLEASE CONTACT:</span></b></p>
+                          </div>
+                        </div>
+                        <div class="col-12">
+                          <small>Name:____________________________________________________________</small>
+                        </div>
+                        <div class="col-12">
+                          <small>Address:__________________________________________________________</small>
+                        </div>
+                        <div class="col-12">
+                          <small>Contact No:_______________________________________________________</small>
+                        </div>
+                        <div class="col-12">
+                          <small>SSS/GSIS/UMID No:_______________________________________________</small>
+                        </div>
+                        <div class="col-12">
+                          <small>TIN No:___________________________________________________________</small>
+                        </div>
                     </div>
                     <div class="col-6 text-center">
-                      <p>_______________________________________<br> <span style="font-style: italic;">Cardholder's Signature</span></p>
+                      <p>_________________________________</p>
+                      <p style="margin-top: -17px;" ><span style="font-style: italic;">Cardholder's Signature</span></p>
                     </div>
                     <div class="col-6 text-center">
-                      <p>_______________________________________ <br> HON. MICHAEL F. DAWAL <br><span class="text-sm" style="font-style: italic;">Punong Barangay</span><br><span class="text-xs" style="font-style: italic;"><b>"Pag Nag Droga Ka, Lagot Ka"</b></span></p>
+                      <p>_________________________________</p> 
+                      <p style="margin-top: -17px;">HON. MICHAEL F. DAWAL <p>
+                      <p style="margin-top: -17px;"><span class="text-sm" style="font-style: italic;">Punong Barangay</span></p>
+                      <p style="margin-top: -17px;"><span class="text-xs" style="font-style: italic;"><b>"Pag Nag Droga Ka, Lagot Ka"</b></span></p>
                     </div>
 
-                    
-                    <div class="col-12 text-center text-bold" style="line-height: 16px; text-align: justify;">
                      <?php 
                           if($row['qrCode'] != ''):
                       ?> 
-                      <div class="position-absolute shadow-md" style="height: 80px;width: 80px; border: 2px solid gray; left: 370px;bottom: 150px;">
-                        <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" alt="" width="100%" height="100%" style="object-fit: contain;">
+                      <div class="col-12 position-relative" style="top: -40px;">
+                        <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" class="d-block m-auto shadow-md" alt="" style="height: 80px;width: 80px; border: 2px solid gray; left: 300px;">
                       </div>
                       <?php endif; ?>
+                    <div class="col-12 text-center text-bold position-relative" style="line-height: 16px; text-align: justify; margin-top: -20px;">
+                      <p style="font-style: italic;  font-size: 13px;">THIS IS TO CERTIFY THAT THE BEARER OF THIS CARD WHOSE PICTURE, SIGNATURE AND THUMB MARK APPEAR HERE ON IS A REGISTERED RESIDENT OF BARANGAY 193, ZONE 20, PASAY CITY. <br> THIS IDENTIFICATION CARD IS BEING ISSUED FOR WHATEVER <br>LAWFUL PURPOSE IT MAY SERVE. </p><br>
 
-                      <p style="font-style: italic; margin-top: 100px;">THIS IS TO CERTIFY THAT THE BEARER OF THIS CARD WHOSE PICTURE, SIGNATURE AND THUMB MARK APPEAR HERE ON IS A REGISTERED RESIDENT OF BARANGAY 193, ZONE 20, PASAY CITY. <br> THIS IDENTIFICATION CARD IS BEING ISSUED FOR WHATEVER <br>LAWFUL PURPOSE IT MAY SERVE. </p><br>
-
-                      <p style="letter-spacing: 2px; margin-top: -15px;">Barangay 193 Multi-Purpose Hall Pildera II, Pasay City 1300, MM., Philippines <br>
+                      <p class="text-sm" style="letter-spacing: 2px; margin-top: -25px;line-height: 13px;">Barangay 193 Multi-Purpose Hall Pildera II, Pasay City 1300, MM., Philippines <br>
                       Contact Number: 8-853-6275</p>
                     </div>
+
+                    
                       
                   </div>
 
@@ -239,6 +257,6 @@
  
  <script>
    $(window).on('load', function() {
-    document.getElementById("printButton").click();
+     document.getElementById("printButton").click();
    })
  </script>

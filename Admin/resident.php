@@ -122,7 +122,7 @@
                       } else {
                     ?>
                       <?php 
-                        $sql = mysqli_query($conn, "SELECT * FROM residence");
+                        $sql = mysqli_query($conn, "SELECT * FROM residence ORDER BY firstname");
                         if(mysqli_num_rows($sql) > 0 ) {
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>

@@ -11,7 +11,7 @@
       <div class="modal-body">
         
         <div class="row">
-          <form action="process_update.php" method="POST" enctype="multipart/form-data">
+          <form action="process_update.php" method="POST" enctype="multipart/form-data" autocomplete="off">
           <input type="hidden" class="form-control" value="<?php echo $row['user_Id']; ?>" name="user_Id">
           <div class="col-lg-6">
             <div class="form-group">

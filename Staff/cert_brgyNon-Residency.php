@@ -20,12 +20,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>First Time Job Seeker Cert.</h1>
+            <h1>Non-residency certificate</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="resident.php">Home</a></li>
-              <li class="breadcrumb-item active">First Time Job Seeker Cert.</li>
+              <li class="breadcrumb-item active">Non-residency certificate</li>
             </ol>
           </div>
         </div>

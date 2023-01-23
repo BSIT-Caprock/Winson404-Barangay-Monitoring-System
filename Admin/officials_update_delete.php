@@ -30,7 +30,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="process_update.php" method="POST" enctype="multipart/form-data">
+        <form action="process_update.php" method="POST" enctype="multipart/form-data" autocomplete="off">
           <input type="hidden" class="form-control" name="officialID" required value="<?php echo $row['officialID']; ?>">   
           <div class="row">
 

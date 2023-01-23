@@ -28,7 +28,7 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-body p-3">
-                    <form action="process_save.php" method="POST" enctype="multipart/form-data">
+                    <form action="process_save.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                       <input type="hidden" class="form-control" name="added_By" value="<?php echo $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix']; ?>">
                       <div class="row">
 

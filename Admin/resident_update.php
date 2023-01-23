@@ -34,7 +34,7 @@
           <div class="col-md-12">
             <div class="card">      
               <div class="card-body p-3">
-                    <form action="process_update.php" method="POST" enctype="multipart/form-data">
+                    <form action="process_update.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                       <div class="row">
                         <input type="hidden" class="form-control" name="residenceId" required value="<?php echo $row['residenceId']; ?>">
                         <div class="col-lg-12 mt-1 mb-2">
