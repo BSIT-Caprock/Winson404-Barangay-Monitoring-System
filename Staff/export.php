@@ -13,7 +13,7 @@ if(isset($_GET['export'])) {
 
 
       $resident = [
-        ['No.', 'Full name', 'Date of birth', 'Age', 'Birthplace', 'Gender', 'Civil status', 'Citizenship', 'Occupation', 'Religion', 'Address', 'Sector', 'Resident status', 'Voter status', 'ID status', 'QR status', 'Years of stay', 'Date registered']
+        ['No.', 'Full name', 'Date of birth', 'Age', 'Birthplace', 'Gender', 'Civil status', 'Citizenship', 'Occupation', 'Religion', 'Address', 'Family Indicator', 'Head name', 'Family role', 'Sector', 'Resident status', 'Voter status', 'ID status', 'QR status', 'Years of stay', 'Date registered']
       ];
 
       $id = 0;
@@ -24,7 +24,7 @@ if(isset($_GET['export'])) {
           $id++;
           $name = $row['lastname']. ' ' .$row['suffix']. ', ' .$row['firstname']. ' ' .$row['middlename'];
           $address = $row['house_no']. ' ' .$row['street_name']. ', ' .$row['purok']. ' ' .$row['zone']. ' ' .$row['barangay']. ', ' .$row['municipality']. ', ' .$row['province']. ' ' .$row['region'];
-          $resident = array_merge($resident, array(array($id, $name, date("F d, Y", strtotime($row['dob'])), $row['age'], $row['birthplace'], $row['gender'], $row['civilstatus'], $row['citizenship'], $row['occupation'], $row['religion'], $address, $row['sector'], $row['resident_status'], $row['voter_status'], $row['ID_status'], $row['QR_status'], $row['years_of_stay'], date("F d, Y", strtotime($row['date_registered'])))));
+          $resident = array_merge($resident, array(array($id, $name, date("F d, Y", strtotime($row['dob'])), $row['age'], $row['birthplace'], $row['gender'], $row['civilstatus'], $row['citizenship'], $row['occupation'], $row['religion'], $address, $row['familyIndicator'], $row['headName'], $row['familyRole'], $row['sector'], $row['resident_status'], $row['voter_status'], $row['ID_status'], $row['QR_status'], $row['years_of_stay'], date("F d, Y", strtotime($row['date_registered'])))));
         }
       } else {
         $_SESSION['message'] = "No record found in the database.";

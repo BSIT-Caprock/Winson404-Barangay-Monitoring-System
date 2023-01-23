@@ -49,8 +49,8 @@
                         </div>
                         <div class="col-lg-3 col col-md-6 col-sm-6 col-12">
                           <div class="form-group">
-                              <span class="text-dark"><b>Middle name</b></span>
-                              <input type="text" class="form-control" name="middlename" required onkeyup="lettersOnly(this)" value="<?php echo $row['middlename']; ?>">
+                              <span class="text-dark"><b>Middle name</b> (Optional)</span>
+                              <input type="text" class="form-control" name="middlename" value="<?php echo $row['middlename']; ?>">
                           </div>
                         </div>
                         <div class="col-lg-3 col col-md-6 col-sm-6 col-12">
@@ -61,7 +61,7 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-sm-6 col-12">
                           <div class="form-group">
-                            <span class="text-dark"><b>Ext/Suffix</b></span>
+                            <span class="text-dark"><b>Ext/Suffix</b> (Optional)</span>
                             <input type="text" class="form-control"  placeholder="Ext/Suffix" name="suffix" value="<?php echo $row['suffix']; ?>">
                           </div>
                         </div>
@@ -219,13 +219,35 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
+                              <span class="text-dark"><b>Family Indicator</b></span>
+                              <select class="form-control" name="familyIndicator" required>
+                                <option selected disabled value="">Select indicator</option>
+                                <option value="Head"   <?php if($row['familyIndicator'] == "Head")   { echo 'selected'; } ?>>Head</option>
+                                <option value="Member" <?php if($row['familyIndicator'] == "Member") { echo 'selected'; } ?>>Member</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                              <span class="text-dark"><b>Family Head Name</b></span>
+                              <input type="text" class="form-control"  placeholder="Family Head Name" name="headName" required value="<?php echo $row['headName']; ?>">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                              <span class="text-dark"><b>Family Role</b></span>
+                              <input type="text" class="form-control"  placeholder="Son, Mother, Father, Daughter, etc" name="familyRole" required value="<?php echo $row['familyRole']; ?>">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
                               <span class="text-dark"><b>Sector</b></span>
                               <select class="form-control" name="sector" required>
                                 <option selected disabled value="">Select sector</option>
                                 <option value="Senior Citizen" <?php if($row['sector'] == "Senior Citizen") { echo 'selected'; } ?>>Senior Citizen</option>
                                 <option value="PWD"            <?php if($row['sector'] == "PWD")            { echo 'selected'; } ?>>PWD</option>
                                 <option value="Solo Parents"   <?php if($row['sector'] == "Solo Parents")   { echo 'selected'; } ?>>Solo Parents</option>
-                                <!-- <option value="Others"         <?php //if($row['sector'] == "Others")         { echo 'selected'; } ?>>Others</option> -->
+                                <option value="Others"         <?php if($row['sector'] == "N/A")         { echo 'selected'; } ?>>N/A</option>
                               </select>
                             </div>
                         </div>

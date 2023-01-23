@@ -29,6 +29,7 @@
             <div class="card">
               <div class="card-body p-3">
                     <form action="process_save.php" method="POST" enctype="multipart/form-data">
+                      <input type="hidden" class="form-control" name="added_By" value="<?php echo $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix']; ?>">
                       <div class="row">
 
                         <div class="col-lg-12 mt-1 mb-2">
@@ -43,8 +44,8 @@
                         </div>
                         <div class="col-lg-3 col col-md-6 col-sm-6 col-12">
                           <div class="form-group">
-                              <span class="text-dark"><b>Middle name</b></span>
-                              <input type="text" class="form-control"  placeholder="Middle name" name="middlename" onkeyup="lettersOnly(this)">
+                              <span class="text-dark"><b>Middle name</b> (Optional)</span>
+                              <input type="text" class="form-control"  placeholder="Middle name" name="middlename">
                           </div>
                         </div>
                         <div class="col-lg-3 col col-md-6 col-sm-6 col-12">
@@ -55,7 +56,7 @@
                         </div>
                         <div class="col-lg-2 col-md-6 col-sm-6 col-12">
                           <div class="form-group">
-                            <span class="text-dark"><b>Ext/Suffix</b></span>
+                            <span class="text-dark"><b>Ext/Suffix</b> (Optional)</span>
                             <input type="text" class="form-control"  placeholder="Ext/Suffix" name="suffix">
                           </div>
                         </div>
@@ -213,13 +214,35 @@
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
+                              <span class="text-dark"><b>Family Indicator</b></span>
+                              <select class="form-control" name="familyIndicator" required>
+                                <option selected disabled value="">Select indicator</option>
+                                <option value="Head">Head</option>
+                                <option value="Member">Member</option>
+                              </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                              <span class="text-dark"><b>Family Head Name</b></span>
+                              <input type="text" class="form-control"  placeholder="Family Head Name" name="headName" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                              <span class="text-dark"><b>Family Role</b></span>
+                              <input type="text" class="form-control"  placeholder="Son, Mother, Father, Daughter, etc" name="familyRole" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
                               <span class="text-dark"><b>Sector</b></span>
                               <select class="form-control" name="sector" required>
                                 <option selected disabled value="">Select sector</option>
                                 <option value="Senior Citizen">Senior Citizen</option>
                                 <option value="PWD">PWD</option>
                                 <option value="Solo Parents">Solo Parents</option>
-                                <!-- <option value="Others">Others</option> -->
+                                <option value="N/A">N/A</option>
                               </select>
                             </div>
                         </div>
@@ -308,9 +331,30 @@
                               <p class="help-block text-danger">Max. 500KB</p>
                             </div>
                         </div>
-                         <!-- LOAD IMAGE PREVIEW -->
+                        <!-- LOAD IMAGE PREVIEW -->
                         <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2">
                             <div class="form-group" id="qrpreview">
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-12">
+                            <div class="form-group">
+                              <span class="text-dark"><b>Scanned personal documents</b></span>
+                              <div class="input-group">
+                                <div class="custom-file">
+                                  <input type="file" class="custom-file-input" id="exampleInputFile" name="certificate" onchange="certs(event)" required>
+                                  <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                  <span class="input-group-text">Upload</span>
+                                </div>
+
+                              </div>
+                              <p class="help-block text-danger">Max. 500KB</p>
+                            </div>
+                        </div>
+                        <!-- LOAD IMAGE PREVIEW -->
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-12 mb-2">
+                            <div class="form-group" id="certspreview">
                             </div>
                         </div>
 
@@ -373,6 +417,24 @@
     signaturenewimg.style['margin-right']="auto";
     signaturenewimg.style['box-shadow']="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px";
     signatureimagediv.appendChild(signaturenewimg);
+  }
+
+
+   function certs(event)
+  {
+    var certsImage=URL.createObjectURL(event.target.files[0]);
+    var certsImageDiv= document.getElementById('certspreview');
+    var certsnewImage=document.createElement('img');
+    certsImageDiv.innerHTML='';
+    certsnewImage.src=certsImage;
+    certsnewImage.width="90";
+    certsnewImage.height="90";
+    certsnewImage.style['border-radius']="50%";
+    certsnewImage.style['display']="block";
+    certsnewImage.style['margin-left']="auto";
+    certsnewImage.style['margin-right']="auto";
+    certsnewImage.style['box-shadow']="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px";
+    certsImageDiv.appendChild(certsnewImage);
   }
 
   function lettersOnly(input) {

@@ -32,15 +32,20 @@
 		$municipality     = mysqli_real_escape_string($conn, $_POST['municipality']);
 		$province         = mysqli_real_escape_string($conn, $_POST['province']);
 		$region           = mysqli_real_escape_string($conn, $_POST['region']);
+		$familyIndicator  = mysqli_real_escape_string($conn, $_POST['familyIndicator']);
+		$headName 	      = mysqli_real_escape_string($conn, $_POST['headName']);
+		$familyRole       = mysqli_real_escape_string($conn, $_POST['familyRole']);
 		$sector           = mysqli_real_escape_string($conn, $_POST['sector']);
 		$resident_status  = mysqli_real_escape_string($conn, $_POST['resident_status']);
 		$voter_status     = mysqli_real_escape_string($conn, $_POST['voter_status']);
 		$ID_status        = mysqli_real_escape_string($conn, $_POST['ID_status']);
 		$QR_status        = mysqli_real_escape_string($conn, $_POST['QR_status']);
 		$years_of_stay    = mysqli_real_escape_string($conn, $_POST['years_of_stay']);
+		$added_By		  = mysqli_real_escape_string($conn, $_POST['added_By']);	  
 		$date_registered  = date('Y-m-d');
 		$file             = basename($_FILES["fileToUpload"]["name"]);
 		$signature		  = basename($_FILES["signature"]["name"]);
+		$certificate      = basename($_FILES["certificate"]["name"]);
 
 
 		// SAVING QR CODES**********************************************************************
@@ -260,19 +265,72 @@
 
 		    		if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
 
-	    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, religion, house_no, street_name, purok, zone, barangay, municipality, province, region, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, qrCode, residentCode, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$religion', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$qr_image', '$residentCode', '$date_registered')");
+	    				    // Check if image file is a actual image or fake image
+						    $sign_target_dir = "../images-certificates/";
+						    $sign_target_file = $sign_target_dir . basename($_FILES["certificate"]["name"]);
+						    $sign_uploadOk = 1;
+						    $sign_imageFileType = strtolower(pathinfo($sign_target_file,PATHINFO_EXTENSION));
 
-		              	  if($save) {
-				          	$_SESSION['message'] = "Resident information has been saved!";
-				            $_SESSION['text'] = "Saved successfully!";
-					        $_SESSION['status'] = "success";
-							header("Location: resident_add.php");
-				          } else {
-				            $_SESSION['message'] = "Something went wrong while saving the information.";
-				            $_SESSION['text'] = "Please try again.";
-					        $_SESSION['status'] = "error";
-							header("Location: resident_add.php");
-				          }
+						    $check = getimagesize($_FILES["certificate"]["tmp_name"]);
+							if($check == false) {
+							    $_SESSION['message']  = "Personal document is not an image.";
+							    $_SESSION['text'] = "Please try again.";
+							    $_SESSION['status'] = "error";
+								header("Location: resident_add.php");
+						    	$uploadOk = 0;
+						    } 
+
+							// Check file size // 500KB max size
+							elseif ($_FILES["certificate"]["size"] > 500000) {
+							  	$_SESSION['message']  = "Personal document file must be up to 500KB in size.";
+							    $_SESSION['text'] = "Please try again.";
+							    $_SESSION['status'] = "error";
+								header("Location: resident_add.php");
+						    	$uploadOk = 0;
+							}
+
+						    // Allow certain file formats
+						    elseif($sign_imageFileType != "jpg" && $sign_imageFileType != "png" && $sign_imageFileType != "jpeg" && $sign_imageFileType != "gif" ) {
+							    $_SESSION['message'] = "Only JPG, JPEG, PNG & GIF files are allowed.";
+							    $_SESSION['text'] = "Please try again.";
+							    $_SESSION['status'] = "error";
+								header("Location: resident_add.php");
+							    $sign_uploadOk = 0;
+						    }
+
+						    // Check if $sign_uploadOk is set to 0 by an error
+						    elseif ($sign_uploadOk == 0) {
+							    $_SESSION['message'] = "Your file was not uploaded.";
+							    $_SESSION['text'] = "Please try again.";
+							    $_SESSION['status'] = "error";
+								header("Location: resident_add.php");
+
+						    // if everything is ok, try to upload file
+						    } else {
+
+					    		if (move_uploaded_file($_FILES["certificate"]["tmp_name"], $sign_target_file)) {
+
+				    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, religion, house_no, street_name, purok, zone, barangay, municipality, province, region, familyIndicator, headName, familyRole, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, personalDocuments, qrCode, residentCode, added_By, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$religion', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$familyIndicator', '$headName', '$familyRole', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$certificate', '$qr_image', '$residentCode', '$added_By', '$date_registered')");
+
+					              	  if($save) {
+							          	$_SESSION['message'] = "Resident information has been saved!";
+							            $_SESSION['text'] = "Saved successfully!";
+								        $_SESSION['status'] = "success";
+										header("Location: resident_add.php");
+							          } else {
+							            $_SESSION['message'] = "Something went wrong while saving the information.";
+							            $_SESSION['text'] = "Please try again.";
+								        $_SESSION['status'] = "error";
+										header("Location: resident_add.php");
+							          }
+
+					    		} else {
+				    				$_SESSION['message'] = "There was an error uploading your digital signature.";
+					            	$_SESSION['text'] = "Please try again.";
+							        $_SESSION['status'] = "error";
+									header("Location: resident_add.php");
+					    		}
+						    }
 
 		    		} else {
 	    				$_SESSION['message'] = "There was an error uploading your digital signature.";

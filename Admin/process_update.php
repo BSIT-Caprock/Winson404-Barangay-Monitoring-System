@@ -150,7 +150,7 @@
 
 
 
-  // UPDATE RESIDENT - RESIDENT_UPDATE.PHP
+    // UPDATE RESIDENT - RESIDENT_UPDATE.PHP
 	if(isset($_POST['update_resident'])) {
 
 		$residenceId 	  = $_POST['residenceId'];
@@ -174,6 +174,9 @@
 		$municipality     = mysqli_real_escape_string($conn, $_POST['municipality']);
 		$province         = mysqli_real_escape_string($conn, $_POST['province']);
 		$region           = mysqli_real_escape_string($conn, $_POST['region']);
+		$familyIndicator  = mysqli_real_escape_string($conn, $_POST['familyIndicator']);
+		$headName 	      = mysqli_real_escape_string($conn, $_POST['headName']);
+		$familyRole       = mysqli_real_escape_string($conn, $_POST['familyRole']);
 		$sector           = mysqli_real_escape_string($conn, $_POST['sector']);
 		$resident_status  = mysqli_real_escape_string($conn, $_POST['resident_status']);
 		$voter_status     = mysqli_real_escape_string($conn, $_POST['voter_status']);
@@ -330,7 +333,7 @@
 	        } else {
 
 	            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-	              	$save = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file' WHERE residenceId='$residenceId'");
+	              	$save = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', familyIndicator='$familyIndicator', headName='$headName', familyRole='$familyRole', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file' WHERE residenceId='$residenceId'");
 					        if($save) {
 				                $_SESSION['message']  = "Residents information has been updated!";
 					            $_SESSION['text'] = "Updated successfully!";
@@ -397,7 +400,7 @@
 		    } else {
 
 		        if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
-		          	$save2 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', digital_signature='$signature' WHERE residenceId='$residenceId'");
+		          	$save2 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', familyIndicator='$familyIndicator', headName='$headName', familyRole='$familyRole', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', digital_signature='$signature' WHERE residenceId='$residenceId'");
 				        if($save2) {
 				              $_SESSION['message']  = "Residents information has been updated!";
 			            	  $_SESSION['text'] = "Updated successfully!";
@@ -510,7 +513,7 @@
 
 				    		if (move_uploaded_file($_FILES["signature"]["tmp_name"], $sign_target_file)) {
 
-				    				$save3 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file', digital_signature='$signature' WHERE residenceId='$residenceId'");
+				    				$save3 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', familyIndicator='$familyIndicator', headName='$headName', familyRole='$familyRole', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay', image='$file', digital_signature='$signature' WHERE residenceId='$residenceId'");
 							      if($save3) {
 							            $_SESSION['message']  = "Residents information has been updated!";
 							            $_SESSION['text'] = "Updated successfully!";
@@ -541,7 +544,7 @@
 
 		} else {
 
-		    $save4 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay' WHERE residenceId='$residenceId'");
+		    $save4 = mysqli_query($conn, "UPDATE residence SET firstname='$firstname', middlename='$middlename', lastname='$lastname', suffix='$suffix', dob='$dob', age='$age', ageClassification='$ageClassification', birthplace='$birthplace', gender='$gender', civilstatus = '$civilstatus', citizenship = '$citizenship', occupation = '$occupation', religion='$religion', house_no = '$house_no', street_name = '$street_name', purok = '$purok', zone = '$zone', barangay = '$barangay', municipality = '$municipality', province = '$province', region = '$region', familyIndicator='$familyIndicator', headName='$headName', familyRole='$familyRole', sector = '$sector', resident_status = '$resident_status', voter_status = '$voter_status', ID_status = '$ID_status', QR_status = '$QR_status', years_of_stay = '$years_of_stay' WHERE residenceId='$residenceId'");
 	        if($save4) {
 	          	$_SESSION['message']  = "Residents information has been updated!";
 	            $_SESSION['text'] = "Updated successfully!";
@@ -557,6 +560,84 @@
 		}
 	
 	}
+
+
+
+
+	// UPDATE RESIDENT DOCUMENTS - RESIDENT_DOCUMENT.PHP
+	if(isset($_POST['updateDocument'])) {
+
+		$residenceId  = $_POST['residenceId'];
+		$certificate  = basename($_FILES["certificate"]["name"]);
+
+		  // Check if image file is a actual image or fake image
+		    $target_dir = "../images-certificates/";
+		    $target_file = $target_dir . basename($_FILES["certificate"]["name"]);
+		    $uploadOk = 1;
+		    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+		    $check = getimagesize($_FILES["certificate"]["tmp_name"]);
+			if($check == false) {
+			    $_SESSION['message']  = "Selected file is not an image.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header("Location: resident_document.php?residenceId=".$residenceId);
+		    	$uploadOk = 0;
+		    } 
+
+			// Check file size // 500KB max size
+			elseif ($_FILES["certificate"]["size"] > 500000) {
+			  	$_SESSION['message']  = "File must be up to 500KB in size.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header("Location: resident_document.php?residenceId=".$residenceId);
+		    	$uploadOk = 0;
+			}
+
+		    // Allow certain file formats
+		    elseif($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+			    $_SESSION['message']  = "Only JPG, JPEG, PNG & GIF files are allowed.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header("Location: resident_document.php?residenceId=".$residenceId);
+		    	$uploadOk = 0;
+		    }
+
+		    // Check if $uploadOk is set to 0 by an error
+		    elseif ($uploadOk == 0) {
+			    $_SESSION['message']  = "Your file was not uploaded.";
+			    $_SESSION['text'] = "Please try again.";
+			    $_SESSION['status'] = "error";
+				header("Location: resident_document.php?residenceId=".$residenceId);
+
+		    // if everything is ok, try to upload file
+		    } else {
+
+		        if (move_uploaded_file($_FILES["certificate"]["tmp_name"], $target_file)) {
+		          	$save = mysqli_query($conn, "UPDATE residence SET personalDocuments	='$certificate' WHERE residenceId='$residenceId'");
+		     
+		            if($save) {
+		            	$_SESSION['message'] = "Document has been updated!";
+			            $_SESSION['text'] = "Updated successfully!";
+				        $_SESSION['status'] = "success";
+						header("Location: resident_document.php?residenceId=".$residenceId);
+		            } else {
+			            $_SESSION['message'] = "Something went wrong while updating the information.";
+			            $_SESSION['text'] = "Please try again.";
+				        $_SESSION['status'] = "error";
+						header("Location: resident_document.php?residenceId=".$residenceId);
+		            }
+		        } else {
+		            $_SESSION['message'] = "There was an error uploading your file.";
+		            $_SESSION['text'] = "Please try again.";
+			        $_SESSION['status'] = "error";
+					header("Location: resident_document.php?residenceId=".$residenceId);
+		        }
+
+			}
+	}
+
+
 
 
 
@@ -1069,49 +1150,49 @@
 
 
 
-		// SET ACTIVE - CUSTOMIZE_UPDATE_DELETE.PHP
-		if(isset($_POST['setActive_customization'])) {
+// SET ACTIVE - CUSTOMIZE_UPDATE_DELETE.PHP
+if(isset($_POST['setActive_customization'])) {
 
-			$customID = $_POST['customID'];
+	$customID = $_POST['customID'];
 
-			$exist = mysqli_query($conn, "SELECT * FROM customization WHERE status='Active' ");
-			
-			if(mysqli_num_rows($exist) > 0) {
-				$update = mysqli_query($conn, "UPDATE customization SET status='Inactive'");
-				if($update) {
-					$update2 = mysqli_query($conn, "UPDATE customization SET status='Active' WHERE customID='$customID'");
-		        	if($update2) {
-		        		$_SESSION['message'] = "Image is now Active.";
-			            $_SESSION['text'] = "Updated successfully!";
-				        $_SESSION['status'] = "success";
-						header("Location: customize.php");
-					} else {
-						$_SESSION['message'] = "Something went wrong while settings the image as Active.";
-			            $_SESSION['text'] = "Please try again.";
-				        $_SESSION['status'] = "error";
-						header("Location: customize.php");
-					}
-		        } else {
-		            $_SESSION['message'] = "Something went wrong while settings the image as Active.";
-		            $_SESSION['text'] = "Please try again.";
-			        $_SESSION['status'] = "error";
-					header("Location: customize.php");
-		        }  
+	$exist = mysqli_query($conn, "SELECT * FROM customization WHERE status='Active' ");
+	
+	if(mysqli_num_rows($exist) > 0) {
+		$update = mysqli_query($conn, "UPDATE customization SET status='Inactive'");
+		if($update) {
+			$update2 = mysqli_query($conn, "UPDATE customization SET status='Active' WHERE customID='$customID'");
+        	if($update2) {
+        		$_SESSION['message'] = "Image is now Active.";
+	            $_SESSION['text'] = "Updated successfully!";
+		        $_SESSION['status'] = "success";
+				header("Location: customize.php");
 			} else {
-				$update2 = mysqli_query($conn, "UPDATE customization SET status='Active' WHERE customID='$customID'");
-		    	if($update2) {
-		    		$_SESSION['message'] = "Image is now Active.";
-		            $_SESSION['text'] = "Updated successfully!";
-			        $_SESSION['status'] = "success";
-					header("Location: customize.php");
-				} else {
-					$_SESSION['message'] = "Something went wrong while settings the image as Active.";
-		            $_SESSION['text'] = "Please try again.";
-			        $_SESSION['status'] = "error";
-					header("Location: customize.php");
-				}
+				$_SESSION['message'] = "Something went wrong while settings the image as Active.";
+	            $_SESSION['text'] = "Please try again.";
+		        $_SESSION['status'] = "error";
+				header("Location: customize.php");
 			}
+        } else {
+            $_SESSION['message'] = "Something went wrong while settings the image as Active.";
+            $_SESSION['text'] = "Please try again.";
+	        $_SESSION['status'] = "error";
+			header("Location: customize.php");
+        }  
+	} else {
+		$update2 = mysqli_query($conn, "UPDATE customization SET status='Active' WHERE customID='$customID'");
+    	if($update2) {
+    		$_SESSION['message'] = "Image is now Active.";
+            $_SESSION['text'] = "Updated successfully!";
+	        $_SESSION['status'] = "success";
+			header("Location: customize.php");
+		} else {
+			$_SESSION['message'] = "Something went wrong while settings the image as Active.";
+            $_SESSION['text'] = "Please try again.";
+	        $_SESSION['status'] = "error";
+			header("Location: customize.php");
 		}
+	}
+}
 
 
 
@@ -1196,8 +1277,6 @@ if(isset($_POST['resetPIN'])) {
 			header("Location: resident.php");
 		  }
 	}
-
-	
 }
 
 

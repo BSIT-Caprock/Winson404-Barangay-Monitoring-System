@@ -11,6 +11,9 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
 
   <footer class="main-footer">
     <div class="row">
@@ -120,7 +123,7 @@
 
 
   $("#exampleUser").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "responsive": true, "lengthChange": true, "autoWidth": false,
       // "buttons": ["excel", "pdf", "print"]
     }).buttons().container().appendTo('#exampleUser_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({

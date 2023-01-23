@@ -302,7 +302,7 @@
         <img src="../images/logo2.png" alt="BMS Logo" class="brand-image">
       </div>
       <!-- <span class="brand-text font-weight-light ml-1">BMS</span> -->
-      <span class="text-sm  font-weight-light mt-2">Pasig City - Brgy. 193</span>
+      <span class="text-sm  font-weight-light mt-2">Pasay City - Brgy. 193</span>
     </a>
 
 
@@ -356,6 +356,9 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                <a href="brgyIncome.php" class="nav-link"><i class="fa-solid fa-sack-dollar"></i><p>&nbsp;&nbsp; Income report</p></a>
+              </li>
+              <li class="nav-item">
+               <a href="documentsIncome.php" class="nav-link"><i class="fa-solid fa-sack-dollar"></i><p>&nbsp;&nbsp; Documents income</p></a>
               </li>
               <li class="nav-item">
                <a href="brgyIncome_list.php" class="nav-link"><i class="fa-solid fa-sack-dollar"></i><p>&nbsp;&nbsp; Add income  </p></a>

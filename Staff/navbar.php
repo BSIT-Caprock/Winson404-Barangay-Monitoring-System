@@ -302,7 +302,7 @@
         <img src="../images/logo2.png" alt="BMS Logo" class="brand-image">
       </div>
       <!-- <span class="brand-text font-weight-light ml-1">BMS</span> -->
-      <span class="text-sm  font-weight-light mt-2">Pasig City - Brgy. 193</span>
+      <span class="text-sm  font-weight-light mt-2">Pasay City - Brgy. 193</span>
     </a>
 
 

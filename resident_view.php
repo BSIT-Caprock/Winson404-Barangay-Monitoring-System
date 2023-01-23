@@ -137,6 +137,24 @@
                       <a class="h6 text-primary"><b>Additional information</b></a>
                       <div class="dropdown-divider"></div>
                     </div>
+                    <!-- FAMILY INFO -->
+                    <div class="col-lg-3 col col-md-3 col-sm-6 col-12">
+                      <p class="text-muted text-bold">Family Indicator:<br> 
+                        <span class="text-dark text-bold"><?php echo $row['familyIndicator']; ?></span>
+                      </p>
+                    </div>
+                    <div class="col-lg-3 col col-md-3 col-sm-6 col-12">
+                      <p class="text-muted text-bold">Family Head Name:<br> 
+                        <span class="text-dark text-bold"><?php echo $row['headName']; ?></span>
+                      </p>
+                    </div>
+                    <div class="col-lg-3 col col-md-3 col-sm-6 col-12">
+                      <p class="text-muted text-bold">Family Role:<br> 
+                        <span class="text-dark text-bold"><?php echo $row['familyRole']; ?></span>
+                      </p>
+                    </div>
+                    <div class="col-lg-3 col col-md-3 col-sm-6 col-12"></div>
+                    <!-- END FAMILY INFO -->
                     <div class="col-lg-3 col col-md-3 col-sm-6 col-12">
                       <p class="text-muted text-bold">Sector:<br> 
                         <span class="text-dark text-bold"><?php echo $row['sector']; ?></span>

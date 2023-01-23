@@ -2,8 +2,8 @@
     include 'config.php';
     if(isset($_SESSION['admin_Id'])) {
       header('Location: Admin/dashboard.php');
-    } elseif(isset($_SESSION['user_Id'])) {
-      header('Location: User/profile.php');
+    } elseif(isset($_SESSION['staff_Id'])) {
+      header('Location: Staff/resident.php');
     } else {
 ?>
 <!DOCTYPE html>
@@ -37,20 +37,16 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-    <div class="container">
-      <a href="login.php" class="navbar-brand">
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-dark">
+    <div class="container p-o m-0">
+        <a href="login.php" class="navbar-brand">
         <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
         <img src="images/logo2.png" class="img-fluid" width="70">
-        <span class="brand-text font-weight-light ml-2 ">Barangay Management System</span>
+        <!-- <span class="brand-text font-weight-light ml-2 ">Barangay Management System</span> -->
       </a>
-
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-
-
       
 
       <!-- <div class="collapse navbar-collapse order-3" id="navbarCollapse"> -->

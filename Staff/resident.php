@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="resident.php">Home</a></li>
+              <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
               <li class="breadcrumb-item active">Resident Management</li>
             </ol>
           </div>
@@ -37,6 +37,7 @@
                 </div> -->
               </div>
               <div class="card-body p-3">
+                <?php include 'resident_filter.php'; ?>
                  <!-- <table id="example1" class="table table-bordered table-hover text-sm"> -->
                  <table id="exampleUser" class="table table-bordered table-hover text-sm">
                   <thead>
@@ -51,44 +52,127 @@
                   </tr>
                   </thead>
                   <tbody id="users_data">
-                    <tr>
+
+                    <?php 
+                      if(isset($_POST['filter'])) {
+                        $gender          = $_POST['gender'];
+                        $sector          = $_POST['sector'];
+                        $citizenship     = $_POST['citizenship'];
+                        $resident_status = $_POST['resident_status'];
+                        $ID_status       = $_POST['ID_status'];
+                        $years_of_stay   = $_POST['years_of_stay'];
+                        $age             = $_POST['age'];
+                        $added_By        = $_POST['added_By'];
+                        $familyRole      = $_POST['familyRole'];
+                        $headName        = $_POST['headName'];
+                        $familyIndicator = $_POST['familyIndicator'];
+                        $religion        = $_POST['religion'];
+
+                        // $filter = mysqli_query($conn, "SELECT * FROM residence WHERE gender='$gender' AND sector='$sector' AND citizenship='$citizenship' AND resident_status='$resident_status' AND ID_status='$ID_status' AND years_of_stay='$years_of_stay' AND age='$age'  AND added_By='$added_By' AND familyRole='$familyRole' AND headName='$headName' AND familyIndicator='$familyIndicator' AND religion='$religion' ");
+                        $filter = mysqli_query($conn, "SELECT * FROM residence WHERE gender='$gender' AND sector LIKE '%".$sector."%' AND citizenship LIKE '%".$citizenship."%' AND resident_status LIKE '%".$resident_status."%' AND ID_status LIKE '%".$ID_status."%' AND sector LIKE '%".$sector."%' AND gender LIKE '%".$gender."%' AND sector LIKE '%".$sector."%' AND years_of_stay LIKE '%".$years_of_stay."%' AND age LIKE '%".$age."%' AND added_By LIKE '%".$added_By."%' AND familyRole LIKE '%".$familyRole."%' AND headName LIKE '%".$headName."%' AND familyIndicator LIKE '%".$familyIndicator."%' AND religion LIKE '%".$religion."%' ORDER BY firstname ");
+                        if(mysqli_num_rows($filter) > 0) {
+                          while($row = mysqli_fetch_array($filter)) {
+                    ?>
+                       <tr>
+                            <td>
+                                <a data-toggle="modal" data-target="#viewphoto<?php echo $row['residenceId']; ?>">
+                                  <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" class="img-circle d-block m-auto">
+                                </a href="">
+                            </td>
+                            <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
+                            <td><?php echo $row['gender']; ?></td>
+                            <td><?php echo $row['sector']; ?></td>
+                            <td class="text-primary"><?php echo $row['citizenship']; ?></td>
+                            <td>
+                              <?php 
+                                if($row['resident_status'] == 'Perma/Owned') {
+                                  echo '<i class="fa-solid fa-circle-dot text-primary"></i> '.$row['resident_status'].'';
+                                } else {
+                                  echo '<i class="fa-solid fa-circle-dot text-danger"></i> '.$row['resident_status'].'';
+                                }
+                              ?>
+                            </td>
+                            <td>
+                              <a class="btn btn-primary btn-sm" href="resident_view.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-folder"></i></a>
+                              <a class="btn btn-info btn-sm" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-pencil-alt"></i></a>
+                              <button type="button" class="btn bg-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['residenceId']; ?>"><i class="fas fa-trash"></i></button>
+                              
+                              <?php if($row['personalDocuments'] != ''): ?>
+                                  <a class="btn btn-warning btn-sm" href="resident_document.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-file"></i></a>
+                                <?php else: ?>
+                                  <button type="button" class="btn bg-warning btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>" disabled><i class="fa-solid fa-file"></i></button>
+                                <?php endif; ?>
+
+                              <?php if($row['qrCode'] != ''): ?>
+                                <button type="button" class="btn bg-dark btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-qrcode"></i></button>
+                              <?php else: ?>
+                                <button type="button" class="btn bg-dark btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>" disabled><i class="fa-solid fa-qrcode"></i></button>
+                              <?php endif; ?>
+                            </td> 
+                        </tr>
+
+                    <?php
+                        } } else {
+                    ?>  
+                        <tr>
+                          <td colspan="100%" class="text-center">No record found</td>
+                        </tr>
+                    <?php
+                        }
+                      } else {
+                    ?>
                       <?php 
                         $sql = mysqli_query($conn, "SELECT * FROM residence");
                         if(mysqli_num_rows($sql) > 0 ) {
                         while ($row = mysqli_fetch_array($sql)) {
                       ?>
-                        <td>
-                            <a data-toggle="modal" data-target="#viewphoto<?php echo $row['residenceId']; ?>">
-                              <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" class="img-circle d-block m-auto">
-                            </a href="">
-                        </td>
-                        <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
-                        <td><?php echo $row['gender']; ?></td>
-                        <td><?php echo $row['sector']; ?></td>
-                        <td class="text-primary"><?php echo $row['citizenship']; ?></td>
-                        <td>
-                          <?php 
-                            if($row['resident_status'] == 'Perma/Owned') {
-                              echo '<i class="fa-solid fa-circle-dot text-primary"></i> '.$row['resident_status'].'';
-                            } else {
-                              echo '<i class="fa-solid fa-circle-dot text-danger"></i> '.$row['resident_status'].'';
-                            }
-                          ?>
-                        </td>
-                        <td>
-                          <a class="btn btn-primary btn-sm" href="resident_view.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-folder"></i> View</a>
-                          <a class="btn btn-info btn-sm" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-pencil-alt"></i> Edit</a>
-                          <button type="button" class="btn bg-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['residenceId']; ?>"><i class="fas fa-trash"></i> Delete</button>
-                          <?php if($row['qrCode'] != ''): ?>
-                          <button type="button" class="btn bg-dark btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-qrcode"></i> QR</button>
-                          <?php endif; ?>
-                        </td> 
-                    </tr>
+                      <tr>
+                          <td>
+                              <a data-toggle="modal" data-target="#viewphoto<?php echo $row['residenceId']; ?>">
+                                <img src="../images-residence/<?php echo $row['image']; ?>" alt="" width="25" height="25" class="img-circle d-block m-auto">
+                              </a href="">
+                          </td>
+                          <td><?php echo ' '.$row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'].' '; ?></td>
+                          <td><?php echo $row['gender']; ?></td>
+                          <td><?php echo $row['sector']; ?></td>
+                          <td class="text-primary"><?php echo $row['citizenship']; ?></td>
+                          <td>
+                            <?php 
+                              if($row['resident_status'] == 'Perma/Owned') {
+                                echo '<i class="fa-solid fa-circle-dot text-primary"></i> '.$row['resident_status'].'';
+                              } else {
+                                echo '<i class="fa-solid fa-circle-dot text-danger"></i> '.$row['resident_status'].'';
+                              }
+                            ?>
+                          </td>
+                          <td>
+                            <a class="btn btn-primary btn-sm" href="resident_view.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-folder"></i></a>
+                            <a class="btn btn-info btn-sm" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-pencil-alt"></i></a>
+                            <button type="button" class="btn bg-danger btn-sm" data-toggle="modal" data-target="#delete<?php echo $row['residenceId']; ?>"><i class="fas fa-trash"></i></button>
+                            
+                            <?php if($row['personalDocuments'] != ''): ?>
+                                <a class="btn btn-warning btn-sm" href="resident_document.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-file"></i></a>
+                              <?php else: ?>
+                                <button type="button" class="btn bg-warning btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>" disabled><i class="fa-solid fa-file"></i></button>
+                              <?php endif; ?>
+
+                            <?php if($row['qrCode'] != ''): ?>
+                              <button type="button" class="btn bg-dark btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-qrcode"></i></button>
+                            <?php else: ?>
+                              <button type="button" class="btn bg-dark btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>" disabled><i class="fa-solid fa-qrcode"></i></button>
+                            <?php endif; ?>
+                          </td> 
+                      </tr>
 
                     <?php include 'resident_delete.php'; } } else { ?>
+                      <tr>
                         <td colspan="100%" class="text-center">No record found</td>
                       </tr>
-                    <?php }?>
+                    <?php } } ?>
+
+
+
+
 
                   </tbody>
                 </table>
