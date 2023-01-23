@@ -239,6 +239,6 @@
  
  <script>
    $(window).on('load', function() {
-    // document.getElementById("printButton").click();
+    document.getElementById("printButton").click();
    })
  </script>
