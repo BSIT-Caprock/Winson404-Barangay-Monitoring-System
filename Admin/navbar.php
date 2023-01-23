@@ -299,7 +299,7 @@
     <!-- Brand Logo -->
     <a href="dashboard.php" class="brand-link text-center">
       <div class="d-flex m-1 justify-content-center">
-        <img src="../images/logo2.png" alt="BMS Logo" class="brand-image">
+        <img src="../images/web_logo2.png" alt="BMS Logo" class="brand-image">
       </div>
       <!-- <span class="brand-text font-weight-light ml-1">BMS</span> -->
       <span class="text-sm  font-weight-light mt-2">Pasay City - Brgy. 193</span>

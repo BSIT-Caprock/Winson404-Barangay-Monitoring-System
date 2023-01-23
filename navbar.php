@@ -41,7 +41,7 @@
     <div class="container p-o m-0">
         <a href="login.php" class="navbar-brand">
         <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-        <img src="images/logo2.png" class="img-fluid" width="70">
+        <img src="images/web_logo2.png" class="img-fluid" width="90">
         <!-- <span class="brand-text font-weight-light ml-2 ">Barangay Management System</span> -->
       </a>
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
