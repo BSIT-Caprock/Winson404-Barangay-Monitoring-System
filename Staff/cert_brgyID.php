@@ -67,7 +67,15 @@
                       </div>
                         <br>
                         <br>
-                        <img src="../images/PasayLoo.png" alt="" width="150" class="d-block m-auto">
+                        <?php 
+                              if($row['qrCode'] != ''):
+                          ?>
+                          <div class="d-block m-auto" style="height: 150px;width: 150px;">
+                          <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" alt=""width="120" class="d-block m-auto">
+                        </div>
+                            
+                          <?php endif; ?>
+                        <!-- <img src="../images/PasayLoo.png" alt="" width="150" class="d-block m-auto"> -->
                     </div>
                     <div class="col-9  text-start" style="margin-top: -70px;">
                           <style>
@@ -157,13 +165,9 @@
                           </div>
 
 
-                          <?php 
-                              if($row['qrCode'] != ''):
-                          ?>
-                            <div class="position-absolute" style="height: 70px;width: 70px; right: 15px; top: 245px;">
-                              <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" alt="" width="100%" height="100%" style="object-fit: contain;">
+                            <div class="position-absolute" style="height: 90px;width: 90px; right: 15px; top: 225px;">
+                              <img src="../images/PasayLoo.png" alt="" width="100%" height="100%" style="object-fit: contain;">
                             </div>
-                          <?php endif; ?>
 
 
                     </div>
@@ -181,6 +185,14 @@
                         <div class="d-block m-auto" style="height: 150px;width: 150px; border: 6px solid magenta;">
                           <p class="text-sm" style="margin-left: 23px; margin-top: 120px;">THUMB MARK</p>
                         </div>
+                        <br>
+                      <?php 
+                          if($row['qrCode'] != ''):
+                      ?> 
+                      <div class="d-block m-auto">
+                        <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" class="d-block m-auto shadow-md img-fluid" alt="" style="height: 125px;width: 125px; border: 1px solid grey;">
+                      </div>
+                      <?php endif; ?>
                     </div>
                     <div class="col-9 mt-3" style="line-height: 25px;">
                         <div class="row">
@@ -203,26 +215,23 @@
                         <div class="col-12">
                           <small>TIN No:___________________________________________________________</small>
                         </div>
+                        <div class="row">
+                          <div class="col-6 text-center mt-5">
+                            <p>___________________________</p>
+                            <p style="margin-top: -25px;" ><span style="font-style: italic;">Cardholder's Signature</span></p>
+                          </div>
+                          <div class="col-6 text-center mt-5">
+                            <p>___________________________</p> 
+                            <p style="margin-top: -25px;">HON. MICHAEL F. DAWAL <p>
+                            <p style="margin-top: -25px;"><span class="text-sm" style="font-style: italic;">Punong Barangay</span></p>
+                            <p style="margin-top: -25px;"><span class="text-xs" style="font-style: italic;"><b>"Pag Nag Droga Ka, Lagot Ka"</b></span></p>
+                          </div>
+                        </div>  
                     </div>
-                    <div class="col-6 text-center">
-                      <p>_________________________________</p>
-                      <p style="margin-top: -17px;" ><span style="font-style: italic;">Cardholder's Signature</span></p>
-                    </div>
-                    <div class="col-6 text-center">
-                      <p>_________________________________</p> 
-                      <p style="margin-top: -17px;">HON. MICHAEL F. DAWAL <p>
-                      <p style="margin-top: -17px;"><span class="text-sm" style="font-style: italic;">Punong Barangay</span></p>
-                      <p style="margin-top: -17px;"><span class="text-xs" style="font-style: italic;"><b>"Pag Nag Droga Ka, Lagot Ka"</b></span></p>
-                    </div>
+                    
 
-                     <?php 
-                          if($row['qrCode'] != ''):
-                      ?> 
-                      <div class="col-12 position-relative" style="top: -40px;">
-                        <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" class="d-block m-auto shadow-md" alt="" style="height: 80px;width: 80px; border: 2px solid gray; left: 300px;">
-                      </div>
-                      <?php endif; ?>
-                    <div class="col-12 text-center text-bold position-relative" style="line-height: 16px; text-align: justify; margin-top: -20px;">
+                     
+                    <div class="col-12 text-center text-bold position-relative" style="line-height: 16px; text-align: justify; margin-top: 20px;">
                       <p style="font-style: italic;  font-size: 13px;">THIS IS TO CERTIFY THAT THE BEARER OF THIS CARD WHOSE PICTURE, SIGNATURE AND THUMB MARK APPEAR HERE ON IS A REGISTERED RESIDENT OF BARANGAY 193, ZONE 20, PASAY CITY. <br> THIS IDENTIFICATION CARD IS BEING ISSUED FOR WHATEVER <br>LAWFUL PURPOSE IT MAY SERVE. </p><br>
 
                       <p class="text-sm" style="letter-spacing: 2px; margin-top: -25px;line-height: 13px;">Barangay 193 Multi-Purpose Hall Pildera II, Pasay City 1300, MM., Philippines <br>
