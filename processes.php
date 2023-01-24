@@ -27,7 +27,7 @@
 	}
 
 
-// SAVE USER
+	// SAVE USER
 	if(isset($_POST['create_user'])) {
 		$firstname       = $_POST['firstname'];
 		$middlename      = $_POST['middlename'];
@@ -137,7 +137,8 @@ if(isset($_POST['PINSettings'])) {
 
 	$update = mysqli_query($conn, "UPDATE residence SET residentPIN='$PIN' WHERE residenceId='$residenceId'");
 	if($update) {
-		header("Location: resident_view.php?residenceId=".$residenceId);
+		$_SESSION['residenceId'] = $residenceId;
+		header("Location: resident_view.php");
 	} else {
 		$_SESSION['message'] = "Cannot set PIN right now.";
     $_SESSION['text'] = "Please try again.";
@@ -153,8 +154,9 @@ if(isset($_POST['accessAgain'])) {
 	$PIN = mysqli_real_escape_string($conn, $_POST['PIN']);
 
 	$check = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId' AND residentPIN='$PIN'");
-	if(mysqli_num_rows($check)) {
-		header("Location: resident_view.php?residenceId=".$residenceId);
+	if(mysqli_num_rows($check) > 0) {
+		$_SESSION['residenceId'] = $residenceId;
+		header("Location: resident_view.php");
 	} else {
 		$_SESSION['message'] = "Incorrect PIN.";
     $_SESSION['text'] = "Please try again.";

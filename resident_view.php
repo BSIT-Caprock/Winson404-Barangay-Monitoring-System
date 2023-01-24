@@ -1,9 +1,9 @@
-<title>BMS | Resident info update</title>
+<title>BMS | Resident info</title>
 <?php 
     include 'navbarResidentOnly.php';
 
-    if(isset($_GET['residenceId'])) {
-    $residenceId = $_GET['residenceId'];
+    if(isset($_SESSION['residenceId'])) {
+    $residenceId = $_SESSION['residenceId'];
     $fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
     $row = mysqli_fetch_array($fetch);
 ?>
@@ -189,7 +189,7 @@
                  
               </div>
               <div class="card-footer">
-                <a href="scanQRCode.php" class="btn bg-secondary btn-sm  float-right"><i class="fa-solid fa-circle-left"></i> Exit</a>
+                <a href="logout.php?page=exit" class="btn bg-secondary btn-sm  float-right"><i class="fa-solid fa-circle-left"></i> Exit</a>
                 <!-- <a class="btn btn-info btn-sm" href="resident_update.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fas fa-pencil-alt"></i> Edit</a> -->
               </div>
 

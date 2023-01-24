@@ -1,4 +1,4 @@
-<?php include 'config.php'; ?>
+<?php include 'user_auth.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +36,7 @@
       <a href="scanQRCode.php" class="navbar-brand">
         <!-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Barangay Monitoring System</span> -->
-        <img src="images/logo2.png" class="img-fluid" width="70">
+        <img src="images/web_logo2.png" class="img-fluid" width="120">
         <span class="brand-text font-weight-light ml-2 ">Barangay Management System</span>
       </a>
 

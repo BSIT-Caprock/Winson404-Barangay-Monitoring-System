@@ -30,7 +30,7 @@
                   <div class="col-8">
                     <div class="form-group">
                       <span class="text-bold text-muted text-sm">Enter your PIN</span>
-                      <input type="password" class="form-control text-center" maxlength="6" minlength="6" required id="PIN" name="PIN">
+                      <input type="password" class="form-control text-center" autofocus="true" maxlength="6" minlength="6" required id="PIN" name="PIN">
                     </div>
                   </div>
                 </div>
@@ -71,7 +71,7 @@
                   <div class="col-8">
                     <div class="form-group">
                       <span class="text-bold text-muted text-sm">Enter your PIN</span>
-                      <input type="password" class="form-control text-center" maxlength="6" minlength="6" required id="PIN" name="PIN" autocomplete="off">
+                      <input type="password" class="form-control text-center" autofocus="true" maxlength="6" minlength="6" required id="PIN" name="PIN" autocomplete="off">
                     </div>
                   </div>
                 </div>

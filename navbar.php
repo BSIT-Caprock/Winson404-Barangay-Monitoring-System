@@ -4,6 +4,8 @@
       header('Location: Admin/dashboard.php');
     } elseif(isset($_SESSION['staff_Id'])) {
       header('Location: Staff/resident.php');
+    } elseif(isset($_SESSION['residenceId'])) {
+      header('Location: resident_view.php');
     } else {
 ?>
 <!DOCTYPE html>

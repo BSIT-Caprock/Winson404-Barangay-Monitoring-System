@@ -48,3 +48,24 @@
 </html>
 
 <?php include 'sweetalert_messages.php'; ?>
+
+<!-- AUTO LOGOUT AFTER 5 MINS // OTHER CODE CAN BE SEEN IN NAVBAR.PHP(USER_AUTH.PHP)-->
+<script>
+  setInterval(function(){
+    check_user();
+  },1000);
+  function check_user(){
+    jQuery.ajax({
+      url:'user_auth.php',
+      type:'post',
+      data:'type=ajax',
+      success:function(result){
+        if(result=='logout'){
+          window.location.href='logout.php?page=exit';
+        }
+      }
+      
+    });
+  }
+</script>
+<!-- AUTO LOGOUT AFTER 5 MINS // OTHER CODE CAN BE SEEN IN NAVBAR.PHP(USER_AUTH.PHP)-->
