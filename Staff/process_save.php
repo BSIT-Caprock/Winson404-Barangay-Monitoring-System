@@ -24,6 +24,7 @@
 		$citizenship      = mysqli_real_escape_string($conn, $_POST['citizenship']);
 		$occupation       = mysqli_real_escape_string($conn, $_POST['occupation']);
 		$religion		  = mysqli_real_escape_string($conn, $_POST['religion']);
+		$contact	      = mysqli_real_escape_string($conn, $_POST['contact']);
 		$house_no         = mysqli_real_escape_string($conn, $_POST['house_no']);
 		$street_name      = mysqli_real_escape_string($conn, $_POST['street_name']);
 		$purok            = mysqli_real_escape_string($conn, $_POST['purok']);
@@ -310,7 +311,7 @@
 
 					    		if (move_uploaded_file($_FILES["certificate"]["tmp_name"], $sign_target_file)) {
 
-				    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, religion, house_no, street_name, purok, zone, barangay, municipality, province, region, familyIndicator, headName, familyRole, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, personalDocuments, qrCode, residentCode, added_By, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$religion', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$familyIndicator', '$headName', '$familyRole', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$certificate', '$qr_image', '$residentCode', '$added_By', '$date_registered')");
+				    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, religion, contact, house_no, street_name, purok, zone, barangay, municipality, province, region, familyIndicator, headName, familyRole, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, personalDocuments, qrCode, residentCode, added_By, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$religion', '$contact', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$familyIndicator', '$headName', '$familyRole', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$certificate', '$qr_image', '$residentCode', '$added_By', '$date_registered')");
 
 					              	  if($save) {
 							          	$_SESSION['message'] = "Resident information has been saved!";
@@ -363,11 +364,16 @@
 		$purpose       = mysqli_real_escape_string($conn, $_POST['purpose']);
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
+
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
 
-			  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+			  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyIndigency.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
 			  } else {
@@ -413,10 +419,15 @@
 		$purpose       = mysqli_real_escape_string($conn, $_POST['purpose']);
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
+
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
-		  	  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+		  	  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyResidency.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
 			  } else {
@@ -463,10 +474,15 @@
 		$purpose       = 'Get First Time Job Seeker Certificate';
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
+
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
-	  		  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+	  		  $save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyJobseeker.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
 			  } else {
@@ -513,6 +529,8 @@
 		$purpose         = 'Get Brgy. Non-Residency';
 		$paidAmount      = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired   = date('Y-m-d');
+	
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, NonResident, NonResident__Address, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$nonresidentname', '$address', '$purpose', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
@@ -564,10 +582,15 @@
 		$purpose       = mysqli_real_escape_string($conn, $_POST['purpose']);
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
+
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
-		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyClearance.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
 			  } else {
@@ -616,10 +639,15 @@
 		$purpose       = 'Get Brgy. Ownership Certificate';
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
+
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
-		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyOwnership.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
 			  } else {
@@ -650,10 +678,15 @@
 		$purpose       = 'Get Brgy. Plate Certificate';
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
+
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
-		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyPlate.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
 			  } else {
@@ -685,10 +718,15 @@
 		$IDNumber	   = mysqli_real_escape_string($conn, $_POST['IDNumber']);
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
+
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, brgyIDnumber, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$IDNumber', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
-		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyID.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&IDNumber='.$IDNumber.'&&date='.$date_acquired.'');
 			  } else {
@@ -722,10 +760,14 @@
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
 
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		  $save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, tradeName, businessNature, controlNumber, ORNumber, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$tradeName', '$scopeBusiness', '$controlNumber', '$ORNumber', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
-		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyPermit.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'&&ORNumber='.$ORNumber.'');
 			  } else {
@@ -757,10 +799,15 @@
 		$purpose       = 'Get Barangay Construction Certificate';
 		$paidAmount    = mysqli_real_escape_string($conn, $_POST['paidAmount']);
 		$date_acquired = date('Y-m-d');
+
+		$fetch = mysqli_query($conn, "SELECT * FROM residence WHERE residenceId='$residenceId'");
+		$row = mysqli_fetch_array($fetch);
+		$name = $row['firstname'].' '.$row['middlename'].' '.$row['lastname'].' '.$row['suffix'];
+
 		$save = mysqli_query($conn, "INSERT INTO documents (doc_type, doc_residenceId, doc_purpose, doc_paidAmount, date_acquired) VALUES ('$type', '$residenceId', '$purpose', '$paidAmount', '$date_acquired')");
 
 		  if($save) {
-		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$residenceId', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
+		  	$save2 = mysqli_query($conn, "INSERT INTO income (paid_by, paymentFor, paymentDesc, paymentAmount, date_paid, added_by, date_added) VALUES ('$name', '$type', '$purpose', '$paidAmount', '$date_acquired', '$adminId', '$date_acquired') ");
 		  	  if($save2) {
 				header('Location: cert_brgyConstruction.php?residenceId='.$residenceId.'&&purpose='.$purpose.'&&date='.$date_acquired.'');
 			  } else {

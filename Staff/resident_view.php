@@ -89,7 +89,19 @@
                               <h6><?php echo $row['occupation']; ?></h6>
                             </div>
                         </div>
+                        <div class="col-lg-4 col col-md-4 col-sm-6 col-12">
+                          <div class="form-group">
+                              <small class="text-muted"><b>Religion:</b></small>
+                              <h6><?php echo $row['religion']; ?></h6>
+                            </div>
                         </div>
+                        <div class="col-lg-4 col col-md-4 col-sm-6 col-12">
+                          <div class="form-group">
+                              <small class="text-muted"><b>Contact no:</b></small>
+                              <h6><?php if($row['contact'] = NULL) { echo $row['contact']; } else{ echo 'N/A'; } ?></h6>
+                            </div>
+                        </div>
+                      </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12 text-dark">
                       <div class=" d-flex justify-content-center bg-dark d-block m-auto" style="max-height: 120px; min-height: 120px; width: 120px; border: 3px solid darkgray;">

@@ -63,6 +63,7 @@
 		$citizenship      = mysqli_real_escape_string($conn, $_POST['citizenship']);
 		$occupation       = mysqli_real_escape_string($conn, $_POST['occupation']);
 		$religion		  = mysqli_real_escape_string($conn, $_POST['religion']);
+		$contact	      = mysqli_real_escape_string($conn, $_POST['contact']);
 		$house_no         = mysqli_real_escape_string($conn, $_POST['house_no']);
 		$street_name      = mysqli_real_escape_string($conn, $_POST['street_name']);
 		$purok            = mysqli_real_escape_string($conn, $_POST['purok']);
@@ -349,7 +350,7 @@
 
 					    		if (move_uploaded_file($_FILES["certificate"]["tmp_name"], $sign_target_file)) {
 
-				    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, religion, house_no, street_name, purok, zone, barangay, municipality, province, region, familyIndicator, headName, familyRole, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, personalDocuments, qrCode, residentCode, added_By, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$religion', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$familyIndicator', '$headName', '$familyRole', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$certificate', '$qr_image', '$residentCode', '$added_By', '$date_registered')");
+				    				  $save = mysqli_query($conn, "INSERT INTO residence (firstname, middlename, lastname, suffix, dob, age, ageClassification, birthplace, gender, civilstatus, citizenship, occupation, religion, contact, house_no, street_name, purok, zone, barangay, municipality, province, region, familyIndicator, headName, familyRole, sector, resident_status, voter_status, ID_status, QR_status, years_of_stay, image, digital_signature, personalDocuments, qrCode, residentCode, added_By, date_registered) VALUES ('$firstname', '$middlename', '$lastname', '$suffix', '$dob', '$age', '$ageClassification', '$birthplace',  '$gender', '$civilstatus', '$citizenship', '$occupation', '$religion', '$contact', '$house_no', '$street_name', '$purok', '$zone', '$barangay', '$municipality', '$province', '$region', '$familyIndicator', '$headName', '$familyRole', '$sector', '$resident_status', '$voter_status', '$ID_status', '$QR_status', '$years_of_stay', '$file', '$signature', '$certificate', '$qr_image', '$residentCode', '$added_By', '$date_registered')");
 
 					              	  if($save) {
 							          	$_SESSION['message'] = "Resident information has been saved!";

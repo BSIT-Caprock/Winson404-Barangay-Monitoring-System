@@ -151,6 +151,15 @@
                             </select>
                           </div>
                         </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                              <span class="text-dark"><b>Contact number</b></span>
+                              <div class="input-group">
+                                <div class="input-group-text">+63</div>
+                                <input type="tel" class="form-control" pattern="[7-9]{1}[0-9]{9}" id="contact" name="contact" placeholder = "9123456789" required maxlength="10" value="<?php echo $row['contact']; ?>">
+                              </div>
+                            </div>
+                        </div>
 
 
 

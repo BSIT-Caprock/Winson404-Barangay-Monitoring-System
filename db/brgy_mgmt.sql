@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2023 at 09:50 AM
+-- Generation Time: Jan 25, 2023 at 06:22 AM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -87,39 +87,17 @@ CREATE TABLE IF NOT EXISTS `documents` (
   `ORNumber` varchar(255) NOT NULL,
   `doc_paidAmount` varchar(50) NOT NULL,
   `date_acquired` varchar(20) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=105 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=124 ;
 
 --
 -- Dumping data for table `documents`
 --
 
 INSERT INTO `documents` (`doc_Id`, `doc_type`, `doc_residenceId`, `NonResident`, `NonResident__Address`, `doc_purpose`, `tradeName`, `businessNature`, `controlNumber`, `brgyIDnumber`, `ORNumber`, `doc_paidAmount`, `date_acquired`) VALUES
-(79, 'Barangay Permit', 67, '', '', 'Get Brgy. Business Clearance Permit', 'fd', 'fd', 'fd', '', '43', '3', '2022-12-30'),
-(80, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'fds', 'fdsf', 'dsfsf', '', 'ds34', '3', '2022-12-30'),
-(81, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'fdgdf', 'gd', '45', '', '3', '45', '2022-12-30'),
-(82, 'Barangay Permit', 67, '', '', 'Get Brgy. Business Clearance Permit', 'd', 'fdf', 'fd', '', 'fd', '3', '2022-12-30'),
-(83, 'Barangay Permit', 66, '', '', 'Get Brgy. Business Clearance Permit', 'dsa', 'dsa', 'dsad', '', 'sa', '3', '2022-12-30'),
-(84, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'fdsf', 'dsfd', 'sfdsf', '', 'ds', '43', '2022-12-30'),
-(85, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'fds', 'fds', 'fds', '', 'fds', '343', '2022-12-30'),
-(86, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'gfd', 'gfd', 'gfd', '', 'gfd', '22', '2023-01-03'),
-(87, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'fdsf', 'fdsfdsf', 'dsfds', '', 'fds', '3', '2023-01-03'),
-(88, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'fdsf', 'dsfds', 'fdsfsd', '', 'fds', '2', '2023-01-03'),
-(89, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'dsfsfds', 'fdsf', 'fdsf', '', 'ds', '2', '2023-01-03'),
-(90, 'Barangay Indigency', 69, '', '', 'gfd', '', '', '', '', '', '33', '2023-01-03'),
-(91, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'fdgdgd', 'gfdg', 'fgfd', '', '3', '33', '2023-01-03'),
-(92, 'Barangay ID Card', 67, '', '', 'Get Brgy. ID Card', '', '', '', '34', '', '54', '2023-01-03'),
-(93, 'Barangay Plate', 69, '', '', 'Get Brgy. Plate Certificate', '', '', '', '', '', '34', '2023-01-03'),
-(94, 'Barangay Permit', 69, '', '', 'Get Brgy. Business Clearance Permit', 'dddddd', 'dddddd', 'dddddd', '', 'dddddd', '23', '2023-01-03'),
-(95, 'Barangay Permit', 67, '', '', 'Get Brgy. Business Clearance Permit', 'fds', 'fdsf', 'dsfdsf', '', 'sdf', '33', '2023-01-03'),
-(96, 'Barangay ID Card', 69, '', '', 'Get Brgy. ID Card', '', '', '', '232', '', '3', '2023-01-03'),
-(97, 'Barangay Plate', 69, '', '', 'Get Brgy. Plate Certificate', '', '', '', '', '', '2', '2023-01-03'),
-(98, 'Barangay Permit', 67, '', '', 'Get Brgy. Business Clearance Permit', 'fdsfsdf', 'sfsdfs', 'fdsfsdf', '', 'sfsdfs', '432', '2023-01-16'),
-(99, 'Barangay Clearance', 69, '', '', 'Test', '', '', '', '', '', '1000', '2023-01-16'),
-(100, 'Barangay ID Card', 67, '', '', 'Get Brgy. ID Card', '', '', '', '213213', '', '1312', '2023-01-19'),
-(101, 'Barangay ID Card', 69, '', '', 'Get Brgy. ID Card', '', '', '', '1313', '', '1312', '2023-01-19'),
-(102, 'Barangay ID Card', 69, '', '', 'Get Brgy. ID Card', '', '', '', '432423', '', '32', '2023-01-21'),
-(103, 'Brgy. Non-Residency', 0, 'gdfgfgdgf', 'fff', 'Get Brgy. Non-Residency', '', '', '', '', '', '3', '2023-01-21'),
-(104, 'Barangay Clearance', 67, '', '', 'ddfd', '', '', '', '', '', '22', '2023-01-22');
+(120, 'Barangay ID Card', 66, '', '', 'Get Brgy. ID Card', '', '', '', '11', '', '11', '2023-01-25'),
+(121, 'Barangay Ownership', 67, '', '', 'Get Brgy. Ownership Certificate', '', '', '', '', '', '22', '2023-01-25'),
+(122, 'Barangay Permit', 67, '', '', 'Get Brgy. Business Clearance Permit', 'fds', 'fdsf', 'dsfsd', '', 'rrfs', '343', '2023-01-25'),
+(123, 'Barangay Indigency', 67, '', '', 'fds', '', '', '', '', '', '43', '2023-01-25');
 
 -- --------------------------------------------------------
 
@@ -138,39 +116,18 @@ CREATE TABLE IF NOT EXISTS `income` (
   `date_added` varchar(255) NOT NULL,
   `updated_by` varchar(255) NOT NULL,
   `date_updated` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=96 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=116 ;
 
 --
 -- Dumping data for table `income`
 --
 
 INSERT INTO `income` (`incomeId`, `paid_by`, `paymentFor`, `paymentDesc`, `paymentAmount`, `date_paid`, `added_by`, `date_added`, `updated_by`, `date_updated`) VALUES
-(70, '67', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '3', '2022-12-30', '40', '2022-12-30', '', ''),
-(71, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '3', '2022-12-30', '40', '2022-12-30', '', ''),
-(72, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '45', '2022-12-30', '40', '2022-12-30', '', ''),
-(73, '67', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '3', '2022-12-30', '40', '2022-12-30', '', ''),
-(74, '66', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '3', '2022-12-30', '40', '2022-12-30', '', ''),
-(75, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '43', '2022-12-30', '40', '2022-12-30', '', ''),
-(76, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '343', '2022-12-30', '40', '2022-12-30', '', ''),
-(77, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '22', '2023-01-03', '40', '2023-01-03', '', ''),
-(78, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '3', '2023-01-03', '42', '2023-01-03', '', ''),
-(79, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '2', '2023-01-03', '42', '2023-01-03', '', ''),
-(80, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '2', '2023-01-03', '40', '2023-01-03', '', ''),
-(81, '69', 'Barangay Indigency', 'gfd', '33', '2023-01-03', '40', '2023-01-03', '', ''),
-(82, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '33', '2023-01-03', '40', '2023-01-03', '', ''),
-(83, '67', 'Barangay ID Card', 'Get Brgy. ID Card', '54', '2023-01-03', '40', '2023-01-03', '', ''),
-(84, '69', 'Barangay Plate', 'Get Brgy. Plate Certificate', '34', '2023-01-03', '40', '2023-01-03', '', ''),
-(85, '69', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '23', '2023-01-03', '42', '2023-01-03', '', ''),
-(86, '67', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '33', '2023-01-03', '40', '2023-01-03', '', ''),
-(87, '69', 'Barangay ID Card', 'Get Brgy. ID Card', '3', '2023-01-03', '40', '2023-01-03', '', ''),
-(88, '69', 'Barangay Plate', 'Get Brgy. Plate Certificate', '2', '2023-01-03', '40', '2023-01-03', '', ''),
-(89, '67', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '432', '2023-01-16', '40', '2023-01-16', '', ''),
-(90, '69', 'Barangay Clearance', 'Test', '1000', '2023-01-16', '40', '2023-01-16', '', ''),
-(91, '67', 'Barangay ID Card', 'Get Brgy. ID Card', '1312', '2023-01-19', '40', '2023-01-19', '', ''),
-(92, '69', 'Barangay ID Card', 'Get Brgy. ID Card', '1312', '2023-01-19', '40', '2023-01-19', '', ''),
-(93, '69', 'Barangay ID Card', 'Get Brgy. ID Card', '32', '2023-01-21', '40', '2023-01-21', '', ''),
-(94, 'gdfgfgdgf', 'Brgy. Non-Residency', 'Get Brgy. Non-Residency', '3', '2023-01-21', '40', '2023-01-21', '', ''),
-(95, 'dsd d d ', 'Barangay Clearance', 'ddfd', '22', '2023-01-22', '40', '2023-01-22', '', '');
+(111, 'dddsdds d d ', 'Barangay ID Card', 'Get Brgy. ID Card', '11', '2023-01-25', '40', '2023-01-25', '', ''),
+(112, 'dsd d d ', 'Barangay Ownership', 'Get Brgy. Ownership Certificate', '22', '2023-01-25', '40', '2023-01-25', '', ''),
+(113, 'dsd d d ', 'Barangay Permit', 'Get Brgy. Business Clearance Permit', '343', '2023-01-25', '40', '2023-01-25', '', ''),
+(114, 'dsd d d ', 'Barangay Indigency', 'fds', '43', '2023-01-25', '40', '2023-01-25', '', ''),
+(115, '', 'erewr', '22', '343', '2023-01-25', '40', '2023-01-25', '', '');
 
 -- --------------------------------------------------------
 
@@ -220,6 +177,7 @@ CREATE TABLE IF NOT EXISTS `residence` (
   `citizenship` varchar(50) NOT NULL,
   `occupation` varchar(50) NOT NULL,
   `religion` varchar(100) NOT NULL,
+  `contact` varchar(50) NOT NULL,
   `house_no` varchar(255) NOT NULL,
   `street_name` varchar(255) NOT NULL,
   `purok` varchar(255) NOT NULL,
@@ -251,21 +209,21 @@ CREATE TABLE IF NOT EXISTS `residence` (
 -- Dumping data for table `residence`
 --
 
-INSERT INTO `residence` (`residenceId`, `firstname`, `middlename`, `lastname`, `suffix`, `dob`, `age`, `ageClassification`, `birthplace`, `gender`, `civilstatus`, `citizenship`, `occupation`, `religion`, `house_no`, `street_name`, `purok`, `zone`, `barangay`, `municipality`, `province`, `region`, `familyIndicator`, `headName`, `familyRole`, `sector`, `resident_status`, `voter_status`, `ID_status`, `QR_status`, `years_of_stay`, `image`, `digital_signature`, `personalDocuments`, `qrCode`, `residentCode`, `residentPIN`, `added_By`, `date_registered`) VALUES
-(66, 'dddsdds', 'd', 'd', '', '1993-06-16', '29 years old', 'Adult', 'df', 'Female', 'Single', 'By Birth', 'fsd', 'Roman Catholic', 'fds', 'fds', 'fds', 'fds', 'fds', 'fds', 'fdsfsd', 'fdsf', 'Head', 'test123', 'test421', 'PWD', 'Perma/Owned', 'Active', 'Active', 'None', '43', '2.jpg', '3.jpg', '', '', '', '', 'Juan Dela Cruz', '2022-11-25'),
-(67, 'dsd', 'd', 'd', '', '2016-03-09', '6 years old', 'Child', 'dsa', 'Male', 'Married', 'By Family', 'fdsf', 'Iglesia Ni Cristo', 'fdsf', 'dsf', 'fdsf', 'fdsf', 'dsfsd', 'fdsf', 'fsdfsd', 'fds', '', '', '', 'Senior Citizen', 'Perma/Owned', 'Active', 'Active', 'Active', '43', 'Screenshot (185).png', 'Screenshot (186).png', '', '', '', '', 'Erwin Cabag Son', '2022-11-25'),
-(69, 'Juan', 'Panday', 'Dela Cruz', '', '1997-10-15', '25 years old', 'Adult', 'bvcbcb', 'Female', 'Separated', 'Naturalization', 'bvcbc', 'Ang Dating Daan', 'bvc', 'bcvbcb', 'vcbcb', 'vcbcv', 'bcvbc', 'bcvbcvbcv', 'bvc', 'bvcbc', '', '', '', 'Solo Parents', 'Tempo/Rented', 'Active', 'None', 'Active', '343', 'Screenshot (193).png', 'Screenshot (188).png', '', '../images-qr-codes/63a70b9feddb2.png', '', '', 'Erwin Cabag Son', '2022-11-25'),
-(70, 'fsfsd', 'fsdfsf', 'sdfs', '', '1952-07-09', '70 years old', 'Senior', 'fsfs', 'Non-Binary', 'Widow/ER', 'By Marriage', 'gfdgd', 'Islam', 'gfd', 'gdf', 'gfd', 'gfdg', 'fdgdf', 'gfdg', 'fdg', 'gfd', '', '', '', 'PWD', 'Tempo/Rented', 'None', 'None', 'None', '2', 'Screenshot (184).png', 'Screenshot (186).png', '', '', '', '', 'Jose Rizal', '2022-11-25'),
-(71, 'fdgfdgdg', 'gwq', 'wq', 'w', '2022-11-10', '2 weeks old', 'Toddler', 'wq', 'Female', 'Widow/ER', 'By Family', 'wq', 'Protestants', 'wq', 'w', 'qwq', 'w', 'w', 'w', 'qwq', 'w', '', '', '', 'Solo Parents', 'Tempo/Rented', 'Active', 'Active', 'None', '3', '1fLSnJV.jpg', '1fLSnJV.jpg', '', '', '', '', 'Juan Dela Cruz', '2022-11-27'),
-(72, 'DADADAD', 'DADADAD', 'DADADAD', '', '2022-12-13', '6 days old', 'Toddler', 'DADADAD', 'Female', 'Married', 'By Marriage', 'DADADAD', 'Seventh-day Adventism', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', '', '', '', 'Senior Citizen', 'Tempo/Rented', 'Active', 'None', 'Active', '2', '315423302_2170759329772205_8153808227283622299_n.jpg', '315423302_2170759329772205_8153808227283622299_n.jpg', '', '../images-qr-codes/63a071bf9f8fa.png', '', '', 'Jose Rizal', '2022-12-19'),
-(73, 'bvc', 'bvcb', 'bvc', '', '2022-12-15', '1 week old', 'Toddler', 'bvcb', 'Female', 'Separated', 'By Birth', 'bvc', 'Aglipayan', 'bvb', 'vcb', 'bvbv', 'bv', 'bvb', 'vbv', 'bvb', 'bv', '', '', '', 'Senior Citizen', 'Tempo/Rented', 'Inactive', 'Active', 'None', '343', '2.jpg', '3.jpg', '', '../images-qr-codes/63a3e7ab3bbcf.png', '', '', 'Erwin Cabag Son', '2022-12-22'),
-(74, 'dadaadadd', 'dadaadadd', 'dadaadadd', '', '2022-12-09', '1 week old', 'Toddler', 'dadaadadd', 'Male', 'Widow/ER', 'By Birth', 'dadaadadd', 'Bible Baptist Church', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', '', '', '', 'PWD', 'Tempo/Rented', 'None', 'Active', 'None', '23', '2.jpg', '4.jpg', '', '../images-qr-codes/63a3e807201e2.png', '', '', 'Jose Rizal', '2022-12-22'),
-(75, 'Cong TV', 'Cong TV', 'Cong TV', '', '2022-12-15', '1 week old', 'Toddler', 'Cong TV', 'Male', 'Single', 'By Birth', 'Cong TV', 'United Church of Christ in the Philippines', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', '', '', '', 'Senior Citizen', 'Perma/Owned', 'Active', 'Active', 'Active', '2', '2.jpg', '3.jpg', '', '../images-qr-codes/63a3e9146f38c.png', 'BMS-63a3e9146f385', '123321', 'Juan Dela Cruz', '2022-12-22'),
-(76, 'Bonifacio', 'Bonifacio', 'Bonifacio', '', '2022-12-17', '1 week old', 'Toddler', 'BonifacioBonifacioBonifacioBonifacio', 'Male', 'Single', 'By Family', 'BonifacioBonifacio', 'Methodist', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'gfd', 'gfd', 'gfd', 'Senior Citizen', 'Tempo/Rented', 'Active', 'None', 'Active', '22', 'academia.png', 'aclc.png', '', '../images-qr-codes/63a70b9feddb2.png', 'BMS-63a70b9feddad', '123456', 'Erwin Cabag Son', '2022-12-24'),
-(77, 'fdsfs', 'fdsfsd', 'fsdf', 'sfsd', '2023-01-11', '1 week old', 'Toddler', 'gfdgf', 'Male', 'Single', 'By Birth', 'gfdgdgdf', 'Jehovah''s Witnesses', 'gfd', 'gdfg', 'dfgdfgfd', 'gfdgfd', 'gdfg', 'fdgdfg', 'dfgfd', 'gfd', 'Member', 'gfdg', 'dgg', 'PWD', 'Tempo/Rented', 'Active', 'Active', 'Active', '432', '6207ad7e34af5.jpg', '4297150.jpg', '', '../images-qr-codes/63c915cf3a34f.png', 'BMS-63c915cf3a346', '', 'Jose Rizal', '2023-01-19'),
-(78, 'addedby', 'addedby', 'addedby', '', '2023-01-11', '1 week old', 'Toddler', 'addedby', 'Male', 'Single', 'By Family', 'addedby', 'Methodist', 'addedbyaddedby', 'addedby', 'addedby', 'addedby', 'addedby', 'addedby', 'addedby', 'addedby', 'Member', 'addedby', 'addedby', 'PWD', 'Tempo/Rented', 'Inactive', 'Active', 'Active', '2', '2.jpg', '1.jpg', '', '../images-qr-codes/63c91f6f46c54.png', 'BMS-63c91f6f46c49', '', 'Juan Dela Cruz', '2023-01-19'),
-(79, 'Certsa', 'Certsa', 'Certsa', '', '2023-01-13', '1 week old', 'Toddler', 'Certsa', 'Male', 'Single', 'By Family', 'Certsa', 'Iglesia Ni Cristo', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Member', 'Certsa', 'Certsa', 'Senior Citizen', 'Tempo/Rented', 'Inactive', 'Active', 'Active', '13', '6207ad7e34af5.jpg', 'rUPmy8.jpg', 'wp4813161-simple-minimalist-wallpapers.jpg', '../images-qr-codes/63cbb4ea53611.png', 'BMS-63cbb4ea5360b', '', 'Juan  Dela Cruz ', '2023-01-21'),
-(80, 'certificate', 'certificate', 'certificate', '', '2023-01-11', '1 week old', 'Toddler', 'certificate', 'Male', 'Single', 'By Birth', 'certificate', 'Iglesia Ni Cristo', 'certificate', 'certificate', 'certificate', 'certificate', 'certificate', 'certificate', 'certificate', 'certificate', 'Head', 'certificate', 'certificate', 'Senior Citizen', 'Tempo/Rented', 'Active', 'Active', 'None', '2', 'ba.jpg', 'harvest.png', 'rUPmy8.jpg', '../images-qr-codes/63cbb58ade5fc.png', 'BMS-63cbb58ade5f7', '', 'Juan  Dela Cruz ', '2023-01-21');
+INSERT INTO `residence` (`residenceId`, `firstname`, `middlename`, `lastname`, `suffix`, `dob`, `age`, `ageClassification`, `birthplace`, `gender`, `civilstatus`, `citizenship`, `occupation`, `religion`, `contact`, `house_no`, `street_name`, `purok`, `zone`, `barangay`, `municipality`, `province`, `region`, `familyIndicator`, `headName`, `familyRole`, `sector`, `resident_status`, `voter_status`, `ID_status`, `QR_status`, `years_of_stay`, `image`, `digital_signature`, `personalDocuments`, `qrCode`, `residentCode`, `residentPIN`, `added_By`, `date_registered`) VALUES
+(66, 'dddsdds', 'd', 'd', '', '1993-06-16', '29 years old', 'Adult', 'df', 'Female', 'Single', 'By Birth', 'fsd', 'Roman Catholic', '', 'fds', 'fds', 'fds', 'fds', 'fds', 'fds', 'fdsfsd', 'fdsf', 'Head', 'test123', 'test421', 'PWD', 'Perma/Owned', 'Active', 'Active', 'None', '43', '2.jpg', '3.jpg', '', '', '', '', 'Juan Dela Cruz', '2022-11-25'),
+(67, 'dsd', 'd', 'd', '', '2016-03-09', '6 years old', 'Child', 'dsa', 'Male', 'Married', 'By Family', 'fdsf', 'Iglesia Ni Cristo', '', 'fdsf', 'dsf', 'fdsf', 'fdsf', 'dsfsd', 'fdsf', 'fsdfsd', 'fds', '', '', '', 'Senior Citizen', 'Perma/Owned', 'Active', 'Active', 'Active', '43', 'Screenshot (185).png', 'Screenshot (186).png', '', '', '', '', 'Erwin Cabag Son', '2022-11-25'),
+(69, 'Juan', 'Panday', 'Dela Cruz', '', '1997-10-15', '25 years old', 'Adult', 'bvcbcb', 'Female', 'Separated', 'Naturalization', 'bvcbc', 'Ang Dating Daan', '', 'bvc', 'bcvbcb', 'vcbcb', 'vcbcv', 'bcvbc', 'bcvbcvbcv', 'bvc', 'bvcbc', '', '', '', 'Solo Parents', 'Tempo/Rented', 'Active', 'None', 'Active', '343', 'Screenshot (193).png', 'Screenshot (188).png', '', '../images-qr-codes/63a70b9feddb2.png', '', '', 'Erwin Cabag Son', '2022-11-25'),
+(70, 'fsfsd', 'fsdfsf', 'sdfs', '', '1952-07-09', '70 years old', 'Senior', 'fsfs', 'Non-Binary', 'Widow/ER', 'By Marriage', 'gfdgd', 'Islam', '', 'gfd', 'gdf', 'gfd', 'gfdg', 'fdgdf', 'gfdg', 'fdg', 'gfd', '', '', '', 'PWD', 'Tempo/Rented', 'None', 'None', 'None', '2', 'Screenshot (184).png', 'Screenshot (186).png', '', '', '', '', 'Jose Rizal', '2022-11-25'),
+(71, 'fdgfdgdg', 'gwq', 'wq', 'w', '2022-11-10', '2 weeks old', 'Toddler', 'wq', 'Female', 'Widow/ER', 'By Family', 'wq', 'Protestants', '', 'wq', 'w', 'qwq', 'w', 'w', 'w', 'qwq', 'w', '', '', '', 'Solo Parents', 'Tempo/Rented', 'Active', 'Active', 'None', '3', '1fLSnJV.jpg', '1fLSnJV.jpg', '', '', '', '', 'Juan Dela Cruz', '2022-11-27'),
+(72, 'DADADAD', 'DADADAD', 'DADADAD', '', '2022-12-13', '6 days old', 'Toddler', 'DADADAD', 'Female', 'Married', 'By Marriage', 'DADADAD', 'Seventh-day Adventism', '', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', 'DADADAD', '', '', '', 'Senior Citizen', 'Tempo/Rented', 'Active', 'None', 'Active', '2', '315423302_2170759329772205_8153808227283622299_n.jpg', '315423302_2170759329772205_8153808227283622299_n.jpg', '', '../images-qr-codes/63a071bf9f8fa.png', '', '', 'Jose Rizal', '2022-12-19'),
+(73, 'bvc', 'bvcb', 'bvc', '', '2022-12-15', '1 week old', 'Toddler', 'bvcb', 'Female', 'Separated', 'By Birth', 'bvc', 'Aglipayan', '', 'bvb', 'vcb', 'bvbv', 'bv', 'bvb', 'vbv', 'bvb', 'bv', '', '', '', 'Senior Citizen', 'Tempo/Rented', 'Inactive', 'Active', 'None', '343', '2.jpg', '3.jpg', '', '../images-qr-codes/63a3e7ab3bbcf.png', '', '', 'Erwin Cabag Son', '2022-12-22'),
+(74, 'dadaadadd', 'dadaadadd', 'dadaadadd', '', '2022-12-09', '1 week old', 'Toddler', 'dadaadadd', 'Male', 'Widow/ER', 'By Birth', 'dadaadadd', 'Bible Baptist Church', '', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', 'dadaadadd', '', '', '', 'PWD', 'Tempo/Rented', 'None', 'Active', 'None', '23', '2.jpg', '4.jpg', '', '../images-qr-codes/63a3e807201e2.png', '', '', 'Jose Rizal', '2022-12-22'),
+(75, 'Cong TV', 'Cong TV', 'Cong TV', '', '2022-12-15', '1 week old', 'Toddler', 'Cong TV', 'Male', 'Single', 'By Birth', 'Cong TV', 'United Church of Christ in the Philippines', '', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', 'Cong TV', '', '', '', 'Senior Citizen', 'Perma/Owned', 'Active', 'Active', 'Active', '2', '2.jpg', '3.jpg', '', '../images-qr-codes/63a3e9146f38c.png', 'BMS-63a3e9146f385', '123321', 'Juan Dela Cruz', '2022-12-22'),
+(76, 'Bonifacio', 'Bonifacio', 'Bonifacio', '', '2022-12-17', '1 week old', 'Toddler', 'BonifacioBonifacioBonifacioBonifacio', 'Male', 'Single', 'By Family', 'BonifacioBonifacio', 'Methodist', '', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'BonifacioBonifacio', 'gfd', 'gfd', 'gfd', 'Senior Citizen', 'Tempo/Rented', 'Active', 'None', 'Active', '22', 'academia.png', 'aclc.png', '', '../images-qr-codes/63a70b9feddb2.png', 'BMS-63a70b9feddad', '123456', 'Erwin Cabag Son', '2022-12-24'),
+(77, 'fdsfs', 'fdsfsd', 'fsdf', 'sfsd', '2023-01-11', '1 week old', 'Toddler', 'gfdgf', 'Male', 'Single', 'By Birth', 'gfdgdgdf', 'Jehovah''s Witnesses', '', 'gfd', 'gdfg', 'dfgdfgfd', 'gfdgfd', 'gdfg', 'fdgdfg', 'dfgfd', 'gfd', 'Member', 'gfdg', 'dgg', 'PWD', 'Tempo/Rented', 'Active', 'Active', 'Active', '432', '6207ad7e34af5.jpg', '4297150.jpg', '', '../images-qr-codes/63c915cf3a34f.png', 'BMS-63c915cf3a346', '', 'Jose Rizal', '2023-01-19'),
+(78, 'addedby', 'addedby', 'addedby', '', '2023-01-11', '1 week old', 'Toddler', 'addedby', 'Male', 'Single', 'By Family', 'addedby', 'Methodist', '', 'addedbyaddedby', 'addedby', 'addedby', 'addedby', 'addedby', 'addedby', 'addedby', 'addedby', 'Member', 'addedby', 'addedby', 'PWD', 'Tempo/Rented', 'Inactive', 'Active', 'Active', '2', '2.jpg', '1.jpg', '', '../images-qr-codes/63c91f6f46c54.png', 'BMS-63c91f6f46c49', '', 'Juan Dela Cruz', '2023-01-19'),
+(79, 'Certsa', 'Certsa', 'Certsa', '', '2023-01-13', '1 week old', 'Toddler', 'Certsa', 'Male', 'Single', 'By Family', 'Certsa', 'Iglesia Ni Cristo', '', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Certsa', 'Member', 'Certsa', 'Certsa', 'Senior Citizen', 'Tempo/Rented', 'Inactive', 'Active', 'Active', '13', '6207ad7e34af5.jpg', 'rUPmy8.jpg', 'wp4813161-simple-minimalist-wallpapers.jpg', '../images-qr-codes/63cbb4ea53611.png', 'BMS-63cbb4ea5360b', '', 'Juan  Dela Cruz ', '2023-01-21'),
+(80, 'certificate', 'certificate', 'certificate', '', '2023-01-11', '1 week old', 'Toddler', 'certificate', 'Male', 'Single', 'By Birth', 'certificate', 'Iglesia Ni Cristo', '', 'certificate', 'certificate', 'certificate', 'certificate', 'certificate', 'certificate', 'certificate', 'certificate', 'Head', 'certificate', 'certificate', 'Senior Citizen', 'Tempo/Rented', 'Active', 'Active', 'None', '2', 'ba.jpg', 'harvest.png', 'rUPmy8.jpg', '../images-qr-codes/63cbb58ade5fc.png', 'BMS-63cbb58ade5f7', '', 'Juan  Dela Cruz ', '2023-01-21');
 
 -- --------------------------------------------------------
 
@@ -362,12 +320,12 @@ MODIFY `customID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=19;
 -- AUTO_INCREMENT for table `documents`
 --
 ALTER TABLE `documents`
-MODIFY `doc_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=105;
+MODIFY `doc_Id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=124;
 --
 -- AUTO_INCREMENT for table `income`
 --
 ALTER TABLE `income`
-MODIFY `incomeId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=96;
+MODIFY `incomeId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=116;
 --
 -- AUTO_INCREMENT for table `officials`
 --

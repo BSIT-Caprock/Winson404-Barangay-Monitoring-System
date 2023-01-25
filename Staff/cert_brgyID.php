@@ -190,7 +190,7 @@
                           if($row['qrCode'] != ''):
                       ?> 
                       <div class="d-block m-auto">
-                        <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" class="d-block m-auto shadow-md img-fluid" alt="" style="height: 125px;width: 125px; border: 1px solid grey;">
+                        <img src="../images-qr-codes/<?php echo $row['qrCode']; ?>" class="d-block m-auto shadow-md img-fluid" alt="" style="height: 200px;width: 200px; border: 1px solid grey;">
                       </div>
                       <?php endif; ?>
                     </div>
@@ -231,7 +231,7 @@
                     
 
                      
-                    <div class="col-12 text-center text-bold position-relative" style="line-height: 16px; text-align: justify; margin-top: 20px;">
+                    <div class="col-12 text-center text-bold position-relative" style="line-height: 16px; text-align: justify; margin-top: 5px;">
                       <p style="font-style: italic;  font-size: 13px;">THIS IS TO CERTIFY THAT THE BEARER OF THIS CARD WHOSE PICTURE, SIGNATURE AND THUMB MARK APPEAR HERE ON IS A REGISTERED RESIDENT OF BARANGAY 193, ZONE 20, PASAY CITY. <br> THIS IDENTIFICATION CARD IS BEING ISSUED FOR WHATEVER <br>LAWFUL PURPOSE IT MAY SERVE. </p><br>
 
                       <p class="text-sm" style="letter-spacing: 2px; margin-top: -25px;line-height: 13px;">Barangay 193 Multi-Purpose Hall Pildera II, Pasay City 1300, MM., Philippines <br>
