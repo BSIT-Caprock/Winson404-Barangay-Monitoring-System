@@ -139,3 +139,77 @@ if(isset($_GET['export'])) {
 }
 
 
+
+if(isset($_GET['income'])) {
+  $GetIncome = $_GET['income'];
+
+  if($GetIncome == 'All') {
+
+      $income = [
+        ['No.', 'Paid by', 'Payment type', 'Amount', 'Date paid', 'Added by']
+      ];
+
+      $id = 0;
+      $sql = "SELECT * FROM income JOIN users ON income.added_by=users.user_Id ORDER BY paymentFor";
+      $res = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($res) > 0) {
+        foreach ($res as $row) {
+          $id++;
+          $name = $row['lastname']. ' ' .$row['suffix']. ', ' .$row['firstname']. ' ' .$row['middlename'];
+          $income = array_merge($income, array(array($id, $row['paid_by'], $row['paymentFor'], $row['paymentAmount'], date("F d, Y", strtotime($row['date_paid'])), $name)));
+        }
+      } else {
+        $_SESSION['message'] = "No record found in the database.";
+        $_SESSION['text'] = "Please try again.";
+        $_SESSION['status'] = "error";
+        header("Location: documentsIncome.php");
+      }
+
+      $xlsx = SimpleXLSXGen::fromArray($income);
+      $xlsx->downloadAs('Barangay Income.xlsx'); // This will download the file to your local system
+
+      // $xlsx->saveAs('documentsIncome.xlsx'); // This will save the file to your server
+
+      echo "<pre>";
+
+      print_r($income);
+
+      header('Location: documentsIncome.php');
+
+  } else {
+
+      $income = [
+        ['No.', 'Paid by', 'Payment type', 'Amount', 'Date paid', 'Added by']
+      ];
+
+      $id = 0;
+      $sql = "SELECT * FROM income JOIN users ON income.added_by=users.user_Id WHERE paymentFor='$GetIncome' ORDER BY paymentFor";
+      $res = mysqli_query($conn, $sql);
+      if (mysqli_num_rows($res) > 0) {
+        foreach ($res as $row) {
+          $id++;
+          $name = $row['lastname']. ' ' .$row['suffix']. ', ' .$row['firstname']. ' ' .$row['middlename'];
+          $income = array_merge($income, array(array($id, $row['paid_by'], $row['paymentFor'], $row['paymentAmount'], date("F d, Y", strtotime($row['date_paid'])), $name)));
+        }
+      } else {
+        $_SESSION['message'] = "No record found in the database.";
+        $_SESSION['text'] = "Please try again.";
+        $_SESSION['status'] = "error";
+        header("Location: documentsIncome.php");
+      }
+
+      $xlsx = SimpleXLSXGen::fromArray($income);
+      $xlsx->downloadAs('Barangay Income.xlsx'); // This will download the file to your local system
+
+      // $xlsx->saveAs('documentsIncome.xlsx'); // This will save the file to your server
+
+      echo "<pre>";
+
+      print_r($income);
+
+      header('Location: documentsIncome.php');
+
+  }
+}
+
+

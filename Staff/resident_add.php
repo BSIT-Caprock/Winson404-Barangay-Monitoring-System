@@ -39,7 +39,7 @@
                         <div class="col-lg-4 col col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>First name</b></span>
-                              <input type="text" class="form-control"  placeholder="First name" name="firstname" required onkeyup="lettersOnly(this)">
+                              <input type="text" class="form-control"  placeholder="First name" name="firstname" required onkeyup="lettersOnly(this)" value="Erwin Kini">
                             </div>
                         </div>
                         <div class="col-lg-3 col col-md-6 col-sm-6 col-12">
@@ -134,8 +134,7 @@
                               <option value="Protestants">Protestants</option>
                               <option value="Seventh-day Adventism">Seventh-day Adventism</option>
                               <option value="Aglipayan">Aglipayan</option>
-                              <option value="Bible Baptist Church">Bible Baptist Church</option>
-                              <option value="United Church of Christ in the Philippines">United Church of Christ in the Philippines</option>
+                              <option value="Baptist">Baptist</option>
                               <option value="Jehovah's Witnesses">Jehovah's Witnesses</option>
                               <option value="Buddhist">Buddhist</option>
                               <option value="Methodist">Methodist</option>
@@ -180,37 +179,37 @@
                          <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Sitio/Purok</b></span>
-                              <input type="text" class="form-control"  placeholder="Sitio/Purok" name="purok" required>
+                              <input type="text" class="form-control"  placeholder="Sitio/Purok" name="purok" required value="Pildera II" readonly>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Zone</b></span>
-                              <input type="text" class="form-control"  placeholder="Zone" name="zone" required>
+                              <input type="text" class="form-control"  placeholder="Zone" name="zone" required value="Zone 20" readonly>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Barangay</b></span>
-                              <input type="text" class="form-control"  placeholder="Barangay" name="barangay" required>
+                              <input type="text" class="form-control"  placeholder="Barangay" name="barangay" required value="Barangay 193" readonly>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Municipality</b></span>
-                              <input type="text" class="form-control"  placeholder="Municipality" name="municipality" required>
+                              <input type="text" class="form-control"  placeholder="Municipality" name="municipality" required value="Pasay City" readonly>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Province</b></span>
-                              <input type="text" class="form-control"  placeholder="Province" name="province" required>
+                              <input type="text" class="form-control"  placeholder="Province" name="province" required value="Metro Manila" readonly>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Region</b></span>
-                              <input type="text" class="form-control"  placeholder="Region" name="region" required>
+                              <input type="text" class="form-control"  placeholder="Region" name="region" required value="NCR" readonly>
                             </div>
                         </div>
 
@@ -277,17 +276,17 @@
                               </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
-                              <span class="text-dark"><b>ID status</b></span>
+                              <span class="text-dark"><b>Brgy ID status</b></span>
                               <select class="form-control" name="ID_status" required>
-                                <option selected disabled value="">Select ID status</option>
+                                <option selected disabled value="">Select Brgy ID status</option>
                                 <option value="Active">Active</option>
                                 <option value="None">None</option>
                               </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>QR status</b></span>
                               <select class="form-control" name="QR_status" required>
@@ -297,10 +296,16 @@
                               </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                              <span class="text-dark"><b>Months of Stay</b></span>
+                              <input type="number" class="form-control"  placeholder="Months of Stay" name="months_of_stay" required>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Years of stay</b></span>
-                              <input type="number" class="form-control"  placeholder="Years of stay" name="years_of_stay" required>
+                              <input type="number" class="form-control"  placeholder="Years of stay" name="years_of_stay">
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-6 col-12">
@@ -347,10 +352,10 @@
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-6 col-12">
                             <div class="form-group">
-                              <span class="text-dark"><b>Scanned personal documents</b></span>
+                              <span class="text-dark"><b>Scanned personal documents (Optional)</b></span>
                               <div class="input-group">
                                 <div class="custom-file">
-                                  <input type="file" class="custom-file-input" id="exampleInputFile" name="certificate" onchange="certs(event)" required>
+                                  <input type="file" class="custom-file-input" id="exampleInputFile" name="certificate" onchange="certs(event)">
                                   <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                                 </div>
                                 <div class="input-group-append">

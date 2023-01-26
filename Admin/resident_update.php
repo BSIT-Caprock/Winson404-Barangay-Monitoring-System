@@ -139,8 +139,7 @@
                               <option value="Protestants" <?php if($row['religion'] == 'Protestants') { echo 'selected'; } ?>>Protestants</option>
                               <option value="Seventh-day Adventism" <?php if($row['religion'] == 'Seventh-day Adventism') { echo 'selected'; } ?>>Seventh-day Adventism</option>
                               <option value="Aglipayan" <?php if($row['religion'] == 'Aglipayan') { echo 'selected'; } ?>>Aglipayan</option>
-                              <option value="Bible Baptist Church" <?php if($row['religion'] == 'Bible Baptist Church') { echo 'selected'; } ?>>Bible Baptist Church</option>
-                              <option value="United Church of Christ in the Philippines" <?php if($row['religion'] == 'United Church of Christ in the Philippines') { echo 'selected'; } ?>>United Church of Christ in the Philippines</option>
+                              <option value="Baptist" <?php if($row['religion'] == 'Baptist') { echo 'selected'; } ?>>Baptist</option>
                               <option value="Jehovah's Witnesses" <?php if($row['religion'] == "Jehovah's Witnesses") { echo 'selected'; } ?>>Jehovah's Witnesses</option>
                               <option value="Buddhist" <?php if($row['religion'] == 'Buddhist') { echo 'selected'; } ?>>Buddhist</option>
                               <option value="Methodist" <?php if($row['religion'] == 'Methodist') { echo 'selected'; } ?>>Methodist</option>
@@ -185,37 +184,37 @@
                          <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Sitio/Purok</b></span>
-                              <input type="text" class="form-control"  placeholder="Sitio/Purok" name="purok" required value="<?php echo $row['purok']; ?>">
+                              <input type="text" class="form-control"  placeholder="Sitio/Purok" name="purok" required value="<?php echo $row['purok']; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Zone</b></span>
-                              <input type="text" class="form-control"  placeholder="Zone" name="zone" required value="<?php echo $row['zone']; ?>">
+                              <input type="text" class="form-control"  placeholder="Zone" name="zone" required value="<?php echo $row['zone']; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Barangay</b></span>
-                              <input type="text" class="form-control"  placeholder="Barangay" name="barangay" required value="<?php echo $row['barangay']; ?>">
+                              <input type="text" class="form-control"  placeholder="Barangay" name="barangay" required value="<?php echo $row['barangay']; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Municipality</b></span>
-                              <input type="text" class="form-control"  placeholder="Municipality" name="municipality" required value="<?php echo $row['municipality']; ?>">
+                              <input type="text" class="form-control"  placeholder="Municipality" name="municipality" required value="<?php echo $row['municipality']; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Province</b></span>
-                              <input type="text" class="form-control"  placeholder="Province" name="province" required value="<?php echo $row['province']; ?>">
+                              <input type="text" class="form-control"  placeholder="Province" name="province" required value="<?php echo $row['province']; ?>" readonly>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Region</b></span>
-                              <input type="text" class="form-control"  placeholder="Region" name="region" required value="<?php echo $row['region']; ?>">
+                              <input type="text" class="form-control"  placeholder="Region" name="region" required value="<?php echo $row['region']; ?>" readonly>
                             </div>
                         </div>
 
@@ -284,17 +283,17 @@
                               </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
-                              <span class="text-dark"><b>ID status</b></span>
+                              <span class="text-dark"><b>Brgy ID status</b></span>
                               <select class="form-control" name="ID_status" required>
-                                <option selected disabled value="">Select ID status</option>
+                                <option selected disabled value="">Select Brgy ID status</option>
                                 <option value="Active" <?php if($row['ID_status'] == "Active") { echo 'selected'; } ?> >Active</option>
                                 <option value="None"   <?php if($row['ID_status'] == "None")   { echo 'selected'; } ?> >None</option>
                               </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>QR status</b></span>
                               <select class="form-control" name="QR_status" required>
@@ -304,10 +303,16 @@
                               </select>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+                            <div class="form-group">
+                              <span class="text-dark"><b>Months of Stay</b></span>
+                              <input type="number" class="form-control"  placeholder="Months of Stay" name="months_of_stay" required value="<?php echo $row['months_of_stay']; ?>">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>Years of stay</b></span>
-                              <input type="number" class="form-control"  placeholder="Years of stay" name="years_of_stay" required value="<?php echo $row['years_of_stay']; ?>">
+                              <input type="number" class="form-control"  placeholder="Years of stay" name="years_of_stay" value="<?php echo $row['years_of_stay']; ?>">
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-6 col-12">
