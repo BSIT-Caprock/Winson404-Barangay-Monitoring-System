@@ -2,9 +2,7 @@
 <?php include 'navbar.php'; ?>
 
   <!-- <div class="content-wrapper bg-info"> -->
-  <div class="content-wrapper bg-info" style="background-image: url('images/Background.png'); background-repeat: no-repeat; background-size:     cover;                      /* <------ */
-    background-repeat:   no-repeat;
-    background-position: center center;">
+  <div class="content-wrapper bg-info" style="background-image: url('images/Background.png'); background-repeat: no-repeat; background-size:     cover;background-repeat: no-repeat; background-position: center center;">
     
     <!-- Main content -->
     <div class="content ">

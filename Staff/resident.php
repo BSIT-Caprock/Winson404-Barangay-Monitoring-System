@@ -58,18 +58,22 @@
                         $gender          = $_POST['gender'];
                         $sector          = $_POST['sector'];
                         $citizenship     = $_POST['citizenship'];
-                        $resident_status = $_POST['resident_status'];
-                        $ID_status       = $_POST['ID_status'];
-                        $years_of_stay   = $_POST['years_of_stay'];
+                        $residentstatus  = $_POST['resident_status'];
+                        $IDstatus        = $_POST['ID_status'];
+                        $yearsofstay     = $_POST['years_of_stay'];
                         $age             = $_POST['age'];
-                        $added_By        = $_POST['added_By'];
+                        $addedBy         = $_POST['added_By'];
                         $familyRole      = $_POST['familyRole'];
                         $headName        = $_POST['headName'];
                         $familyIndicator = $_POST['familyIndicator'];
                         $religion        = $_POST['religion'];
 
                         // $filter = mysqli_query($conn, "SELECT * FROM residence WHERE gender='$gender' AND sector='$sector' AND citizenship='$citizenship' AND resident_status='$resident_status' AND ID_status='$ID_status' AND years_of_stay='$years_of_stay' AND age='$age'  AND added_By='$added_By' AND familyRole='$familyRole' AND headName='$headName' AND familyIndicator='$familyIndicator' AND religion='$religion' ");
-                        $filter = mysqli_query($conn, "SELECT * FROM residence WHERE gender='$gender' AND sector LIKE '%".$sector."%' AND citizenship LIKE '%".$citizenship."%' AND resident_status LIKE '%".$resident_status."%' AND ID_status LIKE '%".$ID_status."%' AND sector LIKE '%".$sector."%' AND gender LIKE '%".$gender."%' AND sector LIKE '%".$sector."%' AND years_of_stay LIKE '%".$years_of_stay."%' AND age LIKE '%".$age."%' AND added_By LIKE '%".$added_By."%' AND familyRole LIKE '%".$familyRole."%' AND headName LIKE '%".$headName."%' AND familyIndicator LIKE '%".$familyIndicator."%' AND religion LIKE '%".$religion."%' ORDER BY firstname ");
+                        
+                        $filter = mysqli_query($conn, "SELECT * FROM residence WHERE gender LIKE '%$gender%' AND sector LIKE '%$sector%' AND citizenship LIKE '%$citizenship%' AND resident_status LIKE '%$residentstatus%' AND ID_status LIKE '%$IDstatus%' AND years_of_stay LIKE '%$yearsofstay%' AND age LIKE '%$age%' AND added_By LIKE '%$addedBy%' AND familyRole LIKE '%$familyRole%' AND headName LIKE '%$headName%' AND familyIndicator LIKE '%$familyIndicator%' AND religion LIKE '%$religion%' ORDER BY firstname ");
+
+                        // $filter = mysqli_query($conn, "SELECT * FROM residence WHERE gender LIKE '%$gender%' || sector='$sector' || citizenship LIKE '%".$citizenship."%' || resident_status LIKE '%".$resident_status."%' || ID_status LIKE '%".$ID_status."%' || years_of_stay LIKE '%".$years_of_stay."%' || age LIKE '%".$age."%' || added_By LIKE '%".$added_By."%' || familyRole LIKE '%".$familyRole."%' || headName LIKE '%".$headName."%' || familyIndicator LIKE '%".$familyIndicator."%' || religion LIKE '%".$religion."%' ORDER BY firstname ");
+                        // $filter = mysqli_query($conn, "SELECT * FROM residence WHERE gender='$gender' AND sector='$sector' AND citizenship='$citizenship' AND resident_status='$resident_status' AND ID_status='$ID_status' AND sector LIKE '%".$sector."%' AND gender LIKE '%".$gender."%' AND sector LIKE '%".$sector."%' AND years_of_stay LIKE '%".$years_of_stay."%' AND age LIKE '%".$age."%' AND added_By LIKE '%".$added_By."%' AND familyRole LIKE '%".$familyRole."%' AND headName LIKE '%".$headName."%' AND familyIndicator LIKE '%".$familyIndicator."%' AND religion LIKE '%".$religion."%' ORDER BY firstname ");
                         if(mysqli_num_rows($filter) > 0) {
                           while($row = mysqli_fetch_array($filter)) {
                     ?>

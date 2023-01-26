@@ -27,6 +27,7 @@
   </style>
 </head>
 <body class="hold-transition layout-top-nav">
+
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -56,27 +57,27 @@
   </nav>
   <!-- /.navbar -->
 
-  <div class="content-wrapper bg-info">
+  <div class="content-wrapper bg-info" style="background-image: url('images/Background.png'); background-repeat: no-repeat; background-size:     cover;background-repeat:   no-repeat;background-position: center center;">
     
-    <div class="content">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
+    <div class="content ">
+      <div class="container ">
+        <div class="row d-flex justify-content-center ">
 
-            <div class="col-lg-10 col-md-10 col-12 card m-5">
+            <div class="col-lg-10 col-md-10 col-12 card m-5 bg-transparent border-none shadow-none">
               <div class="row"  style="min-height: 460px;max-height: 460px;">
-                <div class="col-lg-8 col-md-12 col-sm-12 col-12 position-relative justify-content-center d-flex bg-navy p-0 m-0">
-                    <?php 
-                      $fetchpic = mysqli_query($conn, "SELECT * FROM customization WHERE status='Active'");
-                      if(mysqli_num_rows($fetchpic) > 0) {
-                        while ($pic = mysqli_fetch_array($fetchpic)) {
-                          echo '<img src="images-customization/'.$pic['picture'].'" alt="" class="img-fluid">';
-                        }
-                      } else {
-                        echo '<img src="images/logo.png" alt="" class="img-fluid">';
+                <div class="col-lg-8 col-md-12 col-sm-12 col-12 justify-content-center d-flex bg-transparent p-0">
+                  <?php 
+                    $fetchpic = mysqli_query($conn, "SELECT * FROM customization WHERE status='Active'");
+                    if(mysqli_num_rows($fetchpic) > 0) {
+                      while ($pic = mysqli_fetch_array($fetchpic)) {
+                        echo '<img src="images-customization/'.$pic['picture'].'" alt="" class="img-fluid" style="border-top-left-radius: 30px; border-bottom-left-radius: 30px;">';
                       }
-                    ?>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-12 bg-light pb-2">
+                    } else {
+                      echo '<img src="images/logo.png" alt="" class="img-fluid"  style="height: 100%;width: 70%">';
+                    }
+                  ?>
+              </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12 bg-light pb-2" style="border-top-right-radius: 30px; border-bottom-right-radius: 30px;">
                     <div class="card-header text-center justify-content-center d-flex p-0 mt-3">
                       <div class="col-12 p-1">
                         <a  class="h3" ><b>INPUT QR CODE</b></a>
@@ -105,15 +106,7 @@
       </div>
     </div>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br><br>
-    <br>
-    <br>
-    <br>
-    <br>
+   
 
 <?php include 'footer.php'; ?>
 
