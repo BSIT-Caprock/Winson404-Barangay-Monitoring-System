@@ -45,7 +45,7 @@
                                     </div>
                                   </div>
                                   <select class="form-control form-control-sm small" name="paymentType" required>
-                                    <option selected value="">Sort by gender</option>
+                                    <option selected value="">Sort by document type</option>
                                     <?php 
                                       $fetch = mysqli_query($conn, "SELECT DISTINCT paymentFor FROM income ORDER BY paymentFor");
                                       while($row = mysqli_fetch_array($fetch)) { 

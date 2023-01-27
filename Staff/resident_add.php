@@ -39,7 +39,7 @@
                         <div class="col-lg-4 col col-md-6 col-sm-6 col-12">
                             <div class="form-group">
                               <span class="text-dark"><b>First name</b></span>
-                              <input type="text" class="form-control"  placeholder="First name" name="firstname" required onkeyup="lettersOnly(this)" value="Erwin Kini">
+                              <input type="text" class="form-control"  placeholder="First name" name="firstname" required onkeyup="lettersOnly(this)">
                             </div>
                         </div>
                         <div class="col-lg-3 col col-md-6 col-sm-6 col-12">
