@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
        <div class="modal-header bg-light">
-        <h5 class="modal-title" id="exampleModalLabel">Official's Signature</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Official's picture</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
         </button>
