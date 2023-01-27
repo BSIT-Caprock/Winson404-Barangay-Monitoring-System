@@ -42,7 +42,7 @@
                  <table id="exampleUser" class="table table-bordered table-hover text-sm">
                   <thead>
                   <tr>
-                    <th>SIGNATURE</th>
+                    <th>PICTURE</th>
                     <th>NAME</th>
                     <th>POSITION</th>
                     <th>DESCRIPTION</th>
