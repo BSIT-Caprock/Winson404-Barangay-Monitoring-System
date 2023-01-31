@@ -235,6 +235,12 @@
                     </div>
                     <div class="col-lg-3 col col-md-3 col-sm-6 col-12">
                       <div class="form-group">
+                          <small class="text-muted"><b>Month of stay:</b></small>
+                          <h6><?php echo $row['months_of_stay']; ?></h6>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col col-md-3 col-sm-6 col-12">
+                      <div class="form-group">
                           <small class="text-muted"><b>Years of stay:</b></small>
                           <h6><?php echo $row['years_of_stay']; ?></h6>
                         </div>
