@@ -92,7 +92,7 @@
                     </div>
                   </form>
                   <p class="mb-3">
-                    
+                    <a href="forgot-password.php" class="text-center">Forgot password?</a>
                   </p>
                   <!-- <p class="mb-0">
                     <a href="register.php" class="text-center">Register a new membership</a>
@@ -202,7 +202,7 @@
                     </div>
                   </form>
                   <p class="mb-3">
-                    
+                    <a href="forgot-password.php" class="text-center">Forgot password?</a>
                   </p>
                   <!-- <p class="mb-0">
                     <a href="register.php" class="text-center">Register a new membership</a>

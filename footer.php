@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class="dropdown-divider"></div>
-    <strong>Copyright &copy; 2022 <a href="#">BMS</a>.</strong>
+    <strong>Copyright &copy; 2022 <a href="#">BMMS</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.2.0

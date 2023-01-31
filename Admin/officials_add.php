@@ -54,7 +54,7 @@
             </div>
             <div class="col-lg-8">
                 <div class="form-group">
-                  <span class="text-dark"><b>Official's signature</b></span>
+                  <span class="text-dark"><b>Upload picture</b></span>
                   <div class="input-group">
                     <div class="custom-file">
                       <input type="file" class="custom-file-input" id="exampleInputFile" name="fileToUpload" onchange="newgetImagePreview(event)" required>

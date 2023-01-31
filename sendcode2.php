@@ -2,7 +2,7 @@
 <?php include 'navbar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-image: url('images/Background.png'); background-repeat: no-repeat; background-size:     cover;background-repeat: no-repeat; background-position: center center;">
     <div class="content">
       <div class="container">
         <div class="row d-flex justify-content-center">
@@ -54,7 +54,7 @@
 
  <?php } else { ?>
 
-          <div class="col-12 mt-5">
+          <div class="col-12 mt-5  text-white">
              <section class="content">
               <div class="error-page">
                 <h2 class="headline text-warning"> 404</h2>
@@ -81,7 +81,7 @@
 
   <?php } } else { ?>
 
-          <div class="col-12 mt-5">
+          <div class="col-12 mt-5  text-white">
             <section class="content">
               <div class="error-page">
                 <h2 class="headline text-danger">500</h2>

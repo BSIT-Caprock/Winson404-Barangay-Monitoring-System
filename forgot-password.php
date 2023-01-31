@@ -2,7 +2,7 @@
 <?php include 'navbar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background-image: url('images/Background.png'); background-repeat: no-repeat; background-size:     cover;background-repeat: no-repeat; background-position: center center;">
     
     <!-- Main content -->
     <div class="content">
