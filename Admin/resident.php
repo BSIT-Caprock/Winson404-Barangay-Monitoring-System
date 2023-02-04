@@ -104,7 +104,7 @@
                               <?php if($row['personalDocuments'] != ''): ?>
                                   <a class="btn btn-warning btn-sm" href="resident_document.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-file"></i></a>
                                 <?php else: ?>
-                                  <button type="button" class="btn bg-warning btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>" disabled><i class="fa-solid fa-file"></i></button>
+                                  <a class="btn btn-warning btn-sm" href="resident_document.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-file"></i></a>
                                 <?php endif; ?>
 
                               <?php if($row['qrCode'] != ''): ?>
@@ -157,7 +157,7 @@
                             <?php if($row['personalDocuments'] != ''): ?>
                                 <a class="btn btn-warning btn-sm" href="resident_document.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-file"></i></a>
                               <?php else: ?>
-                                <button type="button" class="btn bg-warning btn-sm" data-toggle="modal" data-target="#qr<?php echo $row['residenceId']; ?>" disabled><i class="fa-solid fa-file"></i></button>
+                                <a class="btn btn-warning btn-sm" href="resident_document.php?residenceId=<?php echo $row['residenceId']; ?>"><i class="fa-solid fa-file"></i></a>
                               <?php endif; ?>
 
                             <?php if($row['qrCode'] != ''): ?>

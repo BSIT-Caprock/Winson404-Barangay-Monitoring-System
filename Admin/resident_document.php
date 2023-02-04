@@ -35,12 +35,26 @@
             <div class="card">      
               <div class="card-body p-5">
                   <div class="row">
+                    <?php if($row['personalDocuments'] != ''): ?>
                       <img src="../images-certificates/<?php echo $row['personalDocuments']; ?>" class="img-fluid d-block m-auto">
+                    <?php else : ?>
+                      <div class="col-3 d-block m-auto">
+                        <img src="../images/giphy.gif" alt="" class="img-fluid">
+                      </div>
+                      <div class="col-12">
+                        <p class="text-center">This resident don't have any uploaded documents yet.</p>
+                      </div>
+                    <?php endif; ?>
                   </div>
                   <hr>
                   <div class="float-right">
                     <a href="resident.php" class="btn bg-secondary btn-sm"><i class="fa-solid fa-backward"></i> Back</a>
-                    <button type="button" class="btn bg-info btn-sm" data-toggle="modal" data-target="#updateDocument<?php echo $residenceId; ?>"><i class="fa-solid fa-pen"></i> Edit document</button>
+                    <?php if($row['personalDocuments'] != ''): ?>
+                      <button type="button" class="btn bg-info btn-sm" data-toggle="modal" data-target="#updateDocument<?php echo $residenceId; ?>"><i class="fa-solid fa-pen"></i> Edit document</button>
+                    <?php else : ?>
+                      <button type="button" class="btn bg-info btn-sm" data-toggle="modal" data-target="#updateDocument<?php echo $residenceId; ?>"><i class="fa-solid fa-upload"></i> Upload document</button>
+                    <?php endif; ?>
+                    
                   </div>
               </div>
 

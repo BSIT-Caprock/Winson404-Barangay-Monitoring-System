@@ -37,7 +37,7 @@
 
           $subject = 'Verification code';
           $message = '<p>Good day sir/maam '.$email.', your verification code is <b>'.$code.'</b>. Please do not share this code to other people. Thank you!</p>
-          <p>You can change your password by just clicking it <a href="http:http://localhost/PROJECT%200.%20My%20Template%20System/changepassword2.php?user_Id='.$user_Id.'&&email='.$email.'&&key='.$code.'">here!</a></p> 
+          <p>You can change your password by just clicking it <a href="http://localhost/PROJECT%2023.%20Barangay%20Management%20System/changepassword2.php?user_Id='.$user_Id.'&&email='.$email.'&&key='.$code.'">here!</a></p> 
           <p><b>NOTE:</b> This is a system generated email. Please do not reply.</p> ';
 
           $mail = new PHPMailer(true);                            
@@ -46,8 +46,8 @@
             $mail->isSMTP();                                     
             $mail->Host = 'smtp.gmail.com';                      
             $mail->SMTPAuth = true;                             
-            $mail->Username = 'goodsamaritan2k20@gmail.com';     
-            $mail->Password = 'duxkxivrezeuguqe';              
+            $mail->Username = 'info.shstudent@gmail.com';     
+            $mail->Password = 'vfsaoiboazmvybvm';              
             $mail->SMTPOptions = array(
             'ssl' => array(
             'verify_peer' => false,
@@ -59,11 +59,11 @@
             $mail->Port = 465;                                   
 
             //Send Email
-            $mail->setFrom('goodsamaritan2k20@gmail.com');
+            $mail->setFrom('info.shstudent@gmail.com');
 
             //Recipients
             $mail->addAddress($email);              
-            $mail->addReplyTo('goodsamaritan2k20@gmail.com');
+            $mail->addReplyTo('info.shstudent@gmail.com');
 
             //Content
             $mail->isHTML(true);                                  
@@ -175,7 +175,7 @@
 
       $subject = 'Verification code';
       $message = '<p>Good day sir/maam '.$email.', your verification code is <b>'.$code.'</b>. Please do not share this code to other people. Thank you!</p>
-      <p>You can change your password by just clicking it <a href="http://localhost/PROJECT%200.%20My%20Template%20System/changepassword2.php?user_Id='.$user_Id.'&&email='.$email.'&&key='.$code.'">here!</a></p> 
+      <p>You can change your password by just clicking it <a href="http://localhost/PROJECT%2023.%20Barangay%20Management%20System/changepassword2.php?user_Id='.$user_Id.'&&email='.$email.'&&key='.$code.'">here!</a></p> 
       <p><b>NOTE:</b> This is a system generated email. Please do not reply.</p> ';
 
 
@@ -185,8 +185,8 @@
         $mail->isSMTP();                                     
         $mail->Host = 'smtp.gmail.com';                      
         $mail->SMTPAuth = true;                             
-        $mail->Username = 'goodsamaritan2k20@gmail.com';     
-        $mail->Password = 'duxkxivrezeuguqe';              
+        $mail->Username = 'info.shstudent@gmail.com';     
+        $mail->Password = 'vfsaoiboazmvybvm';              
         $mail->SMTPOptions = array(
         'ssl' => array(
         'verify_peer' => false,
@@ -198,11 +198,11 @@
         $mail->Port = 465;                                   
 
         //Send Email
-        $mail->setFrom('goodsamaritan2k20@gmail.com');
+        $mail->setFrom('info.shstudent@gmail.com');
 
         //Recipients
         $mail->addAddress($email);              
-        $mail->addReplyTo('goodsamaritan2k20@gmail.com');
+        $mail->addReplyTo('info.shstudent@gmail.com');
 
         //Content
         $mail->isHTML(true);                                  
