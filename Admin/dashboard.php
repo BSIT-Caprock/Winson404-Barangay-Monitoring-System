@@ -64,14 +64,14 @@
           </div>
 
           <div class="col-md-4 mt-4">
-            <!-- <a href="detailedPopulation.php"> -->
+            <a href="detailedPopulation.php">
               <div class="card-header">
                 <canvas id="population" style="min-height: 200px; max-height: 200px; max-width: 100%;"></canvas>
               </div>
               <div class="card-footer">
                 <h5 class="text-center text-dark">Population</h5>
               </div>
-            <!-- </a> -->
+            </a>
           </div>
           
           <div class="col-md-4 mt-4">
